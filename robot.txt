@@ -1,0 +1,13 @@
+# ===========================================
+# robots.txt — laforgedesjoueurs.fr
+# Auteur : Spirito
+# ===========================================
+
+User-agent: *
+Allow: /
+
+# Redirection utilitaire (pas une page à indexer)
+Disallow: /discord
+
+# (Optionnel) si tu as un sitemap plus tard :
+# Sitemap: https://laforgedesjoueurs.fr/sitemap.xml

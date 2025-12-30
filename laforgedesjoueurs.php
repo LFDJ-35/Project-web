@@ -4,8 +4,8 @@
 <!--[if (gte IE 9)|!(IE)]><html lang="fr" class="no-js"><![endif]-->
 
 <head>
-<title>La Forge des Joueurs | Association de jeux à Vitré</title>
-<meta name="description" content="La Forge des Joueurs est une association vitréenne dédiée aux jeux de rôle, jeux de figurines, jeux de cartes et jeux de société. Rejoignez une communauté passionnée à Vitré." />
+<title>La Forge des Joueurs – Association de jeux à Vitré</title>
+<meta name="description" content="La Forge des Joueurs est une association vitréenne dédiée aux jeux de rôle, jeux de figurines, jeux de société et cartes. Rejoignez-nous à Vitré." />
 <?php require('importation-php/regles.php'); ?>
 </head>
 
@@ -14,7 +14,7 @@
  <?php require('importation-php/menu.php'); ?>
 
 
-
+<hr class="lfdj-midpage">
 
     <div class="lfdj-divtitle">
         <h4>La Forge des Joueurs</h4>

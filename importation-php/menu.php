@@ -1,10 +1,27 @@
-  <header class="lfdj-bg">
+  <header id="lfdj-sticky-header" class="lfdj-bg">
     <nav class="lfdj-navbar">
-      <a href="/" aria-label="Association"><i class="fa-solid fa-house"></i></a>
-      <a href="/lfdj/figurines.html">Figurines</a>
-      <a href="/lfdj/bloodbowl.html">Blood Bowl</a>
-      <a href="/lfdj/jeux-de-role.html">Jeux de rôle</a>
-      <a href="/lfdj/roots.html">Roots</a>
-      <a href="/lfdj/autres.html">Autres</a>
+      <a href="/laforgedesjoueurs.php" aria-label="Association"><i class="fa-solid fa-house"></i></a>
+      <a href="/figurines.php">Figurines</a>
+      <a href="/bloodbowl.php">Blood Bowl</a>
+      <a href="/jeux-de-role.php">Jeux de rôle</a>
+      <a href="/roots.php">Roots</a>
+      <a href="/autres.php">Autres</a>
+<input type="checkbox" id="dark-mode-toggle" />
+<label for="dark-mode-toggle" class="toggle"></label>
     </nav>
   </header>
+
+  <script>
+  const key = "lfdj_darkmode";
+  const toggle = document.getElementById("dark-mode-toggle");
+
+  try {
+    toggle.checked = localStorage.getItem(key) === "1";
+  } catch (e) {}
+
+  toggle.addEventListener("change", () => {
+    try {
+      localStorage.setItem(key, toggle.checked ? "1" : "0");
+    } catch (e) {}
+  });
+</script>

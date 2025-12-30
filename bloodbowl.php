@@ -4,8 +4,8 @@
 <!--[if (gte IE 9)|!(IE)]><html lang="fr" class="no-js"><![endif]-->
 
 <head>
-<title>La Forge des Joueurs | Association de jeux à Vitré</title>
-<meta name="description" content="La Forge des Joueurs est une association vitréenne dédiée aux jeux de rôle, jeux de figurines, jeux de cartes et jeux de société. Rejoignez une communauté passionnée à Vitré." />
+<title>Blood Bowl à Vitré | La Forge des Joueurs</title>
+<meta name="description" content="Découvrez Blood Bowl à la Forge des Joueurs : ligue interne, matchs réguliers, débutants et coachs confirmés réunis à Vitré." />
 <?php require('importation-php/regles.php'); ?>
 </head>
 
@@ -13,12 +13,7 @@
 
  <?php require('importation-php/menu.php'); ?>
 
- <div class="lfdj-hero">
-<img
-  src="https://www.hobby2000.be/web/image/161737-c684f996/image_2024-08-20_104017463.webp?access_token=c1d386a3-cdd5-4733-9cbf-2ade90b618eb"
-  alt="Blood Bowl - Match à la Forge des Joueurs"
-  loading="lazy">
-</div>
+  <hr class="lfdj-midpage">
 
 <div class="lfdj-divtitle">
   <h4>Assembler, peindre… puis jouer</h4>
@@ -28,12 +23,23 @@
   </div>
 </div>
 
+
 <div class="lfdj-bloc-text">
   <p>
     Les <strong>jeux de figurines</strong> combinent stratégie, tactique et créativité.
     Chaque joueur contrôle une armée, une équipe ou des véhicules représentés par des figurines,
     placées sur une table de jeu représentant un champ de bataille, une arène ou un décor urbain.
   </p>
+</div>
+  
+ <div class="lfdj-hero">
+<img
+  src="https://www.hobby2000.be/web/image/161737-c684f996/image_2024-08-20_104017463.webp?access_token=c1d386a3-cdd5-4733-9cbf-2ade90b618eb"
+  alt="Blood Bowl - Match à la Forge des Joueurs"
+  loading="lazy">
+</div>
+
+<div class="lfdj-bloc-text">
   <p>
     Les parties reposent généralement sur des règles tactiques,
     des déplacements précis, la gestion des lignes de vue

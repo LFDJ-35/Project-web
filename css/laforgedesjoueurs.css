@@ -1,16 +1,37 @@
 /* -------------------------- POLICES D'ECRITURES -------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-* {
-  --primary-color: #c8a44d;
-  --secondary-color: #8e533a;
-  --white-color: white;
-  --black-color: black;
+:root {
   --font-primary: "Cinzel Decorative", serif;
   --font-secondary: "Playfair Display", serif;
   --font-third: "Poppins", sans-serif;
   font-family: var(--font-third);
 }
+
+:root {
+  --primary-color: #c8a44d;
+  --hover-color: #c8a44d;
+  --secondary-color: #8e533a;
+  --white-color: white;
+  --black-color: #171717;
+  --toggle-bg: #c8a44d;
+  --toggle-circle: #ffffff;
+--background:#ffffff;
+  --background2: #8e533a;
+}
+
+body:has(#dark-mode-toggle:checked) {
+  --primary-color: #c8a44d;
+   --hover-color: #8e533a;
+  --secondary-color: #8e533a;
+  --white-color: #171717;
+  --black-color: #FBE4C5;
+  --toggle-bg: #8e533a;
+  --toggle-circle: #171717;
+  --background:#171717;
+    --background2: #c8a44d;
+}
+
 
 /* -------------------------- GENERAL RULES -------------------------- */
 
@@ -183,8 +204,8 @@ a:active {
 /* -------------------------- MARGES -------------------------- */
 
 .lfdj-midpage {
-    margin-top: 10%;
-    margin-bottom: -50px;
+    margin-top: 5%;
+    margin-bottom: 30px;
     opacity: 0;
 }
 /* -------------------------- BLOC -------------------------- */
@@ -192,7 +213,7 @@ a:active {
 .lfdj-bloc-text {
     max-width: 700px;
     margin: 0 auto;
-    color: var(--blackwhite-color);
+    color: var(--black-color);
     text-align: justify;
     text-align-last: center;
 }
@@ -207,7 +228,8 @@ a:active {
 /* -------------------------- CSS -------------------------- */
 
 .lfdj-maincontainer {
-        color: var(--blackwhite-color);
+    color: var(--blackwhite-color);
+    margin: 0!important;
 }
 
 .lfdj-title {
@@ -241,19 +263,18 @@ a:active {
 }
 
 header .lfdj-navbar {
-  display: grid;
-  grid-template-columns: 35px repeat(5, 1fr);
-  width: 90%;
-  margin: 10px auto;
-  justify-content: space-between;
-  gap: 10px;
+    display: grid;
+    grid-template-columns: 35px repeat(5, 1fr) 75px;
+    width: 90%;
+    margin: 10px auto;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .lfdj-bg {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
-    background-color: var(--secondary-color);
+    background-color: var(--background2);
 }
 
 header a {
@@ -267,7 +288,7 @@ header a {
 }
 
 header a:hover {
-  color: var(--primary-color);
+  color: var(--hover-color);
     font-weight: 800;
 }
 
@@ -308,7 +329,8 @@ header a:hover {
 
 .lfdj-calendar-list li strong{
   font-weight: 500!important;
-}
+    color: var(--black-color);
+  }
 
 .lfdj-calendar-note{
   margin-top: 10px;
@@ -459,16 +481,19 @@ header a:hover {
 .wave1 use {
   animation: move-forever1 10s linear infinite;
   animation-delay: -2s;
+  color:var(--black-color);
 }
 
 .wave2 use {
   animation: move-forever2 12s linear infinite;
   animation-delay: -1s;
+    color:var(--black-color);
 }
 
 .wave3 use {
   animation: move-forever3 14s linear infinite;
   animation-delay: -2s;
+    color:var(--black-color);
 }
 
 /* WebKit and Opera browsers */
@@ -590,8 +615,7 @@ header a:hover {
 
 .lfdj-hero {
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: -50px;
+    margin-top: 25px;
 }
 
 img {
@@ -616,4 +640,74 @@ img {
   object-fit: cover;
   border-radius: 6px;
   display: block;
+}
+
+/* -------------------------- MAINTENANCE -------------------------- */
+
+html, body {
+    margin-top: -50px!important;
+    background-color: var(--background);
+}
+
+.lfdj-maintenance{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  margin:0;
+}
+
+.lfdj-maintenance-logo{
+  width: min(520px, 85vw);
+  height: auto;
+  display: block;
+  margin: 0 auto 30px;
+  max-width:none!important;
+}
+
+/* -------------------------- STICKY HEADER -------------------------- */
+
+#lfdj-sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+
+/* -------------------------- DARK MODE -------------------------- */
+
+#dark-mode-toggle {
+  display: none;
+}
+
+.toggle {
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+    background: var(--toggle-bg);
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 18px;
+    height: 18px;
+    background: var(--toggle-circle);
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+#dark-mode-toggle:checked + .toggle::before {
+  transform: translateX(33px);
 }

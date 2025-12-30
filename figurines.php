@@ -118,7 +118,7 @@
 
 <div class="lfdj-divtitle">
   <h4>Un pied sur le terrain</h4>
-  <h3>Et Blood Bowl ?</h3>
+  <h2>Et Blood Bowl ?</h2>
   <div class="lfdj-title-icon">
     <i class="fa-solid fa-football"></i>
   </div>

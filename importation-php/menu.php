@@ -6,6 +6,7 @@
       <a href="/roleplay.php">Jeux de rôle</a>
       <a href="/roots.php">Roots</a>
       <a href="/autres.php">Autres</a>
+      <a href="/discord.php">Discord</a>
 <input type="checkbox" id="dark-mode-toggle" />
 <label for="dark-mode-toggle" class="toggle"></label>
     </nav>

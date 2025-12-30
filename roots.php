@@ -112,7 +112,7 @@
     <p>
       En attendant, si vous souhaitez découvrir le jeu ou vous préparer,
       passez nous voir lors d’une session ou échangez avec nous sur le
-      <a href="laforgedesjoueurs.php">Discord de l’association</a>.
+      <a href="/discord" class="discord">Discord</a> de l’association.
     </p>
   </div>
 

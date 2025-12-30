@@ -45,7 +45,7 @@
 
     <div class="lfdj-bloc-text">
   <p>
-    La majeure partie de la communication de la Forge des Joueurs se fait via <strong>Discord</strong>, qui constitue notre canal principal d’échange et d’organisation.
+    La majeure partie de la communication de la Forge des Joueurs se fait via <a href="https://www.laforgedesjoueurs.fr/discord" class="discord">Discord</a>, qui constitue notre canal principal d’échange et d’organisation.
     Les réseaux sociaux sont néanmoins consultés régulièrement pour suivre l’actualité de l’association et les annonces importantes.
     La <strong>boîte mail</strong> est à privilégier pour les demandes plus spécifiques ou personnelles, que vous ne souhaitez pas forcément aborder publiquement.
   </p>
@@ -57,7 +57,7 @@
   <a href="mailto:laforgedesjoueurs@gmail.com" class="mail">
     <i class="fa-solid fa-envelope"></i>
   </a>
-    <a href="https://www.laforgedesjoueurs.fr/discord" class="discord">
+    <a href="/discord" class="discord">
     <i class="fa-brands fa-discord"></i>
   </a>
 

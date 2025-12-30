@@ -166,7 +166,7 @@
   </p>
     <p>
     Pour toute question ou pour suivre l’avancée de la ligue,
-    les échanges se font principalement via le <a href="laforgedesjoueurs.php">Discord de l’association</a>.
+    les échanges se font principalement via le <a href="/discord" class="discord">Discord</a> de l’association.
   </p>
 </div>
 

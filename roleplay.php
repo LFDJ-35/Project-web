@@ -134,7 +134,7 @@
   </p>
   <p>
     Les échanges et l’organisation des parties se font principalement via le
-    <a href="laforgedesjoueurs.php">Discord de l’association</a>,
+    <a href="/discord" class="discord">Discord</a> de l’association,
     où sont proposées les tables, les campagnes et les sessions à venir.
   </p>
 </div>

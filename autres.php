@@ -134,7 +134,7 @@
     </p>
     <p>
       Et il n’est pas rare de croiser des discussions “jeu vidéo” :
-      beaucoup d’entre nous ont aussi des goûts vidéoludiques similaires 😉
+      beaucoup d’entre nous ont aussi des goûts vidéoludiques similaires.
     </p>
   </div>
 

@@ -116,7 +116,7 @@ a {
 /* -------------------------- ANTI A -------------------------- */
 
 a:visited {
-  color: inherit;
+  color: white;
 }
 
 a:hover,
@@ -264,7 +264,7 @@ a:active {
 
 header .lfdj-navbar {
     display: grid;
-    grid-template-columns: 35px repeat(5, 1fr) 75px;
+    grid-template-columns: 35px repeat(6, 1fr) 75px;
     width: 90%;
     margin: 10px auto;
     justify-content: space-between;

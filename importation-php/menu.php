@@ -3,7 +3,7 @@
       <a href="/laforgedesjoueurs.php" aria-label="Association"><i class="fa-solid fa-house"></i></a>
       <a href="/figurines.php">Figurines</a>
       <a href="/bloodbowl.php">Blood Bowl</a>
-      <a href="/jeux-de-role.php">Jeux de rôle</a>
+      <a href="/roleplay.php">Jeux de rôle</a>
       <a href="/roots.php">Roots</a>
       <a href="/autres.php">Autres</a>
 <input type="checkbox" id="dark-mode-toggle" />

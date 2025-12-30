@@ -25,6 +25,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-  <link rel="stylesheet" href="/lfdj/css/laforgedesjoueurs.css" />
+  <link rel="stylesheet" href="/css/laforgedesjoueurs.css" />
 
   <script src="https://kit.fontawesome.com/7e88bf0c98.js" crossorigin="anonymous"></script>

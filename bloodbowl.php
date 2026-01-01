@@ -13,8 +13,6 @@
 
  <?php require('importation-php/menu.php'); ?>
 
-  <hr class="lfdj-midpage">
-
 <div class="lfdj-divtitle">
   <h4>Assembler, peindre… puis jouer</h4>
   <h2>Jeux de figurines</h2>
@@ -166,7 +164,7 @@
   </p>
     <p>
     Pour toute question ou pour suivre l’avancée de la ligue,
-    les échanges se font principalement via le <a href="/discord" class="discord">Discord</a> de l’association.
+    les échanges se font principalement via le <a href="./discord" class="discord">Discord</a> de l’association.
   </p>
 </div>
 

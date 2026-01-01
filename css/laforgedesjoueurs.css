@@ -1,316 +1,526 @@
-/* -------------------------- POLICES D'ECRITURES -------------------------- */
+/* ========================== FONTS ========================== */
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-:root {
+/* ========================== ROOT / THEME ========================== */
+:root{
   --font-primary: "Cinzel Decorative", serif;
   --font-secondary: "Playfair Display", serif;
   --font-third: "Poppins", sans-serif;
+
+  --primary-color: #c8a44d;
+  --secondary-color: #8e533a;
+
+  --white-color: #ffffff;
+  --black-color: #171717;
+
+  --background: #ffffff;
+  --background2: #8e533a;
+
+  --hover-color: var(--primary-color);
+
+  /* aliases used across the site */
+  --main-color: var(--primary-color);
+  --tertiary-color: var(--white-color);
+  --blackwhite-color: var(--black-color);
+
+  /* toggle */
+  --toggle-bg: var(--primary-color);
+  --toggle-circle: #ffffff;
+
+  /* submenu bg (requested: red) */
+  --submenu-bg:  var(--primary-color);
+
   font-family: var(--font-third);
 }
 
-:root {
+/* Dark mode (works if #dark-mode-toggle is inside <body>) */
+body:has(#dark-mode-toggle:checked){
   --primary-color: #c8a44d;
-  --hover-color: #c8a44d;
   --secondary-color: #8e533a;
-  --white-color: white;
-  --black-color: #171717;
-  --toggle-bg: #c8a44d;
-  --toggle-circle: #ffffff;
---background:#ffffff;
-  --background2: #8e533a;
-}
 
-body:has(#dark-mode-toggle:checked) {
-  --primary-color: #c8a44d;
-   --hover-color: #8e533a;
-  --secondary-color: #8e533a;
   --white-color: #171717;
   --black-color: #FBE4C5;
+
+  --background: #171717;
+  --background2: #c8a44d;
+
+  --hover-color: #8e533a;
+
+  --main-color: var(--primary-color);
+  --tertiary-color: var(--white-color);
+  --blackwhite-color: var(--black-color);
+
   --toggle-bg: #8e533a;
   --toggle-circle: #171717;
-  --background:#171717;
-    --background2: #c8a44d;
+
+  --submenu-bg:  #8e533a;
 }
 
+/* ========================== BASE / RESET ========================== */
+html, body{
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+}
 
-/* -------------------------- GENERAL RULES -------------------------- */
+body{
+  /* header fixed height */
+  padding-top: 75px;
+}
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+strong{
+  font-weight: 600 !important;
+}
+
+input{
+  font-family: var(--font-secondary);
+}
+
+/* Links */
+a{
+  text-decoration: none;
+  background: none;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+a:visited{
+  color: var(--secondary-color);
+}
+
+a:hover,
+a:focus{
+  color: var(--hover-color);
+  text-decoration: none;
+  outline: none;
+}
+
+a:active{
+  color: inherit;
+}
+
+/* ========================== TYPOGRAPHY ========================== */
+h1,h2,h3,h4,h5{
   text-transform: uppercase;
   text-align: center;
   margin: 0;
   color: var(--tertiary-color);
 }
 
-h2 {
-    font-family: var(--font-primary);
-    font-weight: 1000;
-    font-size: 50px;
-    line-height: 36px;
-    text-transform: lowercase;
-    color: var(--primary-color);
-    margin: 0;
+h2{
+  font-family: var(--font-primary);
+  font-weight: 900;
+  font-size: 50px;
+  line-height: 36px;
+  text-transform: lowercase;
+  color: var(--primary-color);
 }
 
-h3 {
-    font-family: var(--font-primary);
-    font-weight: 1000;
-    font-size: 50px;
-    line-height: 36px;
-    text-transform: lowercase;
-    color: var(--secondary-color);
-    margin: 0;
+h3{
+  font-family: var(--font-primary);
+  font-weight: 900;
+  font-size: 50px;
+  line-height: 36px;
+  text-transform: lowercase;
+  color: var(--secondary-color);
 }
 
-strong {
-    font-weight: 600 !important;
+h4{
+  font-size: 12px;
+  color: var(--black-color);
+  line-height: 14px;
+  letter-spacing: 2px;
+  font-family: var(--font-third);
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.lfdj-title strong {
-    font-weight: 500 !important;
-    color: var(--secondary-color);
-    text-transform: uppercase;
-    font-size: 66%;
-}
-
-h4 {
-    font-size: 12px;
-    color: var(--black-color);
-    line-height: 5px;
-    letter-spacing: 2px;
-    font-family: var(--font-third);
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-h5 {
+h5{
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 1px;
 }
 
-span {
-    font-size: 18px;
-    color: var(--black-color);
-    line-height: 18px;
-    letter-spacing: 1px;
-    font-family: var(--font-third);
-    text-transform: uppercase;
+span{
+  font-size: 18px;
+  color: var(--black-color);
+  line-height: 18px;
+  letter-spacing: 1px;
+  font-family: var(--font-third);
+  text-transform: uppercase;
 }
 
-input {
-  font-family: var(--font-secondary);
+.lfdj-title strong{
+  font-weight: 500 !important;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  font-size: 66%;
 }
 
-a {
+/* ========================== LAYOUT HELPERS ========================== */
+.lfdj-maincontainer{
+  color: var(--blackwhite-color);
+}
+
+.lfdj-midpage{
+  margin-top: 5%;
+  margin-bottom: 30px;
+  opacity: 0;
+}
+
+.lfdj-hautdepage{
+  margin-bottom: 10%;
+  opacity: 0;
+}
+
+/* Titles blocks */
+.lfdj-divtitle{
+  margin-top: 75px;
+  grid-column: 1/-1;
+}
+
+.lfdj-title{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lfdj-title p{
+  color: var(--black-color);
+  font-family: var(--font-third);
+  font-size: 12px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+@media (max-width: 500px){
+  .lfdj-title p{ width: 90%; }
+}
+
+/* Icon separators */
+.lfdj-title-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--black-color);
+  margin: 8px 0 !important;
+}
+
+.lfdj-title-icon::before,
+.lfdj-title-icon::after{
+  content: "";
+  height: 2px;
+  width: 50px;
+  background-color: rgba(51,51,51,0.43);
+}
+
+.lfdj-title-icon::before{ margin-right: 15px; }
+.lfdj-title-icon::after{ margin-left: 15px; }
+
+/* ========================== HEADER / NAV ========================== */
+/* Fixed sticky header */
+#lfdj-sticky-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* background wrapper */
+.lfdj-bg{
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background2);
+}
+
+/* shared header link styles */
+header a,
+header i,
+header button{
+  color: var(--white-color) !important;
+  font-family: var(--font-third);
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.5px;
   text-decoration: none;
-  background: none;
-    color: var(--secondary-color) !important;
-  font-weight: 500;
+  text-align: center;
 }
 
-/* -------------------------- ANTI A -------------------------- */
-
-a:visited {
-  color: white;
+header a:hover,
+header i:hover,
+header button:hover {
+  color: var(--hover-color) !important;
+  font-weight: 800!important;
 }
 
-a:hover,
-a:focus {
-  text-decoration: none;
-  outline: none;
+/* containers */
+.lfdj-nav-container{
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 12px;
+  min-height: 75px;
+  align-items: center;
 }
 
-a:active {
+/* PC nav */
+.lfdj-nav-pc{ display: grid; }
+
+.lfdj-nav-grid{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 22px;
+  align-items: center;
+  justify-content: end;
+  min-height: 75px;
+  margin: 0 auto;
+}
+
+/* MOBILE nav */
+.lfdj-nav-mobile{
+  display: none;
+  grid-template-columns: 1fr 1fr 50px;
+  gap: 10px;
+  align-items: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.lfdj-mobile-home{
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 25px;
+}
+
+/* burger dropdown */
+.lfdj-dropdown{
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.lfdj-burger{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  font-size: 25px;
+}
+
+/* mobile panel */
+.lfdj-dropdown-content{
+  display: none;
+  position: fixed;
+  top: 75px;
+  right: 0;
+  z-index: 2147483647;
+  min-width: 220px;
+  padding: 10px;
+  border-bottom-left-radius: 25px;
+  background: var(--background2);
+  border-top: 8px solid var(--white-color);
+}
+
+.lfdj-dropdown.open .lfdj-dropdown-content{
+  display: block;
+}
+
+/* items */
+.lfdj-dropdown-content a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+/* Hover colors */
+.lfdj-nav-grid a:hover,
+.lfdj-dropdown-content a:hover{
+  color: var(--main-color) !important;
+}
+
+.lfdj-nav-grid a:hover i,
+.lfdj-dropdown-content a:hover i{
+  color: var(--main-color) !important;
+}
+
+/* Submenu (PC) */
+.lfdj-submenu{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lfdj-submenu-btn{
+  border: 0;
+  background: transparent;
+  font: inherit;
   color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
 }
 
-/* -------------------------- SOCIALS -------------------------- */
-
-.ldfj-socials {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
-    margin: 0px auto 0;
-    max-width: 550px;
+.lfdj-submenu-btn:hover{
+  color: var(--main-color) !important;
 }
 
-@media (max-width: 850px) {
-  .ldfj-socials {
+/* Submenu panel (PC) */
+.lfdj-submenu-content{
+  display: none;
+  position: fixed;
+  top: 75px;
+  z-index: 2147483647;
+  min-width: 220px;
+  padding: 10px;
+  border-bottom-left-radius: 25px;
+  background: var(--submenu-bg);
+  border-top: 8px solid var(--white-color);
+}
+
+.lfdj-submenu:hover .lfdj-submenu-content,
+.lfdj-submenu:focus-within .lfdj-submenu-content{
+  display: block;
+}
+
+.lfdj-submenu-content a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.lfdj-submenu-content a:hover{
+  color: var(--main-color) !important;
+}
+
+/* Mobile submenu */
+.lfdj-mobile-subbtn{
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.lfdj-mobile-subbtn:hover{
+  color: var(--main-color) !important;
+}
+
+.lfdj-mobile-subcontent{
+  display: none;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  margin: 0 0 8px 0;
+}
+
+.lfdj-mobile-subcontent a{
+  padding-left: 16px;
+}
+
+/* Responsive switch */
+@media screen and (max-width: 1100px){
+  .lfdj-nav-pc{ display: none !important; }
+  .lfdj-nav-mobile{ display: grid !important; }
+}
+
+/* ========================== CONTENT BLOCKS ========================== */
+.lfdj-bloc-text{
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--black-color);
+  text-align: justify;
+  text-align-last: center;
+}
+
+@media (max-width: 850px){
+  .lfdj-bloc-text{ margin: 0 10%; }
+}
+
+/* ========================== SOCIALS ========================== */
+.ldfj-socials{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin: 0 auto 0;
+  max-width: 550px;
+}
+
+@media (max-width: 850px){
+  .ldfj-socials{
     max-width: 550px;
     margin: 35px 10% 0 10%;
   }
 }
 
-.ldfj-socials > * {
-     flex: 1 1 100px;
-    max-width: 100px;
+.ldfj-socials > *{
+  flex: 1 1 100px;
+  max-width: 100px;
 }
 
-.ldfj-socials i {
-  color:white;
-}
-
-.ldfj-socials a:hover i {
-    color: var(--secondary-color)!important;
-    transition: all 0.25s ease-in-out;
-}
-
-.ldfj-socials a {
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
-    margin: 0 auto;
-    padding: 5px 0px;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.25s ease-in-out;
-    color: var(--tertiary-color) !important;
-    border-radius: 8px;
-    border: 2px dotted var(--primary-color)!important;
-}
-
-.ldfj-socials a:hover {
-  color: var(--tertiary-color) !important;
-  background-color:transparent!important;
-  border: 2px solid var(--secondary-color) !important;
-}
-
-.ldfj-socials a.discord {
-  background-color: #7289da;
-}
-
-.ldfj-socials a.mail {
-  background-color: #ea4335;
-}
-
-/* Facebook */
-.ldfj-socials a.facebook {
-  background-color: #1877F2;
-}
-
-/* Facebook */
-.ldfj-socials a.instagram {
-  background-color: #DD2A7B;
-}
-
-/* -------------------------- MARGES -------------------------- */
-
-.lfdj-midpage {
-    margin-top: 5%;
-    margin-bottom: 30px;
-    opacity: 0;
-}
-/* -------------------------- BLOC -------------------------- */
-
-.lfdj-bloc-text {
-    max-width: 700px;
-    margin: 0 auto;
-    color: var(--black-color);
-    text-align: justify;
-    text-align-last: center;
-}
-
-@media (max-width: 850px) {
-  .lfdj-bloc-text {
-    margin: 0 10%;
-  }
-}
-
-
-/* -------------------------- CSS -------------------------- */
-
-.lfdj-maincontainer {
-    color: var(--blackwhite-color);
-    margin: 0!important;
-}
-
-.lfdj-title {
-  margin: 0px auto;
+.ldfj-socials a{
+  width: 100%;
   text-align: center;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 5px 0;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  color: var(--tertiary-color);
+  border-radius: 8px;
+  border: 2px dotted var(--primary-color);
 }
 
-.lfdj-title p {
-  color: var(--black-color);
-  font-family: var(--font-third);
-  font-size: 12px;
+.ldfj-socials i{ color: var(--white-color); }
+
+.ldfj-socials a:hover{
+  background-color: transparent;
+  border: 2px solid var(--secondary-color);
 }
 
-.lfdj-title img {
-  width: 50%;
-  height: auto;
+.ldfj-socials a:hover i{
+  color: var(--secondary-color) !important;
 }
 
-.lfdj-title p {
-  width: 75%;
-  height: auto;
-  margin: 0px auto;
-}
+/* network colors */
+.ldfj-socials a.discord{ background-color: #7289da; }
+.ldfj-socials a.mail{ background-color: #ea4335; }
+.ldfj-socials a.facebook{ background-color: #1877F2; }
+.ldfj-socials a.instagram{ background-color: #DD2A7B; }
 
-@media (max-width: 500px) {
-  .lfdj-title p {
-    width: 90%;
-    height: auto;
-    margin: 0px auto;
-  }
-}
-
-header .lfdj-navbar {
-    display: grid;
-    grid-template-columns: 35px repeat(6, 1fr) 75px;
-    width: 90%;
-    margin: 10px auto;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.lfdj-bg {
-    position: relative;
-    overflow: hidden;
-    background-color: var(--background2);
-}
-
-header a {
-    color: var(--white-color)!important;
-    font-family: var(--font-third);
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    text-align: center;
-}
-
-header a:hover {
-  color: var(--hover-color);
-    font-weight: 800;
-}
-
-
-/* -------------------------- CALENDRIER -------------------------- */
-
+/* ========================== CALENDAR ========================== */
 .lfdj-calendar{
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
-}
-
-
-.lfdj-calendar-title{
-  font-weight: 800;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
-
-.lfdj-calendar-hours{
-  opacity: .8;
-  font-size: 0.95em;
 }
 
 .lfdj-calendar-list{
@@ -328,280 +538,11 @@ header a:hover {
 }
 
 .lfdj-calendar-list li strong{
-  font-weight: 500!important;
-    color: var(--black-color);
-  }
-
-.lfdj-calendar-note{
-  margin-top: 10px;
-  font-size: 0.9em;
-  opacity: .75;
-}
-
-
-/* -------------------------- SEPARATEURS -------------------------- */
-
-.lfdj-waves {
-  display: block;
-  margin: 0;
-}
-
-/* -------------------------- SEPARATEURS -------------------------- */
-
-.lfdj-footer {
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 12px;
-        color: var(--wite-color);
-    text-transform: uppercase;
-    font-family: var(--font-third);
-    line-height: 12px;
-    background-color: #171717;
-    position: relative;
-    align-content: flex-end;
-    z-index: 99;
-    width: 100%;
-    bottom: 0;
-}
-
-.lfdj-footer-container a {
-    letter-spacing: 0px;
-    text-transform: uppercase;
-    color: var(--tertiary-color);
-    width: fit-content;
-    font-style: normal;
-}
-
-.lfdj-footer-container h3 {
-  font-size: 13px;
-  line-height: 18px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--tertiary-color);
-  font-family: var(--font-secondary);
-  font-weight: 700;
-  font-style: normal;
-  margin: 0;
-}
-
-.lfdj-footer-container.sp-nav-menu-pc {
-  display: grid;
-  justify-content: space-between;
-  align-content: center;
-  width: 100%;
-  align-items: center;
-  grid-template-columns: 1fr;
-}
-
-.lfdj-footer-container.sp-nav-menu-tel {
-  display: none !important;
-}
-
-@media screen and (max-width: 1100px) {
-  .lfdj-footer-container-container.sp-nav-menu-pc {
-    display: none !important;
-  }
-
-  .lfdj-footer-container.sp-nav-menu-tel {
-    display: grid !important;
-    justify-content: space-between;
-    align-content: center;
-    width: 100%;
-    align-items: center;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.lfdj-footer-container:has(#dark-mode-toggle:checked) {
-  --white-color: #171717;
-}
-
-
-.lfdj-footer .lfdj-footer-container {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    width: 90%;
-    margin: 0 auto;
-    color: var(--white-color);
-}
-
-.lfdj-footer-right {
-    text-align: right;
-} 
-
-.lfdj-footer-left {
-    text-align: left;
-} 
-
-/* -------------------------- TITRES -------------------------- */
-
-.lfdj-divtitle {
-    margin-top: 75px;
-    grid-column: 1/-1;
-}
-
-/* -------------------------- ICONS FOOTERS -------------------------- */
-
-.lfdj-title-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  font-weight: 500 !important;
   color: var(--black-color);
-  margin: 8px 0 !important;
 }
 
-.lfdj-title-icon::before,
-.lfdj-title-icon::after {
-    content: "";
-    height: 2px;
-    width: 50px;
-    background-color: #3333336e;
-}
-
-.lfdj-title-icon::before {
-  margin-right: 15px;
-}
-
-.lfdj-title-icon::after {
-  margin-left: 15px;
-}
-
-/* -------------------------- WAVES FOOTERS -------------------------- */
-
-.lfdj-waves {
-  display: block;
-  margin: 0;
-}
-
-.waves {
-  display: block;
-  margin-top: -150px;
-  width: 100%;
-  height: 60px;
-  z-index: 4;
-}
-
-.wave1 use {
-  animation: move-forever1 10s linear infinite;
-  animation-delay: -2s;
-  color:var(--black-color);
-}
-
-.wave2 use {
-  animation: move-forever2 12s linear infinite;
-  animation-delay: -1s;
-    color:var(--black-color);
-}
-
-.wave3 use {
-  animation: move-forever3 14s linear infinite;
-  animation-delay: -2s;
-    color:var(--black-color);
-}
-
-/* WebKit and Opera browsers */
-@-webkit-keyframes move-forever1 {
-  from {
-    -webkit-transform: rotateY(0deg);
-    -webkit-transform: rotateX(0deg);
-  }
-  to {
-    -webkit-transform: rotateY(-360deg);
-    -webkit-transform: rotateX(-360deg);
-  }
-}
-/* all other browsers */
-@keyframes move-forever1 {
-  from {
-    -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    -moz-transform: rotateX(0deg);
-    -ms-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    transform: translate3d(-90px, 0, 0);
-  }
-  to {
-    -moz-transform: rotateY(-360deg);
-    -ms-transform: rotateY(-360deg);
-    transform: rotateY(-360deg);
-    -moz-transform: rotateX(-360deg);
-    -ms-transform: rotateX(-360deg);
-    transform: rotateX(-360deg);
-    transform: translate3d(85px, 0, 0);
-  }
-}
-
-/* WebKit and Opera browsers */
-@-webkit-keyframes move-forever2 {
-  from {
-    -webkit-transform: rotateY(0deg);
-    -webkit-transform: rotateX(0deg);
-  }
-  to {
-    -webkit-transform: rotateY(-360deg);
-    -webkit-transform: rotateX(-360deg);
-  }
-}
-/* all other browsers */
-@keyframes move-forever2 {
-  from {
-    -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    -moz-transform: rotateX(0deg);
-    -ms-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    transform: translate3d(-90px, 0, 0);
-  }
-  to {
-    -moz-transform: rotateY(-360deg);
-    -ms-transform: rotateY(-360deg);
-    transform: rotateY(-360deg);
-    -moz-transform: rotateX(-360deg);
-    -ms-transform: rotateX(-360deg);
-    transform: rotateX(-360deg);
-    transform: translate3d(85px, 0, 0);
-  }
-}
-
-/* WebKit and Opera browsers */
-@-webkit-keyframes move-forever3 {
-  from {
-    -webkit-transform: rotateY(0deg);
-    -webkit-transform: rotateX(0deg);
-  }
-  to {
-    -webkit-transform: rotateY(-360deg);
-    -webkit-transform: rotateX(-360deg);
-  }
-}
-/* all other browsers */
-@keyframes move-forever3 {
-  from {
-    -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    -moz-transform: rotateX(0deg);
-    -ms-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    transform: translate3d(-90px, 0, 0);
-  }
-  to {
-    -moz-transform: rotateY(-360deg);
-    -ms-transform: rotateY(-360deg);
-    transform: rotateY(-360deg);
-    -moz-transform: rotateX(-360deg);
-    -ms-transform: rotateX(-360deg);
-    transform: rotateX(-360deg);
-    transform: translate3d(85px, 0, 0);
-  }
-}
-
-/* -------------------------- MAPS -------------------------- */
-
+/* ========================== MAP ========================== */
 .lfdj-map{
   width: 100%;
   height: 200px;
@@ -616,44 +557,129 @@ header a:hover {
   display: block;
 }
 
-/* -------------------------- IMAGE -------------------------- */
-
-.lfdj-hero {
-    width: 100%;
-    margin-top: 25px;
-}
-
-img {
-  max-width:100px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+/* ========================== HERO / IMAGES ========================== */
+.lfdj-hero{
+  width: 100%;
+  margin-top: 25px;
 }
 
 .lfdj-hero-list{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    max-width: 700px;
-    margin: 25px auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 700px;
+  margin: 25px auto 0 auto;
 }
 
-.lfdj-hero-list img {
+.lfdj-hero-list img{
   aspect-ratio: 1/1;
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 6px;
+}
+
+/* ========================== WAVES ========================== */
+.lfdj-waves{
   display: block;
+  margin: 0;
 }
 
-/* -------------------------- MAINTENANCE -------------------------- */
-
-html, body {
-    margin-top: -50px!important;
-    background-color: var(--background);
+.waves{
+  display: block;
+  margin-top: -150px;
+  width: 100%;
+  height: 60px;
+  z-index: 4;
 }
 
+.wave1 use{ animation: move-forever1 10s linear infinite; animation-delay: -2s; }
+.wave2 use{ animation: move-forever2 12s linear infinite; animation-delay: -1s; }
+.wave3 use{ animation: move-forever3 14s linear infinite; animation-delay: -2s; }
+
+@keyframes move-forever1{
+  from{ transform: translate3d(-90px,0,0); }
+  to{ transform: translate3d(85px,0,0); }
+}
+@keyframes move-forever2{
+  from{ transform: translate3d(-90px,0,0); }
+  to{ transform: translate3d(85px,0,0); }
+}
+@keyframes move-forever3{
+  from{ transform: translate3d(-90px,0,0); }
+  to{ transform: translate3d(85px,0,0); }
+}
+
+/* ========================== FOOTER ========================== */
+.lfdj-footer{
+  text-align: center;
+  padding: 20px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: var(--font-third);
+  line-height: 12px;
+
+  /* follows theme vars */
+  background-color: var(--black-color);
+  color: var(--white-color);
+
+  position: relative;
+  z-index: 99;
+  width: 100%;
+}
+
+.lfdj-footer .lfdj-footer-container{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 90%;
+  margin: 0 auto;
+  color: inherit;
+}
+
+.lfdj-footer-left{ text-align: left; }
+.lfdj-footer-right{ text-align: right; }
+
+.lfdj-footer-container a{
+  color: inherit;
+}
+
+.lfdj-footer-container a:hover{
+  color: var(--main-color);
+}
+
+/* ========================== DARK MODE TOGGLE ========================== */
+#dark-mode-toggle{
+  display: none;
+}
+
+.toggle{
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+  background: var(--toggle-bg);
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle::before{
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  background: var(--toggle-circle);
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+#dark-mode-toggle:checked + .toggle::before{
+  transform: translateX(33px);
+}
+
+/* ========================== MAINTENANCE PAGE ========================== */
 .lfdj-maintenance{
   min-height: 100vh;
   display: flex;
@@ -662,7 +688,7 @@ html, body {
   align-items: center;
   text-align: center;
   padding: 0;
-  margin:0;
+  margin: 0;
 }
 
 .lfdj-maintenance-logo{
@@ -670,49 +696,62 @@ html, body {
   height: auto;
   display: block;
   margin: 0 auto 30px;
-  max-width:none!important;
+  max-width: none !important;
 }
 
-/* -------------------------- STICKY HEADER -------------------------- */
+/* ========================== IMAGES ========================== */
 
-#lfdj-sticky-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Règle globale saine : n’écrase pas tes images */
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Image “hero” pleine largeur (bannière / gros visuel) */
+.lfdj-hero{
   width: 100%;
-  z-index: 999;
+  margin-top: 25px;
 }
 
-
-/* -------------------------- DARK MODE -------------------------- */
-
-#dark-mode-toggle {
-  display: none;
+.lfdj-hero img{
+  width: 100%;
+  max-width: 700px;     /* cohérent avec tes blocs texte */
+  margin: 0 auto;
+  border-radius: 8px;   /* optionnel, retire si tu veux brut */
 }
 
-.toggle {
-    display: inline-block;
-    width: 60px;
-    height: 24px;
-    background: var(--toggle-bg);
-    border-radius: 30px;
-    position: relative;
-    cursor: pointer;
-    transition: background 0.3s;
+/* Galerie / liste d’images carrées (icônes / photos) */
+.lfdj-hero-list{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 700px;
+  margin: 25px auto 0 auto;
+  padding: 0;
 }
 
-.toggle::before {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 4px;
-    width: 18px;
-    height: 18px;
-    background: var(--toggle-circle);
-    border-radius: 50%;
-    transition: transform 0.3s;
+.lfdj-hero-list img{
+  aspect-ratio: 1/1;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
-#dark-mode-toggle:checked + .toggle::before {
-  transform: translateX(33px);
+/* Si tu as un logo d’asso ou icône “petite” */
+.lfdj-logo-img{
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+/* Option pratique : petites icônes inline dans le texte */
+.lfdj-inline-img{
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.2em;
+  width: auto;
 }

@@ -36,9 +36,7 @@
       </p>
 
       <p>
-        En attendant, vous pouvez nous retrouver et échanger avec nous via notre
-        <a href="www.laforgedesjoueurs.fr/discord">Discord</a>
-        ou lors de nos rencontres au Mille-Club du Chêne à Vitré.
+        En attendant, vous pouvez nous retrouver et échanger avec nous via notre <a href="/discord" class="discord">Discord</a> ou lors de nos rencontres au Mille-Club du Chêne à Vitré.
       </p>
     </div>
 

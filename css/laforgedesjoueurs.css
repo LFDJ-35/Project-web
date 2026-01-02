@@ -262,6 +262,12 @@ header button:hover {
   font-weight: 800!important;
 }
 
+.lfdj-main-shortcut {
+      background-color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 25px;
+}
+
 /* containers */
 .lfdj-nav-container{
   width: 100%;
@@ -276,14 +282,15 @@ header button:hover {
 .lfdj-nav-pc{ display: grid; }
 
 .lfdj-nav-grid{
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  gap: 22px;
-  align-items: center;
-  justify-content: end;
-  min-height: 75px;
-  margin: 0 auto;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    justify-content: space-between!important;
+    align-items: center;
+    justify-content: end;
+    min-height: 75px;
+    margin: 0 auto;
+    width: 700px;
 }
 
 /* MOBILE nav */

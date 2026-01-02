@@ -7,6 +7,8 @@
         <i class="fa-solid fa-house" aria-hidden="true"></i>
       </a>
 
+       <a class="lfdj-main-shortcut" href="./adhesion.php">Adhésion</a>
+
       <a href="./jdf.php">JdF</a>
       <a href="./jdr.php">JdR</a>
       <a href="./jdp.php">JdP</a>
@@ -22,7 +24,7 @@
         </div>
       </div>
 
-      <a href="./discord.php">Discord</a>
+      <a class="lfdj-main-shortcut" href="./discord.php">Discord</a>
 
       <div class="lfdj-submenu" data-submenu="autres">
         <button type="button" class="lfdj-submenu-btn" aria-haspopup="true" aria-expanded="false">

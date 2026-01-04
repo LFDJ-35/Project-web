@@ -11,8 +11,6 @@
 
 <body class="lfdj-maincontainer">
 
-<hr class="lfdj-midpage">
-
  <?php require('importation-php/menu.php'); ?>
 
 <div class="lfdj-divtitle">
@@ -91,11 +89,22 @@
     aux côtés de jeux comme <strong>7e Mer</strong>, <strong>Savage Worlds</strong>,
     <strong>Macadabre</strong>, ainsi que de nombreux univers originaux.
   </p>
+
   <p>
     Des créations maison côtoient des licences bien connues,
     comme des campagnes se déroulant dans des univers inspirés de <strong>Runeterra</strong>
     ou d’autres mondes populaires de la culture ludique et fantastique.
   </p>
+
+<p>
+  Au fil des années, la Forge des Joueurs a vu passer de nombreux univers et systèmes
+  qui ont contribué à façonner la vie de l’association.
+  Des tables de <strong>Star Wars</strong>, <strong>AD&amp;D</strong>,
+  <strong>Chroniques Oubliées</strong> ou encore <strong>Paranoïa</strong>
+  ont ainsi rythmé différentes périodes, portées par l’engagement et la créativité
+  de leurs maîtres du jeu et des joueurs.
+</p>
+
 </div>
 
 <div class="lfdj-divtitle">
@@ -134,7 +143,7 @@
   </p>
   <p>
     Les échanges et l’organisation des parties se font principalement via le
-    <a href="/discord" class="discord">Discord</a> de l’association,
+    <a href="./discord" class="discord">Discord</a> de l’association,
     où sont proposées les tables, les campagnes et les sessions à venir.
   </p>
 </div>

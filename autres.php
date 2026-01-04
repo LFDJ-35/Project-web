@@ -151,7 +151,7 @@
       Besoin d’un moyen de transport ?
       Nos membres viennent de tout le bassin vitréen : vous trouverez souvent quelqu’un pour vous déposer
       ou vous raccompagner, même après une longue soirée.
-      Le plus simple est de demander sur le <a href="laforgedesjoueurs.php">Discord de l’association</a>.
+      Le plus simple est de demander sur le <a href="/discord" class="discord">Discord</a> de l’association.
     </p>
   </div>
 

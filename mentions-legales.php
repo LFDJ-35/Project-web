@@ -10,8 +10,6 @@
 
 <body class="lfdj-maincontainer">
 
-<hr class="lfdj-midpage">
-
   <?php require('importation-php/menu.php'); ?>
 
   <div class="lfdj-divtitle">

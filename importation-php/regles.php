@@ -18,13 +18,13 @@
   <meta name="twitter:image" content="https://laforgedesjoueurs.fr/images/og-laforgedesjoueurs.png" />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/lfdj/images/Favicon-Main2.png" />
+  <link rel="shortcut icon" href="./images/Favicon-Main2.png" />
 
   <!-- Fonts & CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-  <link rel="stylesheet" href="/css/laforgedesjoueurs.css" />
+  <link rel="stylesheet" href="./css/laforgedesjoueurs.css" />
 
   <script src="https://kit.fontawesome.com/7e88bf0c98.js" crossorigin="anonymous"></script>

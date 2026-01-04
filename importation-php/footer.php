@@ -22,9 +22,9 @@
     </div>
 
     <div class="lfdj-footer-right">
-      <a href="/mentions-legales">Mentions légales</a>
+      <a href="./mentions-legales">Mentions légales</a>
       <span class="separator">•</span>
-      <a href="/discord">Discord</a>
+      <a href="./discord">Discord</a>
     </div>
   </div>
 </footer>

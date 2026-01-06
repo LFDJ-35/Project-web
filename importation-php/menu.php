@@ -6,9 +6,6 @@
       <a href="./laforgedesjoueurs.php" aria-label="Association">
         <i class="fa-solid fa-house" aria-hidden="true"></i>
       </a>
-
-       <a class="lfdj-main-shortcut" href="./adhesion.php">Adhésion</a>
-
       <a href="./jdf.php">JdF</a>
       <a href="./jdr.php">JdR</a>
       <a href="./jdp.php">JdP</a>
@@ -37,8 +34,8 @@
         </div>
       </div>
 
-      <input type="checkbox" id="dark-mode-toggle" />
-      <label for="dark-mode-toggle" class="toggle" aria-label="Activer le mode sombre"></label>
+   <input class="hidden" type="checkbox" id="dark-mode-toggle-pc" />
+<label for="dark-mode-toggle-pc" class="toggle" aria-label="Activer le mode sombre"></label>
     </nav>
   </div>
 
@@ -80,18 +77,22 @@
       </div>
     </div>
 
-    <input type="checkbox" id="dark-mode-toggle" />
-    <label for="dark-mode-toggle" class="toggle" aria-label="Activer le mode sombre"></label>
+<input class="hidden" type="checkbox" id="dark-mode-toggle-mobile" />
+<label for="dark-mode-toggle-mobile" class="toggle" aria-label="Activer le mode sombre"></label>
   </div>
 
 </header>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Burger mobile
-  const dd = document.querySelector(".lfdj-dropdown");
-  const burger = dd?.querySelector(".lfdj-burger");
-  const panel = dd?.querySelector(".lfdj-dropdown-content");
+  // ====== Helpers ======
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+  // ====== MOBILE: burger dropdown ======
+  const dd = $(".lfdj-dropdown");
+  const burger = dd ? $(".lfdj-burger", dd) : null;
+  const panel = dd ? $(".lfdj-dropdown-content", dd) : null;
 
   const closeMobileMenu = () => {
     if (!dd || !burger) return;
@@ -99,92 +100,140 @@ document.addEventListener("DOMContentLoaded", () => {
     burger.setAttribute("aria-expanded", "false");
   };
 
-  if (dd && burger && panel) {
-    burger.addEventListener("click", (e) => {
-      e.preventDefault();
-      const isOpen = dd.classList.toggle("open");
-      burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
+  const toggleMobileMenu = (e) => {
+    e.preventDefault();
+    if (!dd || !burger) return;
+    const isOpen = dd.classList.toggle("open");
+    burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  };
 
-    document.addEventListener("click", (e) => {
-      if (!dd.contains(e.target)) closeMobileMenu();
-    });
+  if (burger && panel) {
+    burger.addEventListener("click", toggleMobileMenu);
 
-    panel.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMobileMenu));
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMobileMenu();
-    });
+    $$(".lfdj-dropdown-content a", dd).forEach(a =>
+      a.addEventListener("click", closeMobileMenu)
+    );
   }
 
-  // Accordéons mobile (plusieurs)
-  document.querySelectorAll(".lfdj-mobile-subbtn").forEach((btn) => {
+  // ====== MOBILE: accordéons ======
+  const mobileBtns = $$(".lfdj-mobile-subbtn");
+  const mobileContents = () => $$(".lfdj-mobile-subcontent");
+
+  const closeOtherMobileAccordions = (keepContent, keepBtn) => {
+    mobileContents().forEach(sc => { if (sc !== keepContent) sc.classList.remove("open"); });
+    mobileBtns.forEach(sb => { if (sb !== keepBtn) sb.setAttribute("aria-expanded", "false"); });
+  };
+
+  mobileBtns.forEach((btn) => {
     const content = btn.nextElementSibling;
     if (!content || !content.classList.contains("lfdj-mobile-subcontent")) return;
 
     btn.addEventListener("click", () => {
-      // ferme les autres
-      document.querySelectorAll(".lfdj-mobile-subcontent").forEach(sc => {
-        if (sc !== content) sc.style.display = "none";
-      });
-      document.querySelectorAll(".lfdj-mobile-subbtn").forEach(sb => {
-        if (sb !== btn) sb.setAttribute("aria-expanded", "false");
-      });
+      const isOpen = content.classList.contains("open");
 
-      const open = content.style.display === "block";
-      content.style.display = open ? "none" : "block";
-      btn.setAttribute("aria-expanded", open ? "false" : "true");
+      closeOtherMobileAccordions(content, btn);
+
+      content.classList.toggle("open", !isOpen);
+      btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
     });
   });
 
-  // Sous-menus PC (plusieurs) : toggle + placement fixed + fermeture dehors
-  const submenus = document.querySelectorAll(".lfdj-submenu");
+  // ====== PC: submenus ======
+  const submenus = $$(".lfdj-submenu");
 
   const closeAllPCSubmenus = () => {
     submenus.forEach(sm => {
-      const b = sm.querySelector(".lfdj-submenu-btn");
-      const p = sm.querySelector(".lfdj-submenu-content");
+      const b = $(".lfdj-submenu-btn", sm);
+      const p = $(".lfdj-submenu-content", sm);
       if (b) b.setAttribute("aria-expanded", "false");
-      if (p) p.style.display = "none";
+      if (p) p.classList.remove("open");
     });
   };
 
+  const positionPCSubmenu = (btn, panel) => {
+    const r = btn.getBoundingClientRect();
+    panel.style.left = Math.max(12, Math.round(r.left)) + "px";
+  };
+
+  const getOpenPC = () => {
+    for (const sm of submenus) {
+      const b = $(".lfdj-submenu-btn", sm);
+      const p = $(".lfdj-submenu-content", sm);
+      if (b && p && p.classList.contains("open")) return { b, p, sm };
+    }
+    return null;
+  };
+
   submenus.forEach((sm) => {
-    const b = sm.querySelector(".lfdj-submenu-btn");
-    const p = sm.querySelector(".lfdj-submenu-content");
+    const b = $(".lfdj-submenu-btn", sm);
+    const p = $(".lfdj-submenu-content", sm);
     if (!b || !p) return;
-
-    const open = () => {
-      const r = b.getBoundingClientRect();
-      p.style.left = Math.max(12, Math.round(r.left)) + "px";
-      p.style.display = "block";
-      b.setAttribute("aria-expanded", "true");
-    };
-
-    const close = () => {
-      p.style.display = "none";
-      b.setAttribute("aria-expanded", "false");
-    };
 
     b.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
 
-      const isOpen = p.style.display === "block";
+      const isOpen = p.classList.contains("open");
       closeAllPCSubmenus();
-      isOpen ? close() : open();
+
+      if (!isOpen) {
+        positionPCSubmenu(b, p);
+        p.classList.add("open");
+        b.setAttribute("aria-expanded", "true");
+      }
     });
 
-    window.addEventListener("resize", () => {
-      if (p.style.display === "block") open();
-    });
+    p.addEventListener("click", (e) => e.stopPropagation());
   });
 
-  document.addEventListener("click", closeAllPCSubmenus);
+  // ====== Global: click outside & escape ======
+  document.addEventListener("click", (e) => {
+    if (dd && !dd.contains(e.target)) closeMobileMenu();
+
+    // option conseillé pour éviter fermeture quand clic dans submenu
+    if (!e.target.closest(".lfdj-submenu")) closeAllPCSubmenus();
+  });
+
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeAllPCSubmenus();
+    if (e.key !== "Escape") return;
+    closeMobileMenu();
+    closeAllPCSubmenus();
+  });
+
+  window.addEventListener("resize", () => {
+    const open = getOpenPC();
+    if (open) positionPCSubmenu(open.b, open.p);
+  });
+
+  // ====== DARK MODE: persistant + sync PC / mobile ======
+  const toggles = [
+    document.getElementById("dark-mode-toggle-pc"),
+    document.getElementById("dark-mode-toggle-mobile"),
+  ].filter(Boolean);
+
+  const root = document.documentElement; // <html>
+  const KEY = "lfdj_theme";
+
+  const applyTheme = (theme) => {
+    const isDark = theme === "dark";
+    root.dataset.theme = isDark ? "dark" : "light";
+    toggles.forEach(t => (t.checked = isDark));
+  };
+
+  const saved = localStorage.getItem(KEY);
+  const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
+  applyTheme(saved ?? (prefersDark ? "dark" : "light"));
+
+  toggles.forEach(t => {
+    t.addEventListener("change", () => {
+      const theme = t.checked ? "dark" : "light";
+      localStorage.setItem(KEY, theme);
+      applyTheme(theme);
+    });
   });
 });
 </script>
+
+
 
 <hr class="lfdj-hautdepage">

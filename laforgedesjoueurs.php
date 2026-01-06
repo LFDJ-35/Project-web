@@ -100,6 +100,10 @@
   </ul>
 </div>
 
+ <div class="lfdj-bloc-text">
+<iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/la-forge-des-joueurs/adhesions/adhesion-2026-1/widget" style="width: 100%; border: none;" onload="window.addEventListener( 'message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget'); haWidgetElement.height = dataHeight + 'px'; } )" ></iframe>
+</div>
+
              <div class="lfdj-divtitle">
              <h4>Mille Club du Chêne, à Vitré</h4>
              <div class="lfdj-title-icon"><i class="fa-solid fa-location-pin"></i></div>

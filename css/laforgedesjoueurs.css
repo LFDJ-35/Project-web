@@ -34,7 +34,7 @@
 }
 
 /* Dark mode (works if #dark-mode-toggle is inside <body>) */
-body:has(#dark-mode-toggle:checked){
+body:has(.hidden:checked){
   --primary-color: #c8a44d;
   --secondary-color: #8e533a;
 
@@ -113,7 +113,7 @@ h1,h2,h3,h4,h5{
   color: var(--tertiary-color);
 }
 
-h2{
+h2, h3{
   font-family: var(--font-primary);
   font-weight: 900;
   font-size: 50px;
@@ -122,12 +122,20 @@ h2{
   color: var(--primary-color);
 }
 
+h2{
+  color: var(--primary-color);
+}
+
+@media (max-width: 875px) {
+h2, h3{
+    font-size: 35px;
+    line-height: 30px;
+    height: auto;
+    margin-bottom: 10px;
+}
+}
+
 h3{
-  font-family: var(--font-primary);
-  font-weight: 900;
-  font-size: 50px;
-  line-height: 36px;
-  text-transform: lowercase;
   color: var(--secondary-color);
 }
 
@@ -139,6 +147,13 @@ h4{
   font-family: var(--font-third);
   font-weight: 600;
   margin-bottom: 10px;
+}
+
+@media (max-width: 875px) {
+h4{
+    font-size: 12px;
+    line-height: 4px;
+}
 }
 
 h5{
@@ -166,6 +181,7 @@ span{
 /* ========================== LAYOUT HELPERS ========================== */
 .lfdj-maincontainer{
   color: var(--blackwhite-color);
+  padding-top:0px!important;
 }
 
 .lfdj-midpage{
@@ -179,10 +195,10 @@ span{
   opacity: 0;
 }
 
-/* Titles blocks */
 .lfdj-divtitle{
-  margin-top: 75px;
-  grid-column: 1/-1;
+    margin-top: 75px;
+    grid-column: 1/-1;
+    margin: auto 10%;
 }
 
 .lfdj-title{
@@ -258,17 +274,17 @@ header button{
 header a:hover,
 header i:hover,
 header button:hover {
-  color: var(--hover-color) !important;
-  font-weight: 800!important;
+color: white !important;
+    font-weight: 600 !important;
 }
 
 .lfdj-main-shortcut {
-      background-color: var(--primary-color);
+    color: var(--toggle-bg) !important;
     padding: 5px 15px;
     border-radius: 25px;
+    font-weight: 600;
 }
 
-/* containers */
 .lfdj-nav-container{
   width: 100%;
   max-width: 1400px;
@@ -278,7 +294,6 @@ header button:hover {
   align-items: center;
 }
 
-/* PC nav */
 .lfdj-nav-pc{ display: grid; }
 
 .lfdj-nav-grid{
@@ -339,6 +354,7 @@ header button:hover {
   border-bottom-left-radius: 25px;
   background: var(--background2);
   border-top: 8px solid var(--white-color);
+   overflow: visible; /* OBLIGATOIRE */
 }
 
 .lfdj-dropdown.open .lfdj-dropdown-content{
@@ -353,17 +369,6 @@ header button:hover {
   padding: 10px;
   border-radius: 8px;
   white-space: nowrap;
-}
-
-/* Hover colors */
-.lfdj-nav-grid a:hover,
-.lfdj-dropdown-content a:hover{
-  color: var(--main-color) !important;
-}
-
-.lfdj-nav-grid a:hover i,
-.lfdj-dropdown-content a:hover i{
-  color: var(--main-color) !important;
 }
 
 /* Submenu (PC) */
@@ -381,10 +386,9 @@ header button:hover {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-}
-
-.lfdj-submenu-btn:hover{
-  color: var(--main-color) !important;
+      padding: 5px 15px;
+    border-radius: 25px;
+ background-color: var(--toggle-bg) !important;
 }
 
 /* Submenu panel (PC) */
@@ -414,42 +418,38 @@ header button:hover {
   white-space: nowrap;
 }
 
-.lfdj-submenu-content a:hover{
-  color: var(--main-color) !important;
-}
-
-/* Mobile submenu */
 .lfdj-mobile-subbtn{
-  width: 100%;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  font: inherit;
-  color: inherit;
-  text-decoration: none;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  white-space: nowrap;
-}
-
-.lfdj-mobile-subbtn:hover{
-  color: var(--main-color) !important;
+    display: flex;
+    border-radius: 5px;
+    white-space: nowrap;
+    background-color: var(--toggle-bg) !important;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 0;
+    font: inherit;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .lfdj-mobile-subcontent{
-  display: none;
   background-color: var(--primary-color);
   border-radius: 8px;
   margin: 0 0 8px 0;
+    max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.lfdj-mobile-subcontent.open {
+  max-height: 300px; /* suffisant pour Roots + BB */
 }
 
 .lfdj-mobile-subcontent a{
   padding-left: 16px;
 }
+
+
 
 /* Responsive switch */
 @media screen and (max-width: 1100px){
@@ -459,27 +459,35 @@ header button:hover {
 
 /* ========================== CONTENT BLOCKS ========================== */
 .lfdj-bloc-text{
-  max-width: 700px;
-  margin: 0 auto;
-  color: var(--black-color);
-  text-align: justify;
-  text-align-last: center;
+    max-width: 720px;
+    margin: 0 auto 55px auto;
+    color: var(--black-color);
+    text-align: justify;
+    text-align-last: center;
+    font-size: 15px;
 }
 
 @media (max-width: 850px){
-  .lfdj-bloc-text{ margin: 0 10%; }
+  .lfdj-bloc-text{
+          margin: 0 10% 45px 10%;
+        font-size: 14px;
+       }
+       .lfdj-hautdepage {
+        margin-bottom: 25%;
+    opacity: 0;
+       }
 }
 
 /* ========================== SOCIALS ========================== */
 .ldfj-socials{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-  margin: 0 auto 0;
-  max-width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin: 0 auto 55px auto;
+    max-width: 550px;
 }
 
 @media (max-width: 850px){
@@ -512,7 +520,7 @@ header button:hover {
 
 .ldfj-socials a:hover{
   background-color: transparent;
-  border: 2px solid var(--secondary-color);
+  border: 2px solid var(--toggle-bg);
 }
 
 .ldfj-socials a:hover i{
@@ -525,11 +533,19 @@ header button:hover {
 .ldfj-socials a.facebook{ background-color: #1877F2; }
 .ldfj-socials a.instagram{ background-color: #DD2A7B; }
 
-/* ========================== CALENDAR ========================== */
-.lfdj-calendar{
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
+
+.lfdj-calendar {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 55px auto;
+}
+
+@media (max-width: 875px) {
+  .lfdj-calendar {
+   padding: 0 10%;
+        width: auto;
+        max-width: none;
+  }
 }
 
 .lfdj-calendar-list{
@@ -573,11 +589,14 @@ header button:hover {
 }
 
 .lfdj-hero-list{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  max-width: 700px;
-  margin: 25px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    max-width: 700px;
+    margin: 25px auto 55px auto;
+    padding: 0;
 }
 
 .lfdj-hero-list img{
@@ -620,6 +639,7 @@ header button:hover {
 }
 
 /* ========================== FOOTER ========================== */
+
 .lfdj-footer{
   text-align: center;
   padding: 20px 0;
@@ -627,11 +647,8 @@ header button:hover {
   text-transform: uppercase;
   font-family: var(--font-third);
   line-height: 12px;
-
-  /* follows theme vars */
-  background-color: var(--black-color);
-  color: var(--white-color);
-
+  background-color: #171717;
+  color: white;
   position: relative;
   z-index: 99;
   width: 100%;
@@ -657,7 +674,7 @@ header button:hover {
 }
 
 /* ========================== DARK MODE TOGGLE ========================== */
-#dark-mode-toggle{
+.hidden {
   display: none;
 }
 
@@ -684,9 +701,10 @@ header button:hover {
   transition: transform 0.3s;
 }
 
-#dark-mode-toggle:checked + .toggle::before{
+.hidden:checked + .toggle::before{
   transform: translateX(33px);
 }
+
 
 /* ========================== MAINTENANCE PAGE ========================== */
 .lfdj-maintenance{
@@ -724,10 +742,10 @@ img{
 }
 
 .lfdj-hero img{
-  width: 100%;
-  max-width: 700px;     /* cohérent avec tes blocs texte */
-  margin: 0 auto;
-  border-radius: 8px;   /* optionnel, retire si tu veux brut */
+    width: 50%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 8px;
 }
 
 /* Galerie / liste d’images carrées (icônes / photos) */
@@ -763,4 +781,9 @@ img{
   vertical-align: middle;
   height: 1.2em;
   width: auto;
+}
+
+.Widget--Footer {
+    margin-top: 1rem;
+    display:none!important;
 }

@@ -3,7 +3,7 @@
   <!-- PC -->
   <div class="lfdj-nav-container lfdj-nav-pc">
     <nav class="lfdj-nav-grid" aria-label="Navigation principale">
-      <a href="./laforgedesjoueurs.php" aria-label="Association">
+      <a href="./index.php" aria-label="Association">
         <i class="fa-solid fa-house" aria-hidden="true"></i>
       </a>
       <a href="./jdf.php">JdF</a>
@@ -41,7 +41,7 @@
 
   <!-- MOBILE -->
   <div class="lfdj-nav-container lfdj-nav-mobile">
-    <a class="lfdj-mobile-home" href="./laforgedesjoueurs.php" aria-label="Association">
+    <a class="lfdj-mobile-home" href="./index.php" aria-label="Association">
       <i class="fa-solid fa-house" aria-hidden="true"></i>
     </a>
 
@@ -51,7 +51,7 @@
       </button>
 
       <div class="lfdj-dropdown-content" aria-label="Navigation mobile">
-        <a href="./laforgedesjoueurs.php" aria-label="Association">
+        <a href="./index.php" aria-label="Association">
           <i class="fa-solid fa-house" aria-hidden="true"></i>
         </a>
 

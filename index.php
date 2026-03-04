@@ -6,7 +6,7 @@
 <head>
 <title>La Forge des Joueurs – Association de jeux à Vitré</title>
 <meta name="description" content="La Forge des Joueurs est une association vitréenne dédiée aux jeux de rôle, jeux de figurines, jeux de société et cartes. Rejoignez-nous à Vitré." />
-<?php require('importation-php/regles.php'); ?>
+<?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

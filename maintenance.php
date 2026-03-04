@@ -5,7 +5,7 @@
 <head>
 <title>Site en construction | La Forge des Joueurs</title>
 <meta name="description" content="Le site de la Forge des Joueurs est actuellement en cours de construction. Revenez bientôt découvrir l’association." />
-  <?php require('importation-php/regles.php'); ?>
+  <?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

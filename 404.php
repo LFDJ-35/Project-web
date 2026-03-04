@@ -3,7 +3,7 @@
 <head>
 <title>La Forge des Joueurs | Page introuvable</title>
 <meta name="robots" content="noindex, nofollow">
-  <?php require('importation-php/regles.php'); ?>
+  <?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

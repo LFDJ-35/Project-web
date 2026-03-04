@@ -5,7 +5,7 @@
 <head>
   <title>Partenaires | La Forge des Joueurs</title>
   <meta name="description" content="Partenaires et soutiens de La Forge des Joueurs : boutiques ludiques, restauration locale et acteurs accompagnant la vie de l’association à Vitré." />
-  <?php require('importation-php/regles.php'); ?>
+  <?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

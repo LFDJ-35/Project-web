@@ -6,7 +6,7 @@
 <head>
 <title>Jeu de rôle à Vitré | La Forge des Joueurs</title>
 <meta name="description" content="Jeu de rôle à la Forge des Joueurs : tables variées, maîtres du jeu, univers multiples et parties en présentiel à Vitré." />
-<?php require('importation-php/regles.php'); ?>
+<?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

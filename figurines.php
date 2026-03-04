@@ -6,7 +6,7 @@
 <head>
 <title>Jeux de figurines à Vitré | La Forge des Joueurs</title>
 <meta name="description" content="Jeux de figurines à la Forge des Joueurs : Warhammer, 40K, Gaslands, peinture, décors et parties conviviales à Vitré." />
-<?php require('importation-php/regles.php'); ?>
+<?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

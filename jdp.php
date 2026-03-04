@@ -5,7 +5,7 @@
 <head>
   <title>Jeux de plateau à Vitré | La Forge des Joueurs</title>
   <meta name="description" content="Jeux de plateau à la Forge des Joueurs : soirées conviviales, découvertes, coopération et jeux du moment à Vitré." />
-  <?php require('importation-php/regles.php'); ?>
+  <?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

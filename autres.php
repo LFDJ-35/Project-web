@@ -5,7 +5,7 @@
 <head>
 <title>Autres activités | La Forge des Joueurs</title>
 <meta name="description" content="Conventions, soirées hors association, portes ouvertes et masterclass : découvrez toutes les activités de la Forge des Joueurs à Vitré." />
-  <?php require('importation-php/regles.php'); ?>
+  <?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

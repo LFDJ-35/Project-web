@@ -5,7 +5,7 @@
 <head>
 <title>Roots – Jeu de société | La Forge des Joueurs</title>
 <meta name="description" content="Roots à la Forge des Joueurs : jeu de société asymétrique, stratégique et narratif. Découverte et compétition interne à Vitré." />
-  <?php require('importation-php/regles.php'); ?>
+  <?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

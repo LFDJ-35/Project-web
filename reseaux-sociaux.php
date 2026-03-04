@@ -5,7 +5,7 @@
 <head>
   <title>Réseaux sociaux | La Forge des Joueurs</title>
   <meta name="description" content="Réseaux sociaux de La Forge des Joueurs : suivez l’association sur Facebook et Instagram pour découvrir la vie du club en images." />
-  <?php require('importation-php/regles.php'); ?>
+  <?php require('importation-php/regles.php'); include('importation-php/telemetrie.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">

@@ -129,13 +129,13 @@ function updateSortIcons(columnIndex, direction) {
         <table id="statsTable" style="width: 100%; border-collapse: collapse; color: white;">
             <thead>
                 <tr style="background-color: rgba(255,255,255,0.1);">
-                    <th onclick="sortTable(0)" style="cursor:pointer; padding: 12px; border-bottom: 2px solid gold;">
+                    <th onclick="sortTable(0)" style="cursor:pointer; padding: 12px; border-bottom: 2px solid var(--primary-color);">
                         Mois <span id="arrow0">↕</span>
                     </th>
-                    <th onclick="sortTable(1)" style="cursor:pointer; padding: 12px; border-bottom: 2px solid gold;">
+                    <th onclick="sortTable(1)" style="cursor:pointer; padding: 12px; border-bottom: 2px solid var(--primary-color);">
                         Page visitée <span id="arrow1">↕</span>
                     </th>
-                    <th onclick="sortTable(2)" style="cursor:pointer; padding: 12px; border-bottom: 2px solid gold;">
+                    <th onclick="sortTable(2)" style="cursor:pointer; padding: 12px; border-bottom: 2px solid var(--primary-color);">
                         Nombre de visites <span id="arrow2">↕</span>
                     </th>
                 </tr>
@@ -154,7 +154,7 @@ function updateSortIcons(columnIndex, direction) {
                     echo "<td style='padding: 10px; border-bottom: 1px solid #444;'>$mois</td>";
                     echo "<td style='padding: 10px; border-bottom: 1px solid #444;'><code>$page</code></td>";
                     echo "<td style='padding: 10px; border-bottom: 1px solid #444; text-align: center;'>
-                            <span style='background: gold; color: black; padding: 2px 8px; border-radius: 10px; font-weight: bold;'>$visites</span>
+                            <span style='background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 10px; font-weight: bold;'>$visites</span>
                         </td>";
                     echo "</tr>";
                 }

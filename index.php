@@ -109,6 +109,17 @@
              <div class="lfdj-title-icon"><i class="fa-solid fa-location-pin"></i></div>
     </div>
 
+<div class="lfdj-bloc-text">
+  <iframe 
+    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fp%2FLa-Forge-des-Joueurs-61553294218921&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+    style="border:none; overflow:hidden; width:100%; max-width:500px; height:700px;" 
+    scrolling="no" 
+    frameborder="0" 
+    allowfullscreen="true" 
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+  </iframe>
+</div>
+
 <div class="lfdj-map">
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3083.2177231923097!2d-1.1964292235779825!3d48.11858477124132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480928892bd0d139%3A0x15ba75f785d02f44!2sMille%20Club%20du%20Ch%C3%AAne!5e1!3m2!1sfr!2sfr!4v1767108851296!5m2!1sfr!2sfr"

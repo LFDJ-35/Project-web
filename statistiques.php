@@ -3,20 +3,10 @@
 <!--[if (gte IE 9)|!(IE)]><html lang="fr" class="no-js"><![endif]-->
 
 <head>
-<title>Statistiques | La Forge des Joueurs</title>
-<meta name="description" content="Statistiques des visites par mois et par pages" />
+<title>Statistiques du site – La Forge des Joueurs</title>
+<meta name="description" content="Consultez les statistiques de fréquentation du site de La Forge des Joueurs : visites par page et par mois." />
 <?php require('importation-php/regles.php'); ?>
-<style>
-    .lfdj-maincontainer {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh; 
-    }
-
-    .lfdj-bloc-text {
-        flex: 1;
-    }
-</style>
+<meta name="robots" content="noindex, nofollow">
 </head>
 
 <script>
@@ -121,22 +111,21 @@ function updateSortIcons(columnIndex, direction) {
     </div>
 
     <div class="lfdj-bloc-text">
-        <div style="margin-bottom: 20px; text-align: center;">
-            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Rechercher un mois ou une page..." 
-                style="padding: 10px; width: 60%; border-radius: 5px; border: 1px solid #ccc;">
+        <div class="lfdj-kaz-research2">
+            <input class="lfdj-kaz-research" type="text" id="searchInput" onkeyup="filterTable()" placeholder="Rechercher un mois ou une page...">
         </div>
 
-        <table id="statsTable" style="width: 100%; border-collapse: collapse; color: white;">
+        <table id="statsTable">
             <thead>
-                <tr style="background-color: rgba(255,255,255,0.1);">
-                    <th onclick="sortTable(0)" style="cursor:pointer; padding: 12px; border-bottom: 2px solid var(--primary-color);">
-                        Mois <span id="arrow0">↕</span>
+                <tr class="lfdj-tr1">
+                    <th class="lfdj-th1" onclick="sortTable(0)">
+                        Mois<span id="arrow0">↕</span>
                     </th>
-                    <th onclick="sortTable(1)" style="cursor:pointer; padding: 12px; border-bottom: 2px solid var(--primary-color);">
-                        Page visitée <span id="arrow1">↕</span>
+                    <th class="lfdj-th1" onclick="sortTable(1)">
+                        Page<span id="arrow1">↕</span>
                     </th>
-                    <th onclick="sortTable(2)" style="cursor:pointer; padding: 12px; border-bottom: 2px solid var(--primary-color);">
-                        Nombre de visites <span id="arrow2">↕</span>
+                    <th class="lfdj-th1" onclick="sortTable(2)">
+                        Nmb. visites<span id="arrow2">↕</span>
                     </th>
                 </tr>
             </thead>
@@ -151,10 +140,10 @@ function updateSortIcons(columnIndex, direction) {
                     $page = $data[1] ?? 'Inconnu';
                     
                     echo "<tr>";
-                    echo "<td style='padding: 10px; border-bottom: 1px solid #444;'>$mois</td>";
-                    echo "<td style='padding: 10px; border-bottom: 1px solid #444;'><code>$page</code></td>";
-                    echo "<td style='padding: 10px; border-bottom: 1px solid #444; text-align: center;'>
-                            <span style='background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 10px; font-weight: bold;'>$visites</span>
+                    echo "<td class='lfdj-td2'>$mois</td>";
+                    echo "<td class='lfdj-td2'><code>$page</code></td>";
+                    echo "<td class='lfdj-td2'>
+                            <span>$visites</span>
                         </td>";
                     echo "</tr>";
                 }

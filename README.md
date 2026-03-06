@@ -8,6 +8,8 @@ Contributeur principal du site: https://spirito.fr/
 
 # Contribuer au développement
 
+Tout le monde peut contribuer au développement du site, en suivant le [guide de contribution](CONTRIBUTING.md).
+
 ## Linux
 Prérequis: installer [docker-compose pour Linux](https://docs.docker.com/desktop/setup/install/windows-install/)
 

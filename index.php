@@ -104,19 +104,18 @@
 <iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/la-forge-des-joueurs/adhesions/adhesion-2026-1/widget" style="width: 100%; border: none;" onload="window.addEventListener( 'message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget'); haWidgetElement.height = dataHeight + 'px'; } )" ></iframe>
 </div>
 
-             <div class="lfdj-divtitle">
-             <h4>Mille Club du Chêne, à Vitré</h4>
-             <div class="lfdj-title-icon"><i class="fa-solid fa-location-pin"></i></div>
-    </div>
+  <div class="lfdj-divtitle">
+    <h4>Mille Club du Chêne, à Vitré</h4>
+    <h2>Carte</h2>
+    <div class="lfdj-title-icon"><i class="fa-solid fa-location-pin"></i></div>
+  </div>
 
-<div class="lfdj-map">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3083.2177231923097!2d-1.1964292235779825!3d48.11858477124132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480928892bd0d139%3A0x15ba75f785d02f44!2sMille%20Club%20du%20Ch%C3%AAne!5e1!3m2!1sfr!2sfr!4v1767108851296!5m2!1sfr!2sfr"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    allowfullscreen>
-  </iframe>
-</div>
+  <div class="lfdj-map" style="padding-bottom: 80px;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2664.195393273187!2d-1.1964292232479427!3d48.11858477124119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480928892bd0d139%3A0x15ba75f785d02f44!2sMille%20Club%20du%20Ch%C3%AAne!5e0!3m2!1sfr!2sfr!4v1709720000000!5m2!1sfr!2sfr"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
 
 <?php require('importation-php/footer.php'); ?>
 </body>

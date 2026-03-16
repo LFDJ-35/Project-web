@@ -82,22 +82,26 @@
   </p>
 </div>
 
+<?php require_once __DIR__ . '/importation-php/calendrier.php'; ?>
 
 <div class="lfdj-calendar">
   <ul class="lfdj-calendar-list">
-    <li><span>Janvier</span><strong>10 & 24</strong></li>
-    <li><span>Février</span><strong>14 & 21</strong></li>
-    <li><span>Mars</span><strong>14 & 21</strong></li>
-    <li><span>Avril</span><strong>11 & 18</strong></li>
-    <li><span>Mai</span><strong>09 & 16</strong></li>
-    <li><span>Juin</span><strong>13 & 20</strong></li>
-    <li><span>Juillet</span><strong>11 & 18</strong></li>
-    <li><span>Août</span><strong>08 & 15</strong></li>
-    <li><span>Septembre</span><strong>12 & 26</strong></li>
-    <li><span>Octobre</span><strong>10 & 17</strong></li>
-    <li><span>Novembre</span><strong>14 & 21</strong></li>
-    <li><span>Décembre</span><strong>12 & 19</strong></li>
+    <?php foreach ($months as $monthNumber => $monthName): ?>
+      <?php if (!empty($grouped[$monthNumber])): ?>
+        <li>
+          <span><?= htmlspecialchars($monthName) ?></span>
+          <strong><?= htmlspecialchars(implode(' & ', $grouped[$monthNumber])) ?></strong>
+        </li>
+      <?php endif; ?>
+    <?php endforeach; ?>
   </ul>
+</div>
+
+<div class="lfdj-calendar-download">
+  <a href="/data/sessions.ics.php" class="lfdj-calendar-link">
+    <i class="fa-solid fa-download" aria-hidden="true"></i>
+    Exporter le calendrier
+  </a>
 </div>
 
  <div class="lfdj-bloc-text">

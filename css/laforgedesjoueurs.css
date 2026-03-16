@@ -787,3 +787,84 @@ img{
     margin-top: 1rem;
     display:none!important;
 }
+
+/* ========================== CARROUSEL PHOTOS ========================== */
+
+/* ── Wrapper : cache ce qui déborde ── */
+.lfdj-carousel-wrap {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 0 60px 0;
+    position: relative;
+}
+
+/* Fondu sur les bords gauche/droit */
+.lfdj-carousel-wrap::before,
+.lfdj-carousel-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+.lfdj-carousel-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, var(--background), transparent);
+}
+.lfdj-carousel-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, var(--background), transparent);
+}
+
+/* ── Track : ligne horizontale qui défile ── */
+.lfdj-carousel-track {
+    display: flex;
+    gap: 14px;
+    width: max-content;
+    animation: lfdj-scroll 300s linear infinite;
+}
+
+/* Pause au survol */
+.lfdj-carousel-wrap:hover .lfdj-carousel-track {
+    animation-play-state: paused;
+}
+
+/* ── Chaque image ── */
+.lfdj-carousel-item {
+    flex-shrink: 0;
+    width: 260px;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.lfdj-carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.lfdj-carousel-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ── Animation défilement ── */
+@keyframes lfdj-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* -50% car liste doublée */
+}
+
+/* ── Mobile : images un peu plus petites ── */
+@media (max-width: 600px) {
+    .lfdj-carousel-item {
+        width: 180px;
+        height: 130px;
+    }
+    .lfdj-carousel-track {
+        animation-duration: 300s;
+        }
+}

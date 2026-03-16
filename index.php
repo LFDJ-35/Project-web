@@ -33,6 +33,7 @@
   </p>
 </div>
 
+ <?php require('importation-php/caroussel.php'); ?>
 
             <div class="lfdj-divtitle">
              <h4> Forgez vos dés, affûtez vos pinceaux</h4>
@@ -51,7 +52,7 @@
 
 <div class="ldfj-socials custom-social-icons">
 
-  <a href="mailto:laforgedesjoueurs@gmail.com" class="mail">
+  <a href="/cdn-cgi/l/email-protection#325e53545d405557565741585d475747404172555f535b5e1c515d5f" class="mail">
     <i class="fa-solid fa-envelope"></i>
   </a>
     <a href="./discord" class="discord">

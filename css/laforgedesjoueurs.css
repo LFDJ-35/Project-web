@@ -568,12 +568,20 @@ color: white !important;
 }
 
 /* ========================== MAP ========================== */
-.lfdj-map{
-  justify-self: center;
-  width: 70%;
-  height: 500px;
-  overflow: hidden;
-  border-radius: 8px;
+.lfdj-map-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 8px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid var(--primary-color);
+}
+
+#lfdj-map {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
+    background: #1a1a1a;
 }
 
 .lfdj-map iframe{
@@ -582,6 +590,16 @@ color: white !important;
   border: 0;
   display: block;
   border-radius: 8px;
+}
+
+.leaflet-popup-content-wrapper {
+    background: #222 !important;
+    color: gold !important;
+    border: 1px solid gold;
+}
+
+.leaflet-popup-tip {
+    background: #222 !important;
 }
 
 /* ========================== HERO / IMAGES ========================== */

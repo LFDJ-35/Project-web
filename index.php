@@ -7,6 +7,7 @@
 <title>La Forge des Joueurs – Association de jeux à Vitré</title>
 <meta name="description" content="La Forge des Joueurs est une association vitréenne dédiée aux jeux de rôle, jeux de figurines, jeux de société et cartes. Rejoignez-nous à Vitré." />
 <?php require('importation-php/regles.php'); ?>
+<style>@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');</style>
 </head>
 
 <body class="lfdj-maincontainer">
@@ -105,17 +106,45 @@
 </div>
 
   <div class="lfdj-divtitle">
-    <h4>Mille Club du Chêne, à Vitré</h4>
     <h2>Carte</h2>
     <div class="lfdj-title-icon"><i class="fa-solid fa-location-pin"></i></div>
   </div>
 
-  <div class="lfdj-map" style="padding-bottom: 80px;">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2664.195393273187!2d-1.1964292232479427!3d48.11858477124119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480928892bd0d139%3A0x15ba75f785d02f44!2sMille%20Club%20du%20Ch%C3%AAne!5e0!3m2!1sfr!2sfr!4v1709720000000!5m2!1sfr!2sfr"
-      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+  <div class="lfdj-bloc-text" style="padding-bottom: 40px;">
+    <p style="text-align: center; margin-bottom: 20px;">
+        Nous vous accueillons au <strong>Mille Club du Chêne</strong> (Rond-point des Chênes, 35500 Vitré).
+    </p>
+    
+    <div class="lfdj-map-container">
+        <div id="lfdj-map"></div>
+    </div>
   </div>
 
 <?php require('importation-php/footer.php'); ?>
 </body>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const lat = 48.1182;
+    const lon = -1.2140;
+
+    var map = L.map('lfdj-map', {
+        center: [lat, lon],
+        zoom: 15,
+        scrollWheelZoom: false 
+    });
+
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20,
+        attribution: '&copy; Stadia Maps, &copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    var marker = L.marker([lat, lon]).addTo(map);
+    
+    marker.bindPopup("<b>La Forge des Joueurs</b><br>On vous attend !").openPopup();
+
+    setTimeout(function(){ map.invalidateSize();}, 500);
+});
+</script>

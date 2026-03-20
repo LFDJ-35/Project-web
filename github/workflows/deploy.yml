@@ -1,0 +1,33 @@
+# Ajouter les secrets dans les paramètres du dépôt GitHub : SSH_HOST, SSH_USER, SSH_KEY, et SSH_PATH (le dossier sur ton VPS, par exemple /var/www/html/).
+# SSH_HOST : L'adresse IP du VPS (ex: 123.45.67.89).
+# SSH_USER : Nom d'utilisateur SSH. Généralement root, debian ou ubuntu selon la configuration du VPS.
+# SSH_PATH : Le chemin de destination sur le serveur, généralement /var/www/html/.
+# SSH_KEY : Le contenu de la clé privée.
+
+# Je ne suis pas encore complètement a jour sur tout ca, donc c'est plus un test après des recherches qu'autre chose mais ca devrait marcher
+
+name: Deploy PHP Website to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Sync files to VPS
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: "/" 
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          TARGET: ${{ secrets.SSH_PATH }}
+          EXCLUDE: "/.github/, /.git/, /docker-compose.yaml"

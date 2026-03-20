@@ -9,143 +9,47 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 
-<script>
-function filterTable() {
-    let input = document.getElementById("searchInput");
-    let filter = input.value.toUpperCase();
-    let table = document.getElementById("statsTable");
-    let tr = table.getElementsByTagName("tr");
-
-    for (let i = 1; i < tr.length; i++) {
-        let tdMois = tr[i].getElementsByTagName("td")[0];
-        let tdPage = tr[i].getElementsByTagName("td")[1];
-        if (tdMois || tdPage) {
-            let txtValue = (tdMois.textContent || tdMois.innerText) + (tdPage.textContent || tdPage.innerText);
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-}
-
-function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("statsTable");
-    switching = true;
-    dir = "asc"; 
-
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-
-            let valX = x.innerText.toLowerCase();
-            let valY = y.innerText.toLowerCase();
-
-            if (n === 2) {
-                valX = parseInt(x.innerText) || 0;
-                valY = parseInt(y.innerText) || 0;
-            }
-
-            if (dir == "asc") {
-                if (valX > valY) {
-                    shouldSwitch = true;
-                    break;
-                }
-            } else if (dir == "desc") {
-                if (valX < valY) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-        }
-
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchcount++;
-        } else {
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-            }
-        }
-    }
-
-    updateSortIcons(n, dir);
-}
-
-function updateSortIcons(columnIndex, direction) {
-    const arrowIds = ["arrow0", "arrow1", "arrow2"];
-    
-    arrowIds.forEach((id, index) => {
-        const arrowSpan = document.getElementById(id);
-        if (arrowSpan) {
-            if (index === columnIndex) {
-                arrowSpan.innerHTML = (direction === "asc") ? " ▲" : " ▼";
-                arrowSpan.style.color = "gold";
-            } else {
-                arrowSpan.innerHTML = " ↕";
-                arrowSpan.style.color = "white";
-            }
-        }
-    });
-}
-</script>
-
 <body class="lfdj-maincontainer">
 
     <?php require('importation-php/menu.php'); ?>
 
-    <div class="lfdj-divtitle">
-        <h2>Statistiques de visites par mois et par page :</h2>
-        <div class="lfdj-title-icon">
-            <i class="fa-solid fa-book-open"></i>
-        </div>
-    </div>
-
     <div class="lfdj-bloc-text">
-        <div class="lfdj-kaz-research2">
-            <input class="lfdj-kaz-research" type="text" id="searchInput" onkeyup="filterTable()" placeholder="Rechercher un mois ou une page...">
-        </div>
-
-        <table id="statsTable">
+        <h2 style="color: var(--primary-color); text-align: center;">Parcours Utilisateurs</h2>
+        
+        <table id="statsTable" style="width: 100%; border-collapse: collapse; color: white; border: 1px solid #333;">
             <thead>
-                <tr class="lfdj-tr1">
-                    <th class="lfdj-th1" onclick="sortTable(0)">
-                        Mois<span id="arrow0">↕</span>
-                    </th>
-                    <th class="lfdj-th1" onclick="sortTable(1)">
-                        Page<span id="arrow1">↕</span>
-                    </th>
-                    <th class="lfdj-th1" onclick="sortTable(2)">
-                        Nmb. visites<span id="arrow2">↕</span>
-                    </th>
+                <tr style="background-color: rgba(255,255,255,0.05);">
+                    <th style="padding: 12px; border: 1px solid #333; color: white;">Cookie</th>
+                    <th style="padding: 12px; border: 1px solid #333; color: white;">Date de visite</th>
+                    <th style="padding: 12px; border: 1px solid #333; color: white;">Page</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $stats = file(__DIR__ . '/stats_visites.txt', FILE_IGNORE_NEW_LINES);
-                $compteur = array_count_values($stats);
-
-                foreach ($compteur as $ligne => $visites) {
-                    $data = explode(" | ", $ligne);
-                    $mois = $data[0] ?? 'Inconnu';
-                    $page = $data[1] ?? 'Inconnu';
+                $cheminFichier = __DIR__ . '/stats_parcours.csv';
+                
+                if (file_exists($cheminFichier)) {
+                    $lignes = file($cheminFichier, FILE_IGNORE_NEW_LINES);
                     
-                    echo "<tr>";
-                    echo "<td class='lfdj-td2'>$mois</td>";
-                    echo "<td class='lfdj-td2'><code>$page</code></td>";
-                    echo "<td class='lfdj-td2'>
-                            <span>$visites</span>
-                        </td>";
-                    echo "</tr>";
+                    $lignes = array_reverse($lignes);
+
+                    foreach ($lignes as $ligne) {
+                        $data = str_getcsv($ligne, ",", '"', "\\");
+                        
+                        if(count($data) < 3) continue;
+
+                        $uuid = $data[0];
+                        $dateVisite = $data[1]; 
+                        $page = $data[2];
+
+                        echo "<tr>";
+                        echo "<td style='padding: 12px; border: 1px solid #333; text-align: center;'><code>$uuid</code></td>";
+                        echo "<td style='padding: 12px; border: 1px solid #333; text-align: center;'>$dateVisite</td>";
+                        echo "<td style='padding: 12px; border: 1px solid #333; text-align: center; color: #4db8ff;'>$page</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='3' style='padding: 20px; text-align: center;'>Aucune donnée disponible.</td></tr>";
                 }
                 ?>
             </tbody>

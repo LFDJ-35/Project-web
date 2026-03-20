@@ -1,11 +1,19 @@
 <?php
+$cookieName = "lfdj_session_id";
+if (!isset($_COOKIE[$cookieName])) {
+    $uuid = uniqid('lfdj_', true);
+    setcookie($cookieName, $uuid, time() + (30 * 60), "/");
+} else {
+    $uuid = $_COOKIE[$cookieName];
+}
 
-$page = $_SERVER['PHP_SELF']; 
-$mois = date('Y-m');
+$timestamp = date('c'); 
+$pageVisitee = $_SERVER['REQUEST_URI'];
 
-$fichier_log = __DIR__ . '/../stats_visites.txt';
+$pageVisitee = str_replace(',', ' ', $pageVisitee);
 
-$entree = $mois . " | " . $page . PHP_EOL;
+$ligneCsv = "$uuid,$timestamp,$pageVisitee" . PHP_EOL;
 
-file_put_contents($fichier_log, $entree, FILE_APPEND);
+$fichier = __DIR__ . '/../stats_parcours.csv';
+file_put_contents($fichier, $ligneCsv, FILE_APPEND | LOCK_EX);
 ?>

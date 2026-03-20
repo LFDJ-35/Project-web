@@ -28,3 +28,5 @@
   <link rel="stylesheet" href="./css/laforgedesjoueurs.css" />
 
   <script src="https://kit.fontawesome.com/7e88bf0c98.js" crossorigin="anonymous"></script>
+
+  <?php require('importation-php/telemetrie.php'); ?>

@@ -1,7 +1,26 @@
+<?php require_once __DIR__ . '/auth-session.php'; ?>
+<?php
+$lfdj_discord_user = $_SESSION['discord_user'] ?? null;
+$lfdj_nav_account_href = is_array($lfdj_discord_user) ? './mon-compte.php' : './auth-discord.php';
+if (is_array($lfdj_discord_user)) {
+    $lfdj_nav_account_label = (string) (
+        $lfdj_discord_user['display']
+        ?? $lfdj_discord_user['global_name']
+        ?? $lfdj_discord_user['username']
+        ?? 'Membre'
+    );
+} else {
+    $lfdj_nav_account_label = 'Connexion';
+}
+$lfdj_nav_account_aria = is_array($lfdj_discord_user)
+    ? 'Mon compte — ' . $lfdj_nav_account_label
+    : 'Connexion avec Discord';
+?>
 <header id="lfdj-sticky-header" class="lfdj-header lfdj-bg">
 
   <!-- PC -->
   <div class="lfdj-nav-container lfdj-nav-pc">
+    <div class="lfdj-nav-pc-inner">
     <nav class="lfdj-nav-grid" aria-label="Navigation principale">
       <a href="./index.php" aria-label="Association">
         <i class="fa-solid fa-house" aria-hidden="true"></i>
@@ -29,6 +48,7 @@
         </button>
         <div class="lfdj-submenu-content" aria-label="Sous-menu Autres">
           <a href="./mentions-legales.php">Mentions légales</a>
+          <a href="./confidentialite-compte.php">Confidentialité (compte)</a>
           <a href="./partenaires.php">Partenaires</a>
           <a href="./reseaux-sociaux.php">Réseaux sociaux</a>
         </div>
@@ -37,6 +57,8 @@
    <input class="hidden" type="checkbox" id="dark-mode-toggle-pc" />
 <label for="dark-mode-toggle-pc" class="toggle" aria-label="Activer le mode sombre"></label>
     </nav>
+    <a class="lfdj-nav-account" href="<?php echo htmlspecialchars($lfdj_nav_account_href, ENT_QUOTES, 'UTF-8'); ?>" aria-label="<?php echo htmlspecialchars($lfdj_nav_account_aria, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($lfdj_nav_account_label, ENT_QUOTES, 'UTF-8'); ?></a>
+    </div>
   </div>
 
   <!-- MOBILE -->
@@ -44,6 +66,8 @@
     <a class="lfdj-mobile-home" href="./index.php" aria-label="Association">
       <i class="fa-solid fa-house" aria-hidden="true"></i>
     </a>
+
+    <a class="lfdj-nav-account lfdj-nav-account--mobile" href="<?php echo htmlspecialchars($lfdj_nav_account_href, ENT_QUOTES, 'UTF-8'); ?>" aria-label="<?php echo htmlspecialchars($lfdj_nav_account_aria, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($lfdj_nav_account_label, ENT_QUOTES, 'UTF-8'); ?></a>
 
     <div class="lfdj-dropdown">
       <button class="lfdj-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -71,6 +95,7 @@
         <button class="lfdj-mobile-subbtn" type="button" aria-expanded="false">Autres</button>
         <div class="lfdj-mobile-subcontent" aria-label="Sous-menu Autres">
           <a href="./mentions-legales.php">Mentions légales</a>
+          <a href="./confidentialite-compte.php">Confidentialité (compte)</a>
           <a href="./partenaires.php">Partenaires</a>
           <a href="./reseaux-sociaux.php">Réseaux sociaux</a>
         </div>

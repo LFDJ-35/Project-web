@@ -1,4 +1,5 @@
 
+<?php require_once __DIR__ . '/importation-php/auth-session.php'; ?>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie ie8" lang="fr"><![endif]-->
 <!--[if (gte IE 9)|!(IE)]><html lang="fr" class="no-js"><![endif]-->

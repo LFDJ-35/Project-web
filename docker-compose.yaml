@@ -6,4 +6,6 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ${PWD}:/var/www/html:ro
+      # rw : enregistrement des profils dans data/profiles (connexion Discord)
+      # Utiliser « . » plutôt que ${PWD} : sous Windows, PWD peut monter un dossier vide → 403 sur /
+      - .:/var/www/html

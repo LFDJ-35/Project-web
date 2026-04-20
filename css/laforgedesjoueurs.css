@@ -90,10 +90,6 @@ a{
   font-weight: 500;
 }
 
-a:visited{
-  color: var(--secondary-color);
-}
-
 a:hover,
 a:focus{
   color: var(--hover-color);

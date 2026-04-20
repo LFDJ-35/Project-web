@@ -100,8 +100,13 @@
   </ul>
 </div>
 
- <div class="lfdj-bloc-text">
-<iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/la-forge-des-joueurs/adhesions/adhesion-2026-1/widget" style="width: 100%; border: none;" onload="window.addEventListener( 'message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget'); haWidgetElement.height = dataHeight + 'px'; } )" ></iframe>
+<div class="lfdj-bloc-text lfdj-helloasso">
+  <a href="https://www.helloasso.com/associations/la-forge-des-joueurs/adhesions/adhesion-2026-1"
+     target="_blank"
+     rel="noopener"
+     class="lfdj-submenu-btn">
+     
+     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>&nbsp;Adhérer à l'association</a>
 </div>
 
              <div class="lfdj-divtitle">

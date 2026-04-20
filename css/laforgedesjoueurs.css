@@ -90,10 +90,6 @@ a{
   font-weight: 500;
 }
 
-a:visited{
-  color: var(--secondary-color);
-}
-
 a:hover,
 a:focus{
   color: var(--hover-color);
@@ -226,6 +222,15 @@ span{
   position: relative;
   color: var(--black-color);
   margin: 8px 0 !important;
+}
+
+.lfdj-helloasso a:hover{
+  color: var(--white-color);
+}
+
+.lfdj-helloasso {
+  text-transform:uppercase!important;
+    font-weight:600;
 }
 
 .lfdj-title-icon::before,

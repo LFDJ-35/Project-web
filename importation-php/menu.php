@@ -1,3 +1,13 @@
+<?php
+require_once __DIR__ . '/profile-storage.php';
+$lfdjLogged = isset($_SESSION['discord_user']) && is_array($_SESSION['discord_user']);
+$lfdjHeaderName = $lfdjLogged ? lfdj_header_display_name() : '';
+$lfdjReqPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+if (!is_string($lfdjReqPath) || $lfdjReqPath === '') {
+    $lfdjReqPath = '/';
+}
+$lfdjLogoutUrl = './auth-logout.php?next=' . rawurlencode($lfdjReqPath);
+?>
 <header id="lfdj-sticky-header" class="lfdj-header lfdj-bg">
 
   <!-- PC -->
@@ -21,9 +31,18 @@
             <a href="./bloodbowl.php">Blood Bowl</a>
           </div>
         </div>
+        <a href="./membres.php">Membres</a>
       </div>
 
       <div class="lfdj-header-tools">
+        <div class="lfdj-header-account" aria-label="Compte membre">
+          <?php if ($lfdjLogged): ?>
+            <a class="lfdj-header-account__name" href="./mon-compte.php" title="Mon compte"><?php echo htmlspecialchars($lfdjHeaderName, ENT_QUOTES, 'UTF-8'); ?></a>
+            <a class="lfdj-header-account__off" href="<?php echo htmlspecialchars($lfdjLogoutUrl, ENT_QUOTES, 'UTF-8'); ?>" aria-label="Déconnexion" title="Déconnexion">Off</a>
+          <?php else: ?>
+            <a class="lfdj-header-account__login" href="./auth-discord.php">Se connecter</a>
+          <?php endif; ?>
+        </div>
         <input class="hidden" type="checkbox" id="dark-mode-toggle-pc" />
         <label for="dark-mode-toggle-pc" class="lfdj-theme-toggle" aria-label="Passer au mode nuit">
           <i class="fa-solid fa-sun lfdj-theme-toggle__sun" aria-hidden="true"></i>
@@ -59,10 +78,20 @@
           <a href="./roots.php">Roots</a>
           <a href="./bloodbowl.php">Blood Bowl</a>
         </div>
+
+        <a href="./membres.php">Membres</a>
       </div>
     </div>
 
     <div class="lfdj-header-tools lfdj-header-tools--mobile">
+      <div class="lfdj-header-account" aria-label="Compte membre">
+        <?php if ($lfdjLogged): ?>
+          <a class="lfdj-header-account__name" href="./mon-compte.php" title="Mon compte"><?php echo htmlspecialchars($lfdjHeaderName, ENT_QUOTES, 'UTF-8'); ?></a>
+          <a class="lfdj-header-account__off" href="<?php echo htmlspecialchars($lfdjLogoutUrl, ENT_QUOTES, 'UTF-8'); ?>" aria-label="Déconnexion" title="Déconnexion">Off</a>
+        <?php else: ?>
+          <a class="lfdj-header-account__login" href="./auth-discord.php">Se connecter</a>
+        <?php endif; ?>
+      </div>
       <input class="hidden" type="checkbox" id="dark-mode-toggle-mobile" />
       <label for="dark-mode-toggle-mobile" class="lfdj-theme-toggle" aria-label="Passer au mode nuit">
         <i class="fa-solid fa-sun lfdj-theme-toggle__sun" aria-hidden="true"></i>

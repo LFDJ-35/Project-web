@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/importation-php/auth-session.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

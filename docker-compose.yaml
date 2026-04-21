@@ -1,9 +1,13 @@
-version: "3.8"
-
 services:
   web:
-    image: php:8.4.18-apache-trixie
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: laforgedesjoueurs-web:php8.4-apache
     ports:
       - 8080:80
     volumes:
-      - ${PWD}:/var/www/html:ro
+      - .:/var/www/html
+      - ./docker/apache-site.conf:/etc/apache2/sites-available/000-default.conf:ro
+    command: >
+      bash -c "a2enmod rewrite >/dev/null 2>&1 && apache2-foreground"

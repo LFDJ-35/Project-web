@@ -8,11 +8,13 @@ ErrorDocument 404 /404.php
   RewriteEngine On
   RewriteBase /
 
-  # --- Forcer HTTPS ---
+  # --- Forcer HTTPS (sauf en local : sans ça localhost:8080 ne charge pas les pages) ---
   RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} !^localhost [NC]
+  RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # --- Rediriger www vers non-www ---
+  # --- Rediriger www vers non-www (production uniquement) ---
   RewriteCond %{HTTP_HOST} ^www\.laforgedesjoueurs\.fr [NC]
   RewriteRule ^ https://laforgedesjoueurs.fr%{REQUEST_URI} [L,R=301]
 

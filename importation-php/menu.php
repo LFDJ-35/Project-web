@@ -52,48 +52,53 @@ $lfdjLogoutUrl = './auth-logout.php?next=' . rawurlencode($lfdjReqPath);
     </nav>
   </div>
 
-  <!-- MOBILE -->
+  <!-- MOBILE : gauche accueil + compte (icône user), droite menu + thème (même taille que le burger) -->
   <div class="lfdj-nav-container lfdj-nav-mobile">
-    <a class="lfdj-mobile-home" href="./index.php" aria-label="Association">
-      <i class="fa-solid fa-house" aria-hidden="true"></i>
-    </a>
-
-    <div class="lfdj-dropdown">
-      <button class="lfdj-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-      </button>
-
-      <div class="lfdj-dropdown-content" aria-label="Navigation mobile">
-        <a href="./index.php" aria-label="Association">
-          <i class="fa-solid fa-house" aria-hidden="true"></i>
-        </a>
-
-        <a href="./jdf.php">Figurines</a>
-        <a href="./jdr.php">Jeu de Rôle</a>
-        <a href="./jdp.php">Sur Plateau</a>
-        <a href="./jdc.php">Carte à collectionner</a>
-
-        <button class="lfdj-mobile-subbtn" type="button" aria-expanded="false">Tournois</button>
-        <div class="lfdj-mobile-subcontent" aria-label="Sous-menu Tournois">
-          <a href="./roots.php">Roots</a>
-          <a href="./bloodbowl.php">Blood Bowl</a>
-        </div>
-
-        <a href="./membres.php">Membres</a>
+    <div class="lfdj-mobile-bar-left">
+      <a class="lfdj-mobile-home" href="./index.php" aria-label="Association">
+        <i class="fa-solid fa-house" aria-hidden="true"></i>
+      </a>
+      <div class="lfdj-mobile-account-slot" aria-label="Compte membre">
+        <?php if ($lfdjLogged): ?>
+          <a class="lfdj-mobile-user-icon" href="./mon-compte.php" title="Mon compte" aria-label="Mon compte">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+          </a>
+          <a class="lfdj-header-account__off lfdj-mobile-account-off" href="<?php echo htmlspecialchars($lfdjLogoutUrl, ENT_QUOTES, 'UTF-8'); ?>" aria-label="Déconnexion" title="Déconnexion">Off</a>
+        <?php else: ?>
+          <a class="lfdj-mobile-user-icon" href="./auth-discord.php" aria-label="Se connecter" title="Se connecter">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+          </a>
+        <?php endif; ?>
       </div>
     </div>
 
-    <div class="lfdj-header-tools lfdj-header-tools--mobile">
-      <div class="lfdj-header-account" aria-label="Compte membre">
-        <?php if ($lfdjLogged): ?>
-          <a class="lfdj-header-account__name" href="./mon-compte.php" title="Mon compte"><?php echo htmlspecialchars($lfdjHeaderName, ENT_QUOTES, 'UTF-8'); ?></a>
-          <a class="lfdj-header-account__off" href="<?php echo htmlspecialchars($lfdjLogoutUrl, ENT_QUOTES, 'UTF-8'); ?>" aria-label="Déconnexion" title="Déconnexion">Off</a>
-        <?php else: ?>
-          <a class="lfdj-header-account__login" href="./auth-discord.php">Se connecter</a>
-        <?php endif; ?>
+    <div class="lfdj-mobile-bar-right">
+      <div class="lfdj-dropdown">
+        <button class="lfdj-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <div class="lfdj-dropdown-content" aria-label="Navigation mobile">
+          <a href="./index.php" aria-label="Association">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+          </a>
+
+          <a href="./jdf.php">Figurines</a>
+          <a href="./jdr.php">Jeu de Rôle</a>
+          <a href="./jdp.php">Sur Plateau</a>
+          <a href="./jdc.php">Carte à collectionner</a>
+
+          <button class="lfdj-mobile-subbtn" type="button" aria-expanded="false">Tournois</button>
+          <div class="lfdj-mobile-subcontent" aria-label="Sous-menu Tournois">
+            <a href="./roots.php">Roots</a>
+            <a href="./bloodbowl.php">Blood Bowl</a>
+          </div>
+
+          <a href="./membres.php">Membres</a>
+        </div>
       </div>
       <input class="hidden" type="checkbox" id="dark-mode-toggle-mobile" />
-      <label for="dark-mode-toggle-mobile" class="lfdj-theme-toggle" aria-label="Passer au mode nuit">
+      <label for="dark-mode-toggle-mobile" class="lfdj-theme-toggle lfdj-theme-toggle--mobile-header" aria-label="Passer au mode nuit">
         <i class="fa-solid fa-sun lfdj-theme-toggle__sun" aria-hidden="true"></i>
         <i class="fa-solid fa-moon lfdj-theme-toggle__moon" aria-hidden="true"></i>
       </label>

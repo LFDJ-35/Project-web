@@ -42,23 +42,11 @@ function lfdj_discord_exchange_code(string $code): array
         'code' => $code,
         'redirect_uri' => $c['redirect_uri'],
     ]);
-
-    $ch = curl_init('https://discord.com/api/oauth2/token');
-    curl_setopt_array($ch, [
-        CURLOPT_POST => true,
-        CURLOPT_POSTFIELDS => $body,
-        CURLOPT_HTTPHEADER => ['Content-Type: application/x-www-form-urlencoded'],
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT => 20,
-    ]);
-    $raw = curl_exec($ch);
-    $err = curl_error($ch);
-    $code_http = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-
-    if ($raw === false) {
-        throw new RuntimeException('Discord token: ' . $err);
-    }
+    [$code_http, $raw] = lfdj_http_post_form(
+        'https://discord.com/api/oauth2/token',
+        $body,
+        ['Content-Type: application/x-www-form-urlencoded']
+    );
     $data = json_decode($raw, true);
     if (!is_array($data) || empty($data['access_token'])) {
         $msg = is_array($data) && isset($data['error_description']) ? (string) $data['error_description'] : $raw;
@@ -70,20 +58,10 @@ function lfdj_discord_exchange_code(string $code): array
 /** @return array{id:string, username:string, discriminator:string, global_name?:string|null, avatar?:string|null, email?:string|null} */
 function lfdj_discord_fetch_user(string $accessToken): array
 {
-    $ch = curl_init('https://discord.com/api/users/@me');
-    curl_setopt_array($ch, [
-        CURLOPT_HTTPHEADER => ['Authorization: Bearer ' . $accessToken],
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT => 20,
-    ]);
-    $raw = curl_exec($ch);
-    $err = curl_error($ch);
-    $code_http = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-
-    if ($raw === false) {
-        throw new RuntimeException('Discord @me: ' . $err);
-    }
+    [$code_http, $raw] = lfdj_http_get(
+        'https://discord.com/api/users/@me',
+        ['Authorization: Bearer ' . $accessToken]
+    );
     $data = json_decode($raw, true);
     if (!is_array($data) || empty($data['id'])) {
         throw new RuntimeException('Discord @me HTTP ' . $code_http . ': ' . $raw);
@@ -94,4 +72,102 @@ function lfdj_discord_fetch_user(string $accessToken): array
 function lfdj_random_state(int $bytes = 16): string
 {
     return bin2hex(random_bytes($bytes));
+}
+
+/**
+ * @param list<string> $headers
+ * @return array{0:int,1:string}
+ */
+function lfdj_http_post_form(string $url, string $body, array $headers = []): array
+{
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $body,
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 20,
+        ]);
+        $raw = curl_exec($ch);
+        $err = curl_error($ch);
+        $code_http = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($raw === false) {
+            throw new RuntimeException('HTTP POST error: ' . $err);
+        }
+
+        return [$code_http, (string) $raw];
+    }
+
+    $ctx = stream_context_create([
+        'http' => [
+            'method' => 'POST',
+            'header' => implode("\r\n", $headers),
+            'content' => $body,
+            'timeout' => 20,
+            'ignore_errors' => true,
+        ],
+    ]);
+    $raw = @file_get_contents($url, false, $ctx);
+    if ($raw === false) {
+        throw new RuntimeException('HTTP POST error: file_get_contents failed');
+    }
+
+    return [lfdj_http_status_from_headers($http_response_header ?? []), $raw];
+}
+
+/**
+ * @param list<string> $headers
+ * @return array{0:int,1:string}
+ */
+function lfdj_http_get(string $url, array $headers = []): array
+{
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 20,
+        ]);
+        $raw = curl_exec($ch);
+        $err = curl_error($ch);
+        $code_http = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($raw === false) {
+            throw new RuntimeException('HTTP GET error: ' . $err);
+        }
+
+        return [$code_http, (string) $raw];
+    }
+
+    $ctx = stream_context_create([
+        'http' => [
+            'method' => 'GET',
+            'header' => implode("\r\n", $headers),
+            'timeout' => 20,
+            'ignore_errors' => true,
+        ],
+    ]);
+    $raw = @file_get_contents($url, false, $ctx);
+    if ($raw === false) {
+        throw new RuntimeException('HTTP GET error: file_get_contents failed');
+    }
+
+    return [lfdj_http_status_from_headers($http_response_header ?? []), $raw];
+}
+
+/**
+ * @param array<int,string> $headers
+ */
+function lfdj_http_status_from_headers(array $headers): int
+{
+    foreach ($headers as $line) {
+        if (preg_match('/^HTTP\/\S+\s+(\d{3})\b/', $line, $m) === 1) {
+            return (int) $m[1];
+        }
+    }
+    return 0;
 }

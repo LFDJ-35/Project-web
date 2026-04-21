@@ -29,7 +29,10 @@ try {
     $token = lfdj_discord_exchange_code($code);
     $user = lfdj_discord_fetch_user($token['access_token']);
 } catch (Throwable $e) {
-    $_SESSION['auth_flash_error'] = 'Échec de la connexion Discord. Vérifiez l’URL de callback et le secret OAuth dans le portail développeur.';
+    $reason = trim($e->getMessage());
+    $_SESSION['auth_flash_error'] = 'Échec de la connexion Discord.'
+        . ($reason !== '' ? ' Détail: ' . $reason : '')
+        . ' Vérifiez l’URL de callback et le secret OAuth dans le portail développeur.';
     header('Location: /mon-compte.php', true, 302);
     exit;
 }

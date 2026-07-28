@@ -133,10 +133,5 @@
 
   </div>
 
-  <div class="lfdj-divtitle">
-    <h4>Mille Club du Chêne, à Vitré</h4>
-    <div class="lfdj-title-icon"><i class="fa-solid fa-location-pin"></i></div>
-  </div>
-
   <?php require('importation-php/footer.php'); ?>
 </body>

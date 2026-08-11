@@ -792,3 +792,147 @@ img{
     margin-top: 1rem;
     display:none!important;
 }
+
+ /* ── Trombinoscope grid ── */
+        .trombi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 40px auto 60px auto;
+            padding: 0 5%;
+        }
+
+        /* ── Single card ── */
+        .member-card {
+            background-color: var(--background);
+            border: 1px solid rgba(200, 164, 77, 0.25);
+            border-radius: 12px;
+            padding: 24px 16px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(200, 164, 77, 0.18);
+        }
+
+        /* ── Slot vide ── */
+        .member-card.slot-empty {
+            border-style: dashed;
+            border-color: rgba(200, 164, 77, 0.2);
+            opacity: 0.45;
+        }
+
+        .member-card.slot-empty:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* ── Avatar ── */
+        .member-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .member-avatar-empty {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: rgba(200, 164, 77, 0.12);
+            border: 3px dashed rgba(200, 164, 77, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(200, 164, 77, 0.4);
+            font-size: 28px;
+        }
+
+        /* ── Pseudo ── */
+        .member-name {
+            font-family: var(--font-secondary);
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--black-color);
+            text-transform: none;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .member-name-empty {
+            font-family: var(--font-third);
+            font-size: 13px;
+            color: rgba(141, 141, 141, 0.6);
+            font-style: italic;
+        }
+
+        /* ── Séparateur ── */
+        .member-card hr {
+            width: 100%;
+            border: none;
+            border-top: 1px solid rgba(200, 164, 77, 0.2);
+            margin: 2px 0;
+        }
+
+        /* ── Tags communs ── */
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .tag {
+            font-family: var(--font-third);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 9px;
+            border-radius: 20px;
+            background-color: rgba(200, 164, 77, 0.12);
+            color: var(--black-color);
+            line-height: 1.4;
+        }
+
+        /* Rôles spéciaux */
+        .tag-president {
+            background-color: var(--primary-color);
+            color: #171717;
+            font-weight: 700;
+        }
+
+        .tag-bureau {
+            background-color: var(--secondary-color);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .tag-mj {
+            background-color: rgba(142, 83, 58, 0.15);
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .trombi-grid {
+                grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+                gap: 16px;
+                padding: 0 4%;
+            }
+        }
+
+        /* ── Titre de section ── */
+        .trombi-section-title {
+            text-align: center;
+            margin: 60px auto 0 auto;
+            padding: 0 5%;
+        }

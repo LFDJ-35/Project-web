@@ -3,14 +3,29 @@
 <!--[if (gte IE 9)|!(IE)]><html lang="fr" class="no-js"><![endif]-->
 
 <head>
-<title>Mentions légales | La Forge des Joueurs</title>
-<meta name="description" content="Mentions légales du site laforgedesjoueurs.fr, association La Forge des Joueurs, située à Vitré." />
+  <title>Mentions légales | La Forge des Joueurs</title>
+  <meta name="description" content="Mentions légales du site laforgedesjoueurs.fr, association La Forge des Joueurs, située à Vitré." />
   <?php require('importation-php/regles.php'); ?>
 </head>
 
 <body class="lfdj-maincontainer">
 
   <?php require('importation-php/menu.php'); ?>
+
+  <section class="lfdj-divtitle">
+    <h2>Documents Légaux</h2>
+    <div class="lfdj-title-icon">
+      <i class="fa-solid fa-folder-open"></i>
+    </div>
+
+    <div class="lfdj-bloc-text">
+      <ul style="list-style-type: none">
+        <li>Pour tous les membres : <a href="/documents/reglement_interieur.pdf">Règlement Intérieur</a> et <a href="/documents/droit_image.pdf">Droit à l'image</a></li>
+        <li>Joueurs mineurs : <a href="/documents/decharge_parentale.pdf">Décharge parentale</a></li>
+        <li>Pour les curieux : <a href="/documents/statuts_2026.pdf">Nos statuts</a></li>
+      </ul>
+    </div>
+  </section>
 
   <div class="lfdj-divtitle">
     <h4>Transparence & informations obligatoires</h4>
@@ -91,4 +106,5 @@
 
   <?php require('importation-php/footer.php'); ?>
 </body>
+
 </html>

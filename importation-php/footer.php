@@ -22,9 +22,22 @@
     </div>
 
     <div class="lfdj-footer-right">
-      <a href="./mentions-legales">Mentions légales</a>
-      <span class="separator">•</span>
-      <a href="./discord">Discord</a>
+      <nav class="lfdj-footer-legal" aria-label="Liens utiles">
+        <a href="./mentions-legales">Mentions légales</a>
+        <span class="lfdj-footer-sep" aria-hidden="true">•</span>
+        <a href="./partenaires">Partenaires</a>
+      </nav>
+      <nav class="lfdj-footer-social" aria-label="Réseaux sociaux">
+        <a class="lfdj-footer-social-btn lfdj-footer-social-btn--discord" href="./discord" aria-label="Discord — serveur de l'association" title="Discord">
+          <i class="fa-brands fa-discord" aria-hidden="true"></i>
+        </a>
+        <a class="lfdj-footer-social-btn lfdj-footer-social-btn--facebook" href="https://www.facebook.com/p/La-Forge-des-Joueurs-61553294218921" target="_blank" rel="noopener noreferrer" aria-label="Facebook — La Forge des Joueurs" title="Facebook">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a class="lfdj-footer-social-btn lfdj-footer-social-btn--instagram" href="https://www.instagram.com/laforgedesjoueurs" target="_blank" rel="noopener noreferrer" aria-label="Instagram — La Forge des Joueurs" title="Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+      </nav>
     </div>
   </div>
 </footer>

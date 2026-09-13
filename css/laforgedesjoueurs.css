@@ -252,12 +252,13 @@ span{
   left: 0;
   width: 100%;
   z-index: 9999;
+  overflow: visible;
 }
 
-/* background wrapper */
+/* background wrapper — overflow visible pour que les sous-menus (absolute) ne soient pas rognés */
 .lfdj-bg{
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background-color: var(--background2);
 }
 
@@ -283,11 +284,55 @@ color: white !important;
     font-weight: 600 !important;
 }
 
-.lfdj-main-shortcut {
-    color: var(--toggle-bg) !important;
-    padding: 5px 15px;
-    border-radius: 25px;
-    font-weight: 600;
+/* Thème, collé à droite */
+.lfdj-header-tools{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px 10px;
+  flex-shrink: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lfdj-header-tools .lfdj-theme-toggle{
+  opacity: 0.65;
+}
+
+.lfdj-header-tools .lfdj-theme-toggle:hover,
+.lfdj-header-tools .lfdj-theme-toggle:focus-visible{
+  opacity: 0.95;
+}
+
+.lfdj-header-tools--mobile{
+  padding: 0;
+  gap: 4px 8px;
+  justify-self: end;
+}
+
+/* PC : maison à gauche, onglets centrés sur la ligne, thème à droite */
+.lfdj-nav-cluster__home{
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  justify-self: start;
+}
+
+.lfdj-nav-cluster__main{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  min-width: 0;
+}
+
+.lfdj-nav-cluster__main > a{
+  font-weight: 500 !important;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .lfdj-nav-container{
@@ -297,27 +342,40 @@ color: white !important;
   padding: 0 12px;
   min-height: 75px;
   align-items: center;
+  box-sizing: border-box;
+}
+
+/* Menu PC : pleine largeur du viewport (le contenu du site peut aller au-delà de 1400px) */
+.lfdj-nav-container.lfdj-nav-pc{
+  max-width: none;
+  padding-left: clamp(12px, 2.5vw, 40px);
+  padding-right: clamp(12px, 2.5vw, 40px);
 }
 
 .lfdj-nav-pc{ display: grid; }
 
 .lfdj-nav-grid{
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: max-content;
-    justify-content: space-between!important;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: end;
+    column-gap: clamp(8px, 1.5vw, 20px);
     min-height: 75px;
-    margin: 0 auto;
-    width: 700px;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.lfdj-nav-grid > .lfdj-header-tools{
+  justify-self: end;
 }
 
 /* MOBILE nav */
 .lfdj-nav-mobile{
   display: none;
-  grid-template-columns: 1fr 1fr 50px;
-  gap: 10px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 8px 10px;
   align-items: center;
   margin: 0 auto;
   width: 90%;
@@ -374,6 +432,9 @@ color: white !important;
   padding: 10px;
   border-radius: 8px;
   white-space: nowrap;
+  text-transform: none !important;
+  font-size: 12px;
+  font-weight: 500 !important;
 }
 
 /* Submenu (PC) */
@@ -391,22 +452,34 @@ color: white !important;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-      padding: 5px 15px;
-    border-radius: 25px;
- background-color: var(--toggle-bg) !important;
+  padding: 5px 15px;
+  border-radius: 25px;
+  background-color: var(--toggle-bg) !important;
 }
 
-/* Submenu panel (PC) */
+/* Submenu panel (PC) — sous le bouton, pas en fixed, pour garder le survol jusqu’aux liens */
 .lfdj-submenu-content{
   display: none;
-  position: fixed;
-  top: 75px;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
   z-index: 2147483647;
-  min-width: 220px;
+  min-width: max(220px, 100%);
   padding: 10px;
   border-bottom-left-radius: 25px;
   background: var(--submenu-bg);
   border-top: 8px solid var(--white-color);
+  box-sizing: border-box;
+}
+
+/* Pont invisible entre le bouton et le panneau : la souris ne « perd » pas le survol */
+.lfdj-submenu-content::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 12px;
 }
 
 .lfdj-submenu:hover .lfdj-submenu-content,
@@ -447,7 +520,7 @@ color: white !important;
 }
 
 .lfdj-mobile-subcontent.open {
-  max-height: 300px; /* suffisant pour Roots + BB */
+  max-height: 480px; /* Activités (4 entrées) + marge */
 }
 
 .lfdj-mobile-subcontent a{
@@ -667,14 +740,73 @@ color: white !important;
   color: inherit;
 }
 
-.lfdj-footer-left{ text-align: left; }
-.lfdj-footer-right{ text-align: right; }
+.lfdj-footer-left{
+  text-align: left;
+  align-content: center;
+}
+.lfdj-footer-right{
+  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px 20px;
+}
+
+.lfdj-footer-legal{
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px 10px;
+}
+
+.lfdj-footer-sep{
+  opacity: 0.45;
+  user-select: none;
+}
+
+.lfdj-footer-social{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lfdj-footer-social-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  color: #fff !important;
+  text-decoration: none;
+  opacity: 0.82;
+  transition: opacity 0.15s ease, transform 0.12s ease;
+}
+
+.lfdj-footer-social-btn:hover,
+.lfdj-footer-social-btn:focus{
+  opacity: 1;
+  transform: scale(1.06);
+  outline: none;
+}
+
+.lfdj-footer-social-btn i{
+  font-size: 16px;
+  line-height: 1;
+}
+
+.lfdj-footer-social-btn--discord{ background-color: #5865f2; }
+.lfdj-footer-social-btn--facebook{ background-color: #1877f2; }
+.lfdj-footer-social-btn--instagram{ background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888); }
 
 .lfdj-footer-container a{
   color: inherit;
 }
 
-.lfdj-footer-container a:hover{
+.lfdj-footer-legal a:hover,
+.lfdj-footer-legal a:focus{
   color: var(--main-color);
 }
 
@@ -683,31 +815,54 @@ color: white !important;
   display: none;
 }
 
-.toggle{
-  display: inline-block;
-  width: 60px;
-  height: 24px;
-  background: var(--toggle-bg);
-  border-radius: 30px;
+/* Icône discrète : soleil = jour, lune = nuit (état coché = sombre) */
+.lfdj-theme-toggle{
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
+  opacity: 0.45;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
 }
 
-.toggle::before{
-  content: "";
+.lfdj-theme-toggle:hover,
+.lfdj-theme-toggle:focus-within{
+  opacity: 0.88;
+  background-color: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.lfdj-theme-toggle:focus-visible{
+  opacity: 0.95;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+
+.lfdj-theme-toggle i{
   position: absolute;
-  top: 3px;
-  left: 4px;
-  width: 18px;
-  height: 18px;
-  background: var(--toggle-circle);
-  border-radius: 50%;
-  transition: transform 0.3s;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  line-height: 1;
+  color: var(--white-color) !important;
+  pointer-events: none;
 }
 
-.hidden:checked + .toggle::before{
-  transform: translateX(33px);
+.lfdj-theme-toggle .lfdj-theme-toggle__moon{
+  display: none;
+}
+
+.hidden:checked + .lfdj-theme-toggle .lfdj-theme-toggle__sun{
+  display: none;
+}
+
+.hidden:checked + .lfdj-theme-toggle .lfdj-theme-toggle__moon{
+  display: block;
 }
 
 

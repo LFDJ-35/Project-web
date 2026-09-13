@@ -18,7 +18,7 @@
 <footer class="lfdj-footer">
   <div class="lfdj-footer-container">
     <div class="lfdj-footer-left">
-      La Forge des Joueurs — Association de jeux à Vitré
+      La Forge des Joueurs — Association de jeux à Vitré &amp; Bais
     </div>
 
     <div class="lfdj-footer-right">

@@ -59,7 +59,8 @@
   </p>
     <p>
     À la Forge des Joueurs, le jeu de rôle se pratique principalement
-    <strong>en présentiel</strong>, lors des rencontres au Mille-Club du Chêne à Vitré.
+    <strong>en présentiel</strong>, lors des rencontres au Mille-Club du Chêne à Vitré
+    et, une fois par mois, à la salle des sports de Bais.
     Le contact humain, l’ambiance autour de la table et les échanges directs
     font partie intégrante de l’expérience.
   </p>

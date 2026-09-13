@@ -711,7 +711,7 @@ color: white !important;
 }
 
 
-/* ========================== MAINTENANCE PAGE ========================== */
+/* ========================== 404 / MESSAGE PAGES ========================== */
 .lfdj-maintenance{
   min-height: 100vh;
   display: flex;
@@ -721,14 +721,6 @@ color: white !important;
   text-align: center;
   padding: 0;
   margin: 0;
-}
-
-.lfdj-maintenance-logo{
-  width: min(520px, 85vw);
-  height: auto;
-  display: block;
-  margin: 0 auto 30px;
-  max-width: none !important;
 }
 
 /* ========================== IMAGES ========================== */

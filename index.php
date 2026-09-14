@@ -26,7 +26,7 @@
       Elle réunit des joueurs et joueuses de tous âges et de tous horizons, débutants comme confirmés, autour du plaisir de jouer, d’échanger et de partager des moments conviviaux.
     </p>
     <p>
-      Les rencontres ont lieu <strong>deux samedis par mois</strong> au Mille-Club du Chêne, à Vitré et plus rarement, à la salle des sports de Bais. Certains jeux sont joués de manière régulière au sein de l’association, comme Blood Bowl, qui fait l’objet de ligues et de tournois internes, ou encore de nombreuses campagnes de jeu de rôle menées sur plusieurs mois.
+      Les rencontres ont lieu <strong>deux samedis par mois</strong> au Mille-Club du Chêne, à Vitré, complétées depuis peu par <strong>un samedi supplémentaire chaque mois</strong> à la salle des sports de Bais, où nous multiplions notre présence. Certains jeux sont joués de manière régulière au sein de l’association, comme Blood Bowl, qui fait l’objet de ligues et de tournois internes, ou encore de nombreuses campagnes de jeu de rôle menées sur plusieurs mois.
       La Forge des Joueurs entretient également des partenariats avec plusieurs acteurs du milieu ludique local.
     </p>
     <p>
@@ -76,7 +76,7 @@
 
   <div class="lfdj-bloc-text">
     <p>
-      Les rencontres de la Forge des Joueurs se déroulent généralement de <strong>14h à 01h</strong> au Mille-Club du Chêne, à Vitré et plus rarement, à la salle des sports de Bais.
+      Les rencontres de la Forge des Joueurs se déroulent généralement de <strong>14h à 01h</strong>, que ce soit au Mille-Club du Chêne à Vitré ou, une fois par mois, à la salle des sports de Bais.
       Les <strong>après-midis</strong> sont consacrés aux jeux de société, de plateau et de figurines, ainsi qu’à la découverte de nouveaux jeux.
       Les <strong>soirées</strong> sont, quant à elles, principalement dédiées au jeu de rôle, avec des univers variés et accessibles à tous.
       Une pause conviviale est généralement prévue en début de soirée pour se restaurer avant de reprendre les parties.

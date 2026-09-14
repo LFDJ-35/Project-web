@@ -12,27 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const colorSwatches = wrap.querySelectorAll(".lfdj-color-swatch");
   const sizePills = wrap.querySelectorAll(".lfdj-size-row .lfdj-size-pill");
 
-  const getActive = (list) => Array.from(list).find((el) => el.classList.contains("active"));
-  const selectOne = (list, btn) => {
-    list.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-  };
-  const getQty = () => {
-    const n = qtyInput ? parseInt(qtyInput.value, 10) : 1;
-    return n > 0 ? n : 1;
-  };
-
   const updateReference = () => {
     if (!refCode) return;
-    const color = getActive(colorSwatches);
-    const size = getActive(sizePills);
+    const color = lfdjGetActive(colorSwatches);
+    const size = lfdjGetActive(sizePills);
     if (!color || !size) return;
-    refCode.textContent = ["GEN", "XX", color.dataset.code, size.dataset.code, "Q" + getQty()].join("-");
+    refCode.textContent = ["GEN", "XX", color.dataset.code, size.dataset.code, "Q" + lfdjGetQty(qtyInput)].join("-");
   };
 
   colorSwatches.forEach((btn) => {
     btn.addEventListener("click", () => {
-      selectOne(colorSwatches, btn);
+      lfdjSelectOne(colorSwatches, btn);
       baseImg.src = basePath + btn.dataset.file;
       baseImg.alt = "T-shirt générique, coloris " + (btn.getAttribute("aria-label") || "").toLowerCase() + ", face et dos";
       updateReference();
@@ -41,51 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sizePills.forEach((btn) => {
     btn.addEventListener("click", () => {
-      selectOne(sizePills, btn);
+      lfdjSelectOne(sizePills, btn);
       updateReference();
     });
   });
 
-  if (qtyInput) {
-    qtyInput.addEventListener("input", updateReference);
+  lfdjInitQtyStepper(qtyInput, updateReference);
+  lfdjInitCopyButton(copyBtn, refCode);
 
-    const qtyStepper = qtyInput.closest(".lfdj-qty-stepper");
-    if (qtyStepper) {
-      qtyStepper.querySelectorAll(".lfdj-qty-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const current = parseInt(qtyInput.value, 10) || 1;
-          const next = btn.dataset.action === "increment" ? current + 1 : Math.max(1, current - 1);
-          qtyInput.value = next;
-          updateReference();
-        });
-      });
-    }
-  }
-
-  if (copyBtn && refCode) {
-    copyBtn.addEventListener("click", async () => {
-      const text = refCode.textContent;
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (e) {
-        const helper = document.createElement("textarea");
-        helper.value = text;
-        document.body.appendChild(helper);
-        helper.select();
-        document.execCommand("copy");
-        document.body.removeChild(helper);
-      }
-      const original = copyBtn.textContent;
-      copyBtn.textContent = "Copié !";
-      copyBtn.disabled = true;
-      setTimeout(() => {
-        copyBtn.textContent = original;
-        copyBtn.disabled = false;
-      }, 1500);
-    });
-  }
-
-  const initialColor = getActive(colorSwatches);
+  const initialColor = lfdjGetActive(colorSwatches);
   if (initialColor) {
     baseImg.src = basePath + initialColor.dataset.file;
   }

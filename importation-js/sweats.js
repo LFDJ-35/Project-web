@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const design = getActive(designThumbs);
 
     if (color) {
-      baseImg.src = basePath + "SWEAT-" + product + "-" + color.dataset.file + ".png";
+      baseImg.src = basePath + "SWEAT-" + product + "-" + color.dataset.file + ".webp";
       baseImg.alt = "Sweat " + (product === "ROUSSEAU" ? "Rousseau" : "Montaigne") + ", coloris " + (color.getAttribute("aria-label") || "").toLowerCase();
     }
 

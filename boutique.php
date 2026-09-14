@@ -76,8 +76,8 @@
 
   <div class="lfdj-boutique-preview">
     <div class="lfdj-boutique-preview-frame">
-      <img id="lfdj-tshirt-base" src="./images/Textile/COLLECTION-PINGU/TSHIRT/TSHIRT-BLANC.png" alt="T-shirt dos, coloris blanc" width="2050" height="2529">
-      <img id="lfdj-tshirt-design" src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-ALIEN.png" alt="Design Alien" width="2050" height="2529">
+      <img id="lfdj-tshirt-base" src="./images/Textile/COLLECTION-PINGU/TSHIRT/TSHIRT-BLANC.webp" alt="T-shirt dos, coloris blanc" width="2050" height="2529">
+      <img id="lfdj-tshirt-design" src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-ALIEN.webp" alt="Design Alien" width="2050" height="2529">
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-ref-code">EST-ALI-BLA-M-Q1</code>
@@ -90,26 +90,26 @@
     <div class="lfdj-boutique-group">
       <h5>Design</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
-        <button type="button" class="lfdj-design-thumb active" data-file="DESIGN-ALIEN.png" data-code="ALI" aria-label="Design Alien">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-ALIEN.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb active" data-file="DESIGN-ALIEN.webp" data-code="ALI" aria-label="Design Alien">
+          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-ALIEN.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWL.png" data-code="BB" aria-label="Design Blood Bowl">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-BLOODBOWL.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWL.webp" data-code="BB" aria-label="Design Blood Bowl">
+          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-BLOODBOWL.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWLGOLD.png" data-code="BBG" aria-label="Design Blood Bowl Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-BLOODBOWLGOLD.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWLGOLD.webp" data-code="BBG" aria-label="Design Blood Bowl Gold">
+          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-BLOODBOWLGOLD.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-CYBERPUNKGOLD.png" data-code="CPG" aria-label="Design Cyberpunk Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-CYBERPUNKGOLD.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-CYBERPUNKGOLD.webp" data-code="CPG" aria-label="Design Cyberpunk Gold">
+          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-CYBERPUNKGOLD.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGON.png" data-code="DRA" aria-label="Design Dragon">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-DRAGON.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGON.webp" data-code="DRA" aria-label="Design Dragon">
+          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-DRAGON.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGONGOLD.png" data-code="DRG" aria-label="Design Dragon Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-DRAGONGOLD.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGONGOLD.webp" data-code="DRG" aria-label="Design Dragon Gold">
+          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-DRAGONGOLD.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-SPACEMARINE.png" data-code="SM" aria-label="Design Space Marine">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-SPACEMARINE.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-SPACEMARINE.webp" data-code="SM" aria-label="Design Space Marine">
+          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-SPACEMARINE.webp" alt="" loading="lazy">
         </button>
       </div>
     </div>
@@ -117,11 +117,11 @@
     <div class="lfdj-boutique-group">
       <h5>Coloris</h5>
       <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
-        <button type="button" class="lfdj-color-swatch active" data-file="TSHIRT-BLANC.png" data-code="BLA" style="background-color:#f4f3f0" aria-label="Blanc" title="Blanc"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-BLEU.png" data-code="BLE" style="background-color:#7189ab" aria-label="Bleu" title="Bleu"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-JAUNE.png" data-code="JAU" style="background-color:#c2a05a" aria-label="Jaune" title="Jaune"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-NOIR.png" data-code="NOI" style="background-color:#222222" aria-label="Noir" title="Noir"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-ROSE.png" data-code="ROS" style="background-color:#c98f8a" aria-label="Rose" title="Rose"></button>
+        <button type="button" class="lfdj-color-swatch active" data-file="TSHIRT-BLANC.webp" data-code="BLA" style="background-color:#f4f3f0" aria-label="Blanc" title="Blanc"></button>
+        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-BLEU.webp" data-code="BLE" style="background-color:#7189ab" aria-label="Bleu" title="Bleu"></button>
+        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-JAUNE.webp" data-code="JAU" style="background-color:#c2a05a" aria-label="Jaune" title="Jaune"></button>
+        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-NOIR.webp" data-code="NOI" style="background-color:#222222" aria-label="Noir" title="Noir"></button>
+        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-ROSE.webp" data-code="ROS" style="background-color:#c98f8a" aria-label="Rose" title="Rose"></button>
       </div>
     </div>
 
@@ -187,7 +187,7 @@
 
   <div class="lfdj-boutique-preview">
     <div class="lfdj-boutique-preview-frame">
-      <img id="lfdj-pipito-base" src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-BEER.png" alt="T-shirt La Forge des Joueurs, design Actuellement en repos long" width="2050" height="2529">
+      <img id="lfdj-pipito-base" src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-BEER.webp" alt="T-shirt La Forge des Joueurs, design Actuellement en repos long" width="2050" height="2529">
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-pipito-ref-code">PIP-BEE-NOI-M-Q1</code>
@@ -200,17 +200,17 @@
     <div class="lfdj-boutique-group">
       <h5>Design</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
-        <button type="button" class="lfdj-design-thumb active" data-file="TSHIRT_B-BEER.png" data-code="BEE" aria-label="Actuellement en repos long">
-          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-BEER.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb active" data-file="TSHIRT_B-BEER.webp" data-code="BEE" aria-label="Actuellement en repos long">
+          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-BEER.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="TSHIRT_B-COFFRE.png" data-code="COF" aria-label="Coffret vraiment gourmand">
-          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-COFFRE.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="TSHIRT_B-COFFRE.webp" data-code="COF" aria-label="Coffret vraiment gourmand">
+          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-COFFRE.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="TSHIRT_B-MENHIR.png" data-code="MEN" aria-label="Solide comme un menhir">
-          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-MENHIR.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="TSHIRT_B-MENHIR.webp" data-code="MEN" aria-label="Solide comme un menhir">
+          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-MENHIR.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="TSHIRT_B-PIOU.png" data-code="PIO" aria-label="Grand destin, petit héro">
-          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-PIOU.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="TSHIRT_B-PIOU.webp" data-code="PIO" aria-label="Grand destin, petit héro">
+          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-PIOU.webp" alt="" loading="lazy">
         </button>
       </div>
     </div>
@@ -271,7 +271,7 @@
 
   <div class="lfdj-boutique-preview">
     <div class="lfdj-boutique-preview-frame lfdj-generique-preview-frame">
-      <img id="lfdj-generique-base" src="./images/Textile/COLLECTION-GENERIQUE/TSHIRT_W-GENERIQUE.png" alt="T-shirt générique, coloris blanc, face et dos" width="4864" height="3242">
+      <img id="lfdj-generique-base" src="./images/Textile/COLLECTION-GENERIQUE/TSHIRT_W-GENERIQUE.webp" alt="T-shirt générique, coloris blanc, face et dos" width="4864" height="3242">
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-generique-ref-code">GEN-XX-BLA-M-Q1</code>
@@ -284,8 +284,8 @@
     <div class="lfdj-boutique-group">
       <h5>Coloris</h5>
       <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
-        <button type="button" class="lfdj-color-swatch active" data-file="TSHIRT_W-GENERIQUE.png" data-code="BLA" style="background-color:#f4f3f0" aria-label="Blanc" title="Blanc"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT_Y-GENERIQUE.png" data-code="JAU" style="background-color:#c2a05a" aria-label="Jaune" title="Jaune"></button>
+        <button type="button" class="lfdj-color-swatch active" data-file="TSHIRT_W-GENERIQUE.webp" data-code="BLA" style="background-color:#f4f3f0" aria-label="Blanc" title="Blanc"></button>
+        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT_Y-GENERIQUE.webp" data-code="JAU" style="background-color:#c2a05a" aria-label="Jaune" title="Jaune"></button>
       </div>
     </div>
 
@@ -356,8 +356,8 @@
       <button type="button" class="lfdj-size-pill" data-view="FRONT">Face</button>
     </div>
     <div class="lfdj-jersey-preview-frame">
-      <img id="lfdj-jersey-base" src="./images/Textile/MAILLOTS-LFDJ/MAILLOT_BACK_B.png" alt="Maillot dos, coloris noir" width="7000" height="7000">
-      <img id="lfdj-jersey-design" src="./images/Textile/MAILLOTS-LFDJ/DESIGN-BLOODBOWL.png" alt="Design Blood Bowl" width="7000" height="7000">
+      <img id="lfdj-jersey-base" src="./images/Textile/MAILLOTS-LFDJ/MAILLOT_BACK_B.webp" alt="Maillot dos, coloris noir" width="7000" height="7000">
+      <img id="lfdj-jersey-design" src="./images/Textile/MAILLOTS-LFDJ/DESIGN-BLOODBOWL.webp" alt="Design Blood Bowl" width="7000" height="7000">
       <div id="lfdj-jersey-name" class="lfdj-jersey-text lfdj-jersey-name">VOTRE NOM</div>
       <div id="lfdj-jersey-number" class="lfdj-jersey-text lfdj-jersey-number">00</div>
     </div>
@@ -372,14 +372,14 @@
     <div class="lfdj-boutique-group">
       <h5>Design (dos)</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
-        <button type="button" class="lfdj-design-thumb active" data-file="DESIGN-BLOODBOWL.png" data-code="BB" aria-label="Design Blood Bowl">
-          <img src="./images/Textile/MAILLOTS-LFDJ/DESIGN-BLOODBOWL.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb active" data-file="DESIGN-BLOODBOWL.webp" data-code="BB" aria-label="Design Blood Bowl">
+          <img src="./images/Textile/MAILLOTS-LFDJ/DESIGN-BLOODBOWL.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-CYBERPUNK.png" data-code="CPK" aria-label="Design Cyberpunk">
-          <img src="./images/Textile/MAILLOTS-LFDJ/DESIGN-CYBERPUNK.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-CYBERPUNK.webp" data-code="CPK" aria-label="Design Cyberpunk">
+          <img src="./images/Textile/MAILLOTS-LFDJ/DESIGN-CYBERPUNK.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGON.png" data-code="DRA" aria-label="Design Dragon">
-          <img src="./images/Textile/MAILLOTS-LFDJ/DESIGN-DRAGON.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGON.webp" data-code="DRA" aria-label="Design Dragon">
+          <img src="./images/Textile/MAILLOTS-LFDJ/DESIGN-DRAGON.webp" alt="" loading="lazy">
         </button>
         <button type="button" class="lfdj-design-thumb lfdj-design-thumb-blank" data-file="" data-code="VIE" aria-label="Vierge, sans design">
           <span>Vierge</span>
@@ -470,8 +470,8 @@
       <button type="button" class="lfdj-size-pill" data-product="MONTAIGNE">Montaigne</button>
     </div>
     <div class="lfdj-sweat-preview-frame">
-      <img id="lfdj-sweat-base" src="./images/Textile/COLLECTION-PINGU/SWEAT/SWEAT-ROUSSEAU-BLEU.png" alt="Sweat Rousseau, coloris bleu" width="2816" height="3457">
-      <img id="lfdj-sweat-design" src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-ALIEN.png" alt="Design Alien" width="2816" height="3457">
+      <img id="lfdj-sweat-base" src="./images/Textile/COLLECTION-PINGU/SWEAT/SWEAT-ROUSSEAU-BLEU.webp" alt="Sweat Rousseau, coloris bleu" width="2816" height="3457">
+      <img id="lfdj-sweat-design" src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-ALIEN.webp" alt="Design Alien" width="2816" height="3457">
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-sweat-ref-code">SWE-ROUS-ALI-BLE-M-Q1</code>
@@ -490,26 +490,26 @@
     <div class="lfdj-boutique-group">
       <h5>Design (dos)</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
-        <button type="button" class="lfdj-design-thumb active" data-file="DESIGN-ALIEN.png" data-code="ALI" aria-label="Design Alien">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-ALIEN.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb active" data-file="DESIGN-ALIEN.webp" data-code="ALI" aria-label="Design Alien">
+          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-ALIEN.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWL.png" data-code="BB" aria-label="Design Blood Bowl">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-BLOODBOWL.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWL.webp" data-code="BB" aria-label="Design Blood Bowl">
+          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-BLOODBOWL.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWLGOLD.png" data-code="BBG" aria-label="Design Blood Bowl Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-BLOODBOWLGOLD.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWLGOLD.webp" data-code="BBG" aria-label="Design Blood Bowl Gold">
+          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-BLOODBOWLGOLD.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-CYBERPUNKGOLD.png" data-code="CPG" aria-label="Design Cyberpunk Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-CYBERPUNKGOLD.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-CYBERPUNKGOLD.webp" data-code="CPG" aria-label="Design Cyberpunk Gold">
+          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-CYBERPUNKGOLD.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGON.png" data-code="DRA" aria-label="Design Dragon">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-DRAGON.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGON.webp" data-code="DRA" aria-label="Design Dragon">
+          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-DRAGON.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGONGOLD.png" data-code="DRG" aria-label="Design Dragon Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-DRAGONGOLD.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGONGOLD.webp" data-code="DRG" aria-label="Design Dragon Gold">
+          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-DRAGONGOLD.webp" alt="" loading="lazy">
         </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-SPACEMARINE.png" data-code="SM" aria-label="Design Space Marine">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-SPACEMARINE.png" alt="" loading="lazy">
+        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-SPACEMARINE.webp" data-code="SM" aria-label="Design Space Marine">
+          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-SPACEMARINE.webp" alt="" loading="lazy">
         </button>
       </div>
     </div>
@@ -587,7 +587,7 @@
 
   <div class="lfdj-boutique-preview">
     <div class="lfdj-boutique-preview-frame lfdj-totbag-preview-frame">
-      <img id="lfdj-totbag-base" src="./images/Textile/TOT-BAG/PS_KI3205_NATURAL.png" alt="Tote bag La Forge des Joueurs, coloris naturel" width="660" height="616">
+      <img id="lfdj-totbag-base" src="./images/Textile/TOT-BAG/PS_KI3205_NATURAL.webp" alt="Tote bag La Forge des Joueurs, coloris naturel" width="660" height="616">
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-totbag-ref-code">TOT-NAT-Q1</code>

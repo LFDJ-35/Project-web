@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const design = getActive(jerseyDesigns);
     const hasDesign = design && design.dataset.file;
 
-    baseImg.src = basePath + "MAILLOT_" + view + "_" + color + ".png";
+    baseImg.src = basePath + "MAILLOT_" + view + "_" + color + ".webp";
     baseImg.alt = "Maillot " + (view === "BACK" ? "dos" : "face") + ", coloris " + (color === "B" ? "noir" : "jaune");
 
     const isBack = view === "BACK";

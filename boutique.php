@@ -60,6 +60,40 @@ function create_collection(string $collection_root, array $collection)
   }
 }
 
+/**
+ * Génère le code HTML pour un swatch de couleur
+ * @param array $swatch Données du swatch : "code" (couleur CSS), "data-code" (code référence), "label",
+ * et soit "data-file" (nom de fichier image), soit "data-color" (code court utilisé par le script de rendu)
+ * @param bool $is_active Si le swatch doit être actif ou non sur la page (classe `active`)
+ */
+function create_color_swatch(array $swatch, bool $is_active)
+{
+  $data_attr = isset($swatch["data-file"])
+    ? ' data-file="' . $swatch["data-file"] . '"'
+    : ' data-color="' . $swatch["data-color"] . '"';
+
+  echo ('<button type="button" class="lfdj-color-swatch ' . ($is_active ? "active" : "") . '"' . $data_attr
+    . ' data-code="' . $swatch["data-code"] . '" style="background-color:' . $swatch["color"] . '"'
+    . ' aria-label="' . $swatch["label"] . '" title="' . $swatch["label"] . '"></button>');
+}
+
+/**
+ * Génère le code HTML pour une ligne de swatches de couleur
+ * @param array $swatches Liste de tableaux associatifs contenant les données de chaque swatch
+ */
+function create_color_swatches(array $swatches)
+{
+  if (sizeof($swatches) == 0) return;
+
+  // Le premier swatch est défini comme actif par défaut
+  create_color_swatch($swatches[0], true);
+
+  foreach (array_slice($swatches, 1) as $swatch) {
+    // Les autres sont inactifs.
+    create_color_swatch($swatch, false);
+  }
+}
+
 ?>
 
 <div class="lfdj-divtitle">
@@ -155,11 +189,15 @@ function create_collection(string $collection_root, array $collection)
     <div class="lfdj-boutique-group">
       <h5>Coloris</h5>
       <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
-        <button type="button" class="lfdj-color-swatch active" data-file="TSHIRT-BLANC.webp" data-code="BLA" style="background-color:#f4f3f0" aria-label="Blanc" title="Blanc"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-BLEU.webp" data-code="BLE" style="background-color:#7189ab" aria-label="Bleu" title="Bleu"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-JAUNE.webp" data-code="JAU" style="background-color:#c2a05a" aria-label="Jaune" title="Jaune"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-NOIR.webp" data-code="NOI" style="background-color:#222222" aria-label="Noir" title="Noir"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT-ROSE.webp" data-code="ROS" style="background-color:#c98f8a" aria-label="Rose" title="Rose"></button>
+        <?php
+        create_color_swatches(array(
+          array("data-file" => "TSHIRT-BLANC.webp", "data-code" => "BLA", "color" => "#f4f3f0", "label" => "Blanc"),
+          array("data-file" => "TSHIRT-BLEU.webp", "data-code" => "BLE", "color" => "#7189ab", "label" => "Bleu"),
+          array("data-file" => "TSHIRT-JAUNE.webp", "data-code" => "JAU", "color" => "#c2a05a", "label" => "Jaune"),
+          array("data-file" => "TSHIRT-NOIR.webp", "data-code" => "NOI", "color" => "#222222", "label" => "Noir"),
+          array("data-file" => "TSHIRT-ROSE.webp", "data-code" => "ROS", "color" => "#c98f8a", "label" => "Rose"),
+        ));
+        ?>
       </div>
     </div>
 
@@ -319,8 +357,12 @@ function create_collection(string $collection_root, array $collection)
     <div class="lfdj-boutique-group">
       <h5>Coloris</h5>
       <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
-        <button type="button" class="lfdj-color-swatch active" data-file="TSHIRT_W-GENERIQUE.webp" data-code="BLA" style="background-color:#f4f3f0" aria-label="Blanc" title="Blanc"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="TSHIRT_Y-GENERIQUE.webp" data-code="JAU" style="background-color:#c2a05a" aria-label="Jaune" title="Jaune"></button>
+        <?php
+        create_color_swatches(array(
+          array("data-file" => "TSHIRT_W-GENERIQUE.webp", "data-code" => "BLA", "color" => "#f4f3f0", "label" => "Blanc"),
+          array("data-file" => "TSHIRT_Y-GENERIQUE.webp", "data-code" => "JAU", "color" => "#c2a05a", "label" => "Jaune"),
+        ));
+        ?>
       </div>
     </div>
 
@@ -422,8 +464,12 @@ function create_collection(string $collection_root, array $collection)
     <div class="lfdj-boutique-group">
       <h5>Coloris</h5>
       <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
-        <button type="button" class="lfdj-color-swatch active" data-color="B" data-code="NOI" style="background-color:#171717" aria-label="Noir" title="Noir"></button>
-        <button type="button" class="lfdj-color-swatch" data-color="Y" data-code="JAU" style="background-color:#b08a2e" aria-label="Jaune" title="Jaune"></button>
+        <?php
+        create_color_swatches(array(
+          array("data-color" => "B", "data-code" => "NOI", "color" => "#171717", "label" => "Noir"),
+          array("data-color" => "Y", "data-code" => "JAU", "color" => "#b08a2e", "label" => "Jaune"),
+        ));
+        ?>
       </div>
     </div>
 
@@ -531,8 +577,7 @@ function create_collection(string $collection_root, array $collection)
           array("data-file" => "DESIGN-CYBERPUNKGOLD.webp", "label" => "Design Cyberpunk Gold", "data-code" => "CPG"),
           array("data-file" => "DESIGN-DRAGON.webp", "label" => "Design Dragon", "data-code" => "DRA"),
           array("data-file" => "DESIGN-DRAGONGOLD.webp", "label" => "Design Dragon Gold", "data-code" => "DRG"),
-          array("data-file" => "DESIGN-SPACEMARINE.webp", "label" => "Design Alien", "data-code" => "SM"),
-          array("data-file" => "DESIGN-ALIEN.webp", "label" => "Design Space Marine", "data-code" => "ALI"),
+          array("data-file" => "DESIGN-SPACEMARINE.webp", "label" => "Design Space Marine", "data-code" => "SM"),
         ));
 
         ?>
@@ -542,15 +587,23 @@ function create_collection(string $collection_root, array $collection)
     <div class="lfdj-boutique-group">
       <h5>Coloris</h5>
       <div class="lfdj-color-row" data-product-colors="ROUSSEAU" role="group" aria-label="Choix du coloris Rousseau">
-        <button type="button" class="lfdj-color-swatch active" data-file="BLEU" data-code="BLE" style="background-color:#2a3e62" aria-label="Bleu" title="Bleu"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="ROUGE" data-code="RGE" style="background-color:#833748" aria-label="Rouge" title="Rouge"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="VERT" data-code="VER" style="background-color:#396c69" aria-label="Vert" title="Vert"></button>
+        <?php
+        create_color_swatches(array(
+          array("data-file" => "BLEU", "data-code" => "BLE", "color" => "#2a3e62", "label" => "Bleu"),
+          array("data-file" => "ROUGE", "data-code" => "RGE", "color" => "#833748", "label" => "Rouge"),
+          array("data-file" => "VERT", "data-code" => "VER", "color" => "#396c69", "label" => "Vert"),
+        ));
+        ?>
       </div>
       <div class="lfdj-color-row lfdj-hidden" data-product-colors="MONTAIGNE" role="group" aria-label="Choix du coloris Montaigne">
-        <button type="button" class="lfdj-color-swatch active" data-file="BLANC" data-code="BLA" style="background-color:#f3f3f3" aria-label="Blanc" title="Blanc"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="GRIS" data-code="GRI" style="background-color:#b4b4b4" aria-label="Gris" title="Gris"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="GRISFONCE" data-code="GRF" style="background-color:#696969" aria-label="Gris foncé" title="Gris foncé"></button>
-        <button type="button" class="lfdj-color-swatch" data-file="NOIR" data-code="NOI" style="background-color:#151515" aria-label="Noir" title="Noir"></button>
+        <?php
+        create_color_swatches(array(
+          array("data-file" => "BLANC", "data-code" => "BLA", "color" => "#f3f3f3", "label" => "Blanc"),
+          array("data-file" => "GRIS", "data-code" => "GRI", "color" => "#b4b4b4", "label" => "Gris"),
+          array("data-file" => "GRISFONCE", "data-code" => "GRF", "color" => "#696969", "label" => "Gris foncé"),
+          array("data-file" => "NOIR", "data-code" => "NOI", "color" => "#151515", "label" => "Noir"),
+        ));
+        ?>
       </div>
     </div>
 
@@ -646,6 +699,7 @@ function create_collection(string $collection_root, array $collection)
 
 <hr class="lfdj-midpage">
 
+<script src="./importation-js/boutique-common.js"></script>
 <script src="./importation-js/boutique.js"></script>
 <script src="./importation-js/pipito.js"></script>
 <script src="./importation-js/generique.js"></script>

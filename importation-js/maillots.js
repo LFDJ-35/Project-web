@@ -20,20 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const jerseySizes = jerseyWrap.querySelectorAll(".lfdj-size-row .lfdj-size-pill");
   const jerseyTabs = jerseyWrap.querySelectorAll(".lfdj-jersey-tabs .lfdj-size-pill");
 
-  const getActive = (list) => Array.from(list).find((el) => el.classList.contains("active"));
-  const selectOne = (list, btn) => {
-    list.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-  };
-
   const numberColors = { B: "#c8a44d", Y: "#8e533a" };
 
   const sanitizeName = (value) => (value || "").trim().toUpperCase().replace(/[^A-Z0-9]/g, "") || "NOM";
   const sanitizeNumber = (value) => (value || "").trim().toUpperCase().slice(0, 4) || "00";
-  const getQty = () => {
-    const n = qtyInput ? parseInt(qtyInput.value, 10) : 1;
-    return n > 0 ? n : 1;
-  };
 
   const fitName = () => {
     if (!nameEl) return;
@@ -44,9 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const render = () => {
-    const view = getActive(jerseyTabs)?.dataset.view || "BACK";
-    const color = getActive(jerseyColors)?.dataset.color || "B";
-    const design = getActive(jerseyDesigns);
+    const view = lfdjGetActive(jerseyTabs)?.dataset.view || "BACK";
+    const color = lfdjGetActive(jerseyColors)?.dataset.color || "B";
+    const design = lfdjGetActive(jerseyDesigns);
     const hasDesign = design && design.dataset.file;
 
     baseImg.src = basePath + "MAILLOT_" + view + "_" + color + ".webp";
@@ -70,9 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateReference = () => {
     if (!refCode) return;
-    const design = getActive(jerseyDesigns);
-    const color = getActive(jerseyColors);
-    const size = getActive(jerseySizes);
+    const design = lfdjGetActive(jerseyDesigns);
+    const color = lfdjGetActive(jerseyColors);
+    const size = lfdjGetActive(jerseySizes);
     if (!design || !color || !size) return;
     const name = sanitizeName(nameInput ? nameInput.value : "");
     const number = sanitizeNumber(numberInput ? numberInput.value : "");
@@ -83,34 +73,34 @@ document.addEventListener("DOMContentLoaded", () => {
       size.dataset.code,
       name,
       number,
-      "Q" + getQty(),
+      "Q" + lfdjGetQty(qtyInput),
     ].join("-");
   };
 
   jerseyTabs.forEach((btn) => {
     btn.addEventListener("click", () => {
-      selectOne(jerseyTabs, btn);
+      lfdjSelectOne(jerseyTabs, btn);
       render();
     });
   });
 
   jerseyDesigns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      selectOne(jerseyDesigns, btn);
+      lfdjSelectOne(jerseyDesigns, btn);
       render();
     });
   });
 
   jerseyColors.forEach((btn) => {
     btn.addEventListener("click", () => {
-      selectOne(jerseyColors, btn);
+      lfdjSelectOne(jerseyColors, btn);
       render();
     });
   });
 
   jerseySizes.forEach((btn) => {
     btn.addEventListener("click", () => {
-      selectOne(jerseySizes, btn);
+      lfdjSelectOne(jerseySizes, btn);
       updateReference();
     });
   });
@@ -130,46 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (qtyInput) {
-    qtyInput.addEventListener("input", updateReference);
-
-    const qtyStepper = qtyInput.closest(".lfdj-qty-stepper");
-    if (qtyStepper) {
-      qtyStepper.querySelectorAll(".lfdj-qty-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const current = parseInt(qtyInput.value, 10) || 1;
-          const next = btn.dataset.action === "increment" ? current + 1 : Math.max(1, current - 1);
-          qtyInput.value = next;
-          updateReference();
-        });
-      });
-    }
-  }
-
+  lfdjInitQtyStepper(qtyInput, updateReference);
   window.addEventListener("resize", fitName);
-
-  if (copyBtn && refCode) {
-    copyBtn.addEventListener("click", async () => {
-      const text = refCode.textContent;
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (e) {
-        const helper = document.createElement("textarea");
-        helper.value = text;
-        document.body.appendChild(helper);
-        helper.select();
-        document.execCommand("copy");
-        document.body.removeChild(helper);
-      }
-      const original = copyBtn.textContent;
-      copyBtn.textContent = "Copié !";
-      copyBtn.disabled = true;
-      setTimeout(() => {
-        copyBtn.textContent = original;
-        copyBtn.disabled = false;
-      }, 1500);
-    });
-  }
+  lfdjInitCopyButton(copyBtn, refCode);
 
   render();
 });

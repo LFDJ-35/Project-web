@@ -15,6 +15,53 @@
 
 <?php require('importation-php/menu.php'); ?>
 
+<?php
+
+/**
+ * Génère le code HTML pour un élément d'une collection (une miniature)
+ * @param string $collection_root Répertoire racine où trouver la collection
+ * @param array $element Liste de tableaux associatifs contenant les données de la collection (nom du fichier, code produit,
+ * légende)
+ * @param bool $is_active Si l'élément doit être actif ou non sur la page (classe `active`)
+ */
+function create_collection_element(string $collection_root, array $element, bool $is_active)
+{
+  echo ('<button type="button" class="lfdj-design-thumb ' . ($is_active ? "active" : "") . '" data-file="' . $element["data-file"] . '" data-code="' . $element["data-code"] . '" aria-label="' . $element["label"] . '">');
+  if ($element["data-file"] == "") {
+    echo ("<span>Vierge</span>");
+  } else {
+    echo ('<img src="' . $collection_root . $element["data-file"] . '" alt="' . $element["label"] . '" loading="lazy">');
+  }
+  echo ('</button>');
+}
+
+/**
+ * Génère le code HTML pour une collection (galerie de miniatures)
+ * @param string $collection_root Répertoire racine où trouver la collection
+ * @param array $collection Liste de tableaux associatifs contenant les données de la collection (nom du fichier, code produit,
+ * légende)
+ */
+function create_collection(string $collection_root, array $collection)
+{
+  if (sizeof($collection) == 0) return;
+
+  if (!str_ends_with($collection_root, "/")) {
+    $collection_root = $collection_root . "/";
+  }
+
+  // Création du HTML correpondant
+
+  // Le premier élément de la collection est défini comme actif par défaut
+  create_collection_element($collection_root, $collection[0], true);
+
+  foreach (array_slice($collection, 1) as $element) {
+    // Les autres sont inactifs.
+    create_collection_element($collection_root, $element, false);
+  }
+}
+
+?>
+
 <div class="lfdj-divtitle">
   <h4>La boutique de la forge s'installe</h4>
   <h2>Boutique</h2>
@@ -90,27 +137,18 @@
     <div class="lfdj-boutique-group">
       <h5>Design</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
-        <button type="button" class="lfdj-design-thumb active" data-file="DESIGN-ALIEN.webp" data-code="ALI" aria-label="Design Alien">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-ALIEN.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWL.webp" data-code="BB" aria-label="Design Blood Bowl">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-BLOODBOWL.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWLGOLD.webp" data-code="BBG" aria-label="Design Blood Bowl Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-BLOODBOWLGOLD.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-CYBERPUNKGOLD.webp" data-code="CPG" aria-label="Design Cyberpunk Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-CYBERPUNKGOLD.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGON.webp" data-code="DRA" aria-label="Design Dragon">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-DRAGON.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGONGOLD.webp" data-code="DRG" aria-label="Design Dragon Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-DRAGONGOLD.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-SPACEMARINE.webp" data-code="SM" aria-label="Design Space Marine">
-          <img src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-SPACEMARINE.webp" alt="" loading="lazy">
-        </button>
+
+      <?php
+        create_collection("/images/Textile/COLLECTION-PINGU/TSHIRT/", array(
+          array("data-file" => "DESIGN-ALIEN.webp", "data-code" => "ALI", "label" => "Design Alien"),
+          array("data-file" => "DESIGN-BLOODBOWL.webp", "data-code" => "BB", "label" => "Design Blood Bowl"),
+          array("data-file" => "DESIGN-BLOODBOWLGOLD.webp", "data-code" => "BBG", "label" => "Design Blood Bowl Gold"),
+          array("data-file" => "DESIGN-CYBERPUNKGOLD.webp", "data-code" => "CPG", "label" => "Design Cyberpunk Gold"),
+          array("data-file" => "DESIGN-DRAGON.webp", "data-code" => "DRA", "label" => "Design Dragon"),
+          array("data-file" => "DESIGN-DRAGONGOLD.webp", "data-code" => "DRG", "label" => "Design Dragon Gold"),
+          array("data-file" => "DESIGN-SPACEMARINE.webp", "data-code" => "SM", "label" => "Design Space Marine"),
+        ));
+      ?>
       </div>
     </div>
 
@@ -200,18 +238,15 @@
     <div class="lfdj-boutique-group">
       <h5>Design</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
-        <button type="button" class="lfdj-design-thumb active" data-file="TSHIRT_B-BEER.webp" data-code="BEE" aria-label="Actuellement en repos long">
-          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-BEER.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="TSHIRT_B-COFFRE.webp" data-code="COF" aria-label="Coffret vraiment gourmand">
-          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-COFFRE.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="TSHIRT_B-MENHIR.webp" data-code="MEN" aria-label="Solide comme un menhir">
-          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-MENHIR.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="TSHIRT_B-PIOU.webp" data-code="PIO" aria-label="Grand destin, petit héro">
-          <img src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-PIOU.webp" alt="" loading="lazy">
-        </button>
+
+        <?php
+        create_collection("/images/Textile/COLLECTION-PIPITO/", array(
+          array("data-file" => "TSHIRT_B-BEER.webp", "data-code" => "BEE", "label" => "Actuellement en repos long"),
+          array("data-file" => "TSHIRT_B-COFFRE.webp", "data-code" => "COF", "label" => "Coffret vraiment gourmand"),
+          array("data-file" => "TSHIRT_B-MENHIR.webp", "data-code" => "MEN", "label" => "Solide comme un menhir"),
+          array("data-file" => "TSHIRT_B-PIOU.webp", "data-code" => "PIO", "label" => "Grand destin, petit héro"),
+        ));
+        ?>
       </div>
     </div>
 
@@ -372,18 +407,15 @@
     <div class="lfdj-boutique-group">
       <h5>Design (dos)</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
-        <button type="button" class="lfdj-design-thumb active" data-file="DESIGN-BLOODBOWL.webp" data-code="BB" aria-label="Design Blood Bowl">
-          <img src="./images/Textile/MAILLOTS-LFDJ/DESIGN-BLOODBOWL.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-CYBERPUNK.webp" data-code="CPK" aria-label="Design Cyberpunk">
-          <img src="./images/Textile/MAILLOTS-LFDJ/DESIGN-CYBERPUNK.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGON.webp" data-code="DRA" aria-label="Design Dragon">
-          <img src="./images/Textile/MAILLOTS-LFDJ/DESIGN-DRAGON.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb lfdj-design-thumb-blank" data-file="" data-code="VIE" aria-label="Vierge, sans design">
-          <span>Vierge</span>
-        </button>
+
+      <?php
+        create_collection("/images/Textile/MAILLOTS-LFDJ/", array(
+          array("data-file" => "DESIGN-BLOODBOWL.webp", "data-code" => "BB", "label" => "Design Blood Bowl"),
+          array("data-file" => "DESIGN-CYBERPUNK.webp", "data-code" => "CPK", "label" => "Design Cyberpunk"),
+          array("data-file" => "DESIGN-DRAGON.webp", "data-code" => "DRA", "label" => "Design Dragon"),
+          array("data-file" => "", "data-code" => "VIE", "label" => "Vierge, sans design"),
+        ));
+      ?>
       </div>
     </div>
 
@@ -490,27 +522,20 @@
     <div class="lfdj-boutique-group">
       <h5>Design (dos)</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
-        <button type="button" class="lfdj-design-thumb active" data-file="DESIGN-ALIEN.webp" data-code="ALI" aria-label="Design Alien">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-ALIEN.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWL.webp" data-code="BB" aria-label="Design Blood Bowl">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-BLOODBOWL.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-BLOODBOWLGOLD.webp" data-code="BBG" aria-label="Design Blood Bowl Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-BLOODBOWLGOLD.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-CYBERPUNKGOLD.webp" data-code="CPG" aria-label="Design Cyberpunk Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-CYBERPUNKGOLD.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGON.webp" data-code="DRA" aria-label="Design Dragon">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-DRAGON.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-DRAGONGOLD.webp" data-code="DRG" aria-label="Design Dragon Gold">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-DRAGONGOLD.webp" alt="" loading="lazy">
-        </button>
-        <button type="button" class="lfdj-design-thumb" data-file="DESIGN-SPACEMARINE.webp" data-code="SM" aria-label="Design Space Marine">
-          <img src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-SPACEMARINE.webp" alt="" loading="lazy">
-        </button>
+        <?php
+
+        create_collection("/images/Textile/COLLECTION-PINGU/SWEAT/", array(
+          array("data-file" => "DESIGN-ALIEN.webp", "label" => "Design Alien", "data-code" => "ALI"),
+          array("data-file" => "DESIGN-BLOODBOWL.webp", "label" => "Design Blood Bowl", "data-code" => "BB"),
+          array("data-file" => "DESIGN-BLOODBOWLGOLD.webp", "label" => "Design Blood Bowl Gold", "data-code" => "BBG"),
+          array("data-file" => "DESIGN-CYBERPUNKGOLD.webp", "label" => "Design Cyberpunk Gold", "data-code" => "CPG"),
+          array("data-file" => "DESIGN-DRAGON.webp", "label" => "Design Dragon", "data-code" => "DRA"),
+          array("data-file" => "DESIGN-DRAGONGOLD.webp", "label" => "Design Dragon Gold", "data-code" => "DRG"),
+          array("data-file" => "DESIGN-SPACEMARINE.webp", "label" => "Design Alien", "data-code" => "SM"),
+          array("data-file" => "DESIGN-ALIEN.webp", "label" => "Design Space Marine", "data-code" => "ALI"),
+        ));
+
+        ?>
       </div>
     </div>
 

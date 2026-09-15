@@ -6,6 +6,7 @@
 <title>Blood Bowl — Vitré Bowl Cup | La Forge des Joueurs</title>
 <meta name="description" content="Blood Bowl à la Forge des Joueurs : présentation, ligue interne Vitré Bowl Cup, Saison 2 en préparation et classement final de la Saison 1." />
 <?php require('importation-php/regles.php'); ?>
+<link rel="stylesheet" href="./css/bloodbowl.css">
 </head>
 
 <body class="lfdj-maincontainer">

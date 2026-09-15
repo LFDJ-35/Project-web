@@ -784,3 +784,370 @@ img{
     margin-top: 1rem;
     display:none!important;
 }
+/* ========================================================================
+   PAGE BLOODBOWL — styles propres à bloodbowl.php, regroupés en
+   bas de fichier pour limiter les conflits avec le reste du CSS partagé.
+   ======================================================================== */
+.lfdj-bb-season-panel .lfdj-hero{
+  margin: 0 auto 55px auto;
+}
+
+.lfdj-bb-season-panel .lfdj-hero img{
+  max-height: 250px;
+  width: auto;
+  object-fit: cover;
+}
+
+.lfdj-bb-season-tabs-nav{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 40px 0;
+}
+
+.lfdj-bb-season-tab-btn{
+  padding: 10px 22px;
+  background: var(--background);
+  border: 1px solid rgba(141,141,141,.3);
+  border-radius: 20px;
+  color: var(--black-color);
+  opacity: .6;
+  font-family: var(--font-third);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: opacity .2s ease, border-color .2s ease;
+}
+
+.lfdj-bb-season-tab-btn.is-active{
+  opacity: 1;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.lfdj-bb-champion-card{
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto 55px auto;
+  padding: 30px 26px;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(200,164,77,.18), transparent 70%),
+    var(--background);
+}
+
+.lfdj-bb-champion-eyebrow{
+  display: block;
+  font-family: var(--font-third);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+.lfdj-bb-champion-card h3{
+  font-family: var(--font-primary);
+  font-size: 28px;
+  color: var(--primary-color);
+  text-transform: none;
+  margin: 0 0 10px 0;
+}
+
+.lfdj-bb-champion-card p{
+  color: var(--black-color);
+  opacity: .8;
+  font-size: 13px;
+  line-height: 1.6;
+  font-family: var(--font-third);
+  text-transform: none;
+}
+
+.lfdj-bb-standings-wrap{
+  max-width: 1000px;
+  margin: 0 auto 55px auto;
+  padding: 0 5%;
+  overflow-x: auto;
+}
+
+.lfdj-bb-standings-table{
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-family: var(--font-third);
+  font-size: 13px;
+}
+
+.lfdj-bb-standings-table th,
+.lfdj-bb-standings-table td{
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(141,141,141,.2);
+  color: var(--black-color);
+}
+
+.lfdj-bb-standings-table th{
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}
+
+.lfdj-bb-team-name{
+  font-weight: 600;
+}
+
+.lfdj-bb-pts{
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.lfdj-bb-champion-row{
+  background: rgba(200,164,77,.1);
+}
+
+.lfdj-bb-champion-row td{
+  border-bottom-color: var(--primary-color);
+}
+
+.lfdj-bb-results-toggle{
+  max-width: 900px;
+  margin: 0 auto 55px auto;
+  padding: 0 5%;
+}
+
+.lfdj-bb-results-toggle-btn{
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 8px 20px;
+  background: var(--background);
+  border: 1px solid rgba(141,141,141,.3);
+  border-radius: 20px;
+  color: var(--primary-color);
+  font-family: var(--font-third);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  cursor: pointer;
+}
+
+.lfdj-bb-results-toggle-btn[aria-expanded="true"]{
+  margin-bottom: 16px;
+}
+
+.lfdj-bb-results-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 5px;
+}
+
+.lfdj-bb-results-grid[hidden]{
+  display: none;
+}
+
+.lfdj-bb-result-card{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  background: var(--background);
+  border: 1px solid rgba(141,141,141,.2);
+  border-radius: 5px;
+  font-family: var(--font-third);
+}
+
+.lfdj-bb-result-team{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+  font-size: 10px;
+  color: var(--black-color);
+  opacity: .85;
+  transition: opacity .2s ease;
+}
+
+.lfdj-bb-result-team-name{
+  min-width: 0;
+  font-size: 10px;
+  text-transform: none;
+  letter-spacing: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lfdj-bb-result-team > span[aria-hidden]{
+  font-size: 11px;
+  flex: 0 0 auto;
+}
+
+.lfdj-bb-result-team--loser{
+  opacity: .35;
+  filter: grayscale(70%);
+}
+
+.lfdj-bb-result-team--a{
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.lfdj-bb-result-team--b{
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.lfdj-bb-result-score{
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-color);
+  white-space: nowrap;
+  padding: 0 4px;
+}
+
+.lfdj-bb-result-meta{
+  position: absolute;
+  top: 2px;
+  right: 6px;
+  font-size: 6px;
+  color: var(--secondary-color);
+  opacity: .55;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.lfdj-bb-teams-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  max-width: 1000px;
+  margin: 0 auto 55px auto;
+  padding: 0 5%;
+}
+
+.lfdj-bb-pools-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto 55px auto;
+  padding: 0 5%;
+}
+
+.lfdj-bb-pool-title{
+  text-align: center;
+  font-family: var(--font-secondary);
+  font-size: 18px;
+  color: var(--primary-color);
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.lfdj-bb-pool-teams{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lfdj-bb-team-card{
+  padding: 16px 18px;
+  background: var(--background);
+  border: 1px solid rgba(141,141,141,.25);
+  border-left: 3px solid var(--lfdj-bb-team-color, var(--primary-color));
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lfdj-bb-team-card h4{
+  margin: 0;
+  font-size: 14px;
+  text-align: left;
+  color: var(--black-color);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.lfdj-bb-team-race{
+  font-size: 11px;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.lfdj-bb-team-coach{
+  font-size: 11px;
+  color: var(--black-color);
+  opacity: .6;
+}
+
+.lfdj-bb-achievements-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  max-width: 1000px;
+  margin: 0 auto 25px auto;
+  padding: 0 5%;
+}
+
+.lfdj-bb-achievement-card{
+  padding: 16px 18px;
+  background: var(--background);
+  border: 1px solid rgba(141,141,141,.25);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 6px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lfdj-bb-achievement-card i{
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.lfdj-bb-achievement-title{
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--secondary-color);
+}
+
+.lfdj-bb-achievement-name-row{
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+}
+
+.lfdj-bb-achievement-name{
+  font-family: var(--font-third);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--black-color);
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.lfdj-bb-achievement-stat{
+  font-size: 11px;
+  color: var(--black-color);
+  opacity: .7;
+}
+
+

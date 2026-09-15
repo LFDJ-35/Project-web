@@ -7,6 +7,7 @@
 <title>Boutique | La Forge des Joueurs</title>
 <meta name="description" content="Précommandes textiles de La Forge des Joueurs : t-shirts, maillots et sweats de la collection Pingu, coton bio fabriqué en France." />
 <?php require('importation-php/regles.php'); ?>
+<link rel="stylesheet" href="./css/boutique.css">
 </head>
 
 <body class="lfdj-maincontainer">

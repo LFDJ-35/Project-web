@@ -220,6 +220,7 @@ span{
   border-top: 3px solid var(--primary-color);
   border-radius: 4px;
   box-shadow: 0 12px 35px rgba(23,23,23,.25);
+  box-sizing: border-box;
 }
 
 .lfdj-hero-eyebrow{
@@ -293,6 +294,7 @@ span{
   text-transform: uppercase;
   letter-spacing: .04em;
   transition: transform .15s ease, background-color .2s ease;
+  box-sizing: border-box;
 }
 
 .lfdj-hero-btn:hover,

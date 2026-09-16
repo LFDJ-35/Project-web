@@ -25,7 +25,7 @@
         <h1 id="lfdj-hero-title">Forgeons nos<br>histoires<br><em>ensemble</em></h1>
         <p class="lfdj-hero-lede">Jeux de rôle, figurines, cartes et jeux de société. Débutants comme confirmés, la première session est gratuite.</p>
         <div class="lfdj-hero-actions">
-          <a class="lfdj-hero-btn" href="./discord"><i class="fa-brands fa-discord" aria-hidden="true"></i> Rejoindre le Discord</a>
+          <a class="lfdj-hero-btn" href="/discord"><i class="fa-brands fa-discord" aria-hidden="true"></i> Rejoindre le Discord</a>
           <a class="lfdj-hero-btn lfdj-hero-btn--copper" href="#lfdj-calendrier">Voir le calendrier</a>
         </div>
         <div class="lfdj-hero-welcome"><span aria-hidden="true">◎</span> Ouvert à tous <span>·</span> 2 à 3 samedis par mois</div>

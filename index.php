@@ -127,7 +127,7 @@
   $lfdj_agenda = lfdj_agenda_prepare($lfdj_agenda_lieux, $lfdj_mois_fr, $lfdj_jours_fr);
   ?>
 
-  <div class="lfdj-agenda-single" id="calenadars">
+  <section class="lfdj-agenda-single" id="calendar">
     <?php if($lfdj_agenda['featured']): $f = $lfdj_agenda['featured']; ?>
     <div class="lfdj-agenda-next lfdj-agenda-next--<?= $f['lieu'] ?>">
       <span class="lfdj-agenda-next-eyebrow">Prochaine séance</span>
@@ -151,7 +151,7 @@
       <?php endforeach; ?>
     </ul>
     <?php endif; ?>
-  </div>
+  </section>
 
   <div class="lfdj-agenda-actions">
     <a href="https://www.helloasso.com/associations/la-forge-des-joueurs/adhesions/adhesion-2026-1"

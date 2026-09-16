@@ -41,11 +41,11 @@ function lfdj_bb_team_card(array $team): void
 {
   $color = htmlspecialchars($team["color"] ?? "var(--primary-color)");
   ?>
-  <div class="lfdj-bb-team-card" style="--lfdj-bb-team-color: <?= $color ?>;">
+  <article class="lfdj-bb-team-card" style="--lfdj-bb-team-color: <?= $color ?>;">
     <h4><span aria-hidden="true"><?= $team["emoji"] ?? "🎲" ?></span> <?= htmlspecialchars($team["name"]) ?></h4>
     <span class="lfdj-bb-team-race"><?= htmlspecialchars($team["race"]) ?></span>
     <span class="lfdj-bb-team-coach"><?= htmlspecialchars($team["coach"]) ?></span>
-  </div>
+  </article>
   <?php
 }
 
@@ -238,13 +238,13 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
 ?>
 
 <div class="lfdj-bb-season-tabs">
-  <div class="lfdj-bb-season-tabs-nav">
+  <nav class="lfdj-bb-season-tabs-nav" aria-label="Saisons de la Vitré Bowl Cup">
     <button type="button" class="lfdj-bb-season-tab-btn is-active" data-tab="presentation"><i class="fa-solid fa-chess-knight" aria-hidden="true"></i> Présentation</button>
     <button type="button" class="lfdj-bb-season-tab-btn" data-tab="s2"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Saison 2 — ça démarre !</button>
     <button type="button" class="lfdj-bb-season-tab-btn" data-tab="s1"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Saison 1 — Archives</button>
-  </div>
+  </nav>
 
-  <div class="lfdj-bb-season-panel lfdj-bb-season-panel--presentation" data-panel="presentation">
+  <section class="lfdj-bb-season-panel lfdj-bb-season-panel--presentation" data-panel="presentation">
 
     <div class="lfdj-divtitle">
       <h4>Assembler, peindre… puis jouer</h4>
@@ -318,9 +318,9 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
       </p>
     </div>
 
-  </div>
+  </section>
 
-  <div class="lfdj-bb-season-panel lfdj-bb-season-panel--s2" data-panel="s2" hidden>
+  <section class="lfdj-bb-season-panel lfdj-bb-season-panel--s2" data-panel="s2" hidden>
 
     <div class="lfdj-divtitle">
       <h4>Ligue interne Blood Bowl</h4>
@@ -349,18 +349,18 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
 
     <div class="lfdj-bb-pools-grid">
       <?php foreach ($lfdj_bb_s2_pools as $poolName => $poolTeams): ?>
-      <div class="lfdj-bb-pool">
+      <section class="lfdj-bb-pool" aria-label="<?= htmlspecialchars($poolName) ?>">
         <h4 class="lfdj-bb-pool-title"><?= htmlspecialchars($poolName) ?></h4>
         <div class="lfdj-bb-pool-teams">
           <?php foreach ($poolTeams as $team): lfdj_bb_team_card($team); endforeach; ?>
         </div>
-      </div>
+      </section>
       <?php endforeach; ?>
     </div>
 
-  </div>
+  </section>
 
-  <div class="lfdj-bb-season-panel lfdj-bb-season-panel--s1" data-panel="s1" hidden>
+  <section class="lfdj-bb-season-panel lfdj-bb-season-panel--s1" data-panel="s1" hidden>
 
     <div class="lfdj-divtitle">
       <h4>Ligue interne Blood Bowl</h4>
@@ -378,14 +378,14 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
       </p>
     </div>
 
-    <div class="lfdj-bb-champion-card">
+    <article class="lfdj-bb-champion-card">
       <span class="lfdj-bb-champion-eyebrow"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Championne de la Saison 1</span>
       <h3><?= htmlspecialchars($lfdj_bb_s1_champion["name"]) ?></h3>
       <p>
         <?= htmlspecialchars($lfdj_bb_s1_champion["race"]) ?> — coach <?= htmlspecialchars($lfdj_bb_s1_champion["coach"]) ?><br>
         <?= $lfdj_bb_s1_champion["w"] ?> victoires, <?= $lfdj_bb_s1_champion["d"] ?> nul, <?= $lfdj_bb_s1_champion["l"] ?> défaite sur <?= $lfdj_bb_s1_journee_count ?> journées — <?= $lfdj_bb_s1_champion["pts"] ?> points
       </p>
-    </div>
+    </article>
 
     <div class="lfdj-divtitle">
       <h4>Après <?= $lfdj_bb_s1_journee_count ?> journées</h4>
@@ -444,7 +444,7 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
           $lfdj_bb_loserClassA = $lfdj_bb_scoreA < $lfdj_bb_scoreB ? " lfdj-bb-result-team--loser" : "";
           $lfdj_bb_loserClassB = $lfdj_bb_scoreB < $lfdj_bb_scoreA ? " lfdj-bb-result-team--loser" : "";
         ?>
-        <div class="lfdj-bb-result-card">
+        <article class="lfdj-bb-result-card">
           <span class="lfdj-bb-result-team lfdj-bb-result-team--a<?= $lfdj_bb_loserClassA ?>">
             <span aria-hidden="true"><?= $lfdj_bb_team_emoji[$match["a"]] ?? "" ?></span>
             <span class="lfdj-bb-result-team-name"><?= htmlspecialchars($match["a"]) ?></span>
@@ -455,7 +455,7 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
             <span aria-hidden="true"><?= $lfdj_bb_team_emoji[$match["b"]] ?? "" ?></span>
           </span>
           <span class="lfdj-bb-result-meta"><?= htmlspecialchars($journee) ?></span>
-        </div>
+        </article>
         <?php endforeach; endforeach; ?>
       </div>
     </div>
@@ -482,7 +482,7 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
 
     <div class="lfdj-bb-achievements-grid">
       <?php foreach ($lfdj_bb_s1_achievements as $award): ?>
-      <div class="lfdj-bb-achievement-card">
+      <article class="lfdj-bb-achievement-card">
         <i class="<?= $award["icon"] ?>" aria-hidden="true"></i>
         <span class="lfdj-bb-achievement-title"><?= htmlspecialchars($award["title"]) ?></span>
         <span class="lfdj-bb-achievement-name-row">
@@ -490,11 +490,11 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
           <span class="lfdj-bb-achievement-name"><?= htmlspecialchars($award["name"]) ?></span>
         </span>
         <span class="lfdj-bb-achievement-stat"><?= htmlspecialchars($award["stat"]) ?></span>
-      </div>
+      </article>
       <?php endforeach; ?>
     </div>
 
-  </div>
+  </section>
 
 </div>
 

@@ -137,6 +137,8 @@ function create_color_swatches(array $swatches)
   </p>
 </div>
 
+<section aria-label="Collection Pingu">
+
 <div class="lfdj-divtitle">
   <h4>Composez votre style</h4>
   <h3>collection pingu</h3>
@@ -238,6 +240,10 @@ function create_color_swatches(array $swatches)
 
 </div>
 
+</section>
+
+<section aria-label="Collection Pipito">
+
 <div class="lfdj-divtitle">
   <h4>Un peu plus perso</h4>
   <h3>collection pipito</h3>
@@ -325,6 +331,10 @@ function create_color_swatches(array $swatches)
 
 </div>
 
+</section>
+
+<section aria-label="Collection Générique">
+
 <div class="lfdj-divtitle">
   <h4>Le basique de l'asso</h4>
   <h3>collection générique</h3>
@@ -402,6 +412,10 @@ function create_color_swatches(array $swatches)
   </div>
 
 </div>
+
+</section>
+
+<section aria-label="Maillots">
 
 <div class="lfdj-divtitle">
   <h4>La suite de la collection</h4>
@@ -525,6 +539,10 @@ function create_color_swatches(array $swatches)
 
 </div>
 
+</section>
+
+<section aria-label="Sweats">
+
 <div class="lfdj-divtitle">
   <h4>Encore un peu de chaleur</h4>
   <h3>sweats</h3>
@@ -646,6 +664,10 @@ function create_color_swatches(array $swatches)
 
 </div>
 
+</section>
+
+<section aria-label="Tote bag">
+
 <div class="lfdj-divtitle">
   <h4>Pour transporter vos dés</h4>
   <h3>tote bag</h3>
@@ -697,6 +719,8 @@ function create_color_swatches(array $swatches)
   </div>
 
 </div>
+
+</section>
 
 <hr class="lfdj-midpage">
 

@@ -43,6 +43,7 @@
       <a href="/partenaires.php">Partenaires</a>
       <a href="/mentions-legales.php">Règlement Intérieur</a>
       <a href="/mentions-legales.php">Statuts</a>
+      <a href="/boutique.php">Précommande de goodies</a>
     </nav>
 
     <nav class="lfdj-footer-col lfdj-footer-col--social" aria-label="Nous suivre">

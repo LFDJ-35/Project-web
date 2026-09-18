@@ -4,18 +4,18 @@
   <!-- PC -->
   <div class="lfdj-nav-container lfdj-nav-pc">
     <nav class="lfdj-nav-grid" aria-label="Navigation principale">
-      <a class="lfdj-nav-cluster__home" href="./index.php" aria-label="Association">
-        <img src="./images/Favicon-Main2.png" alt="La Forge des Joueurs">
+      <a class="lfdj-nav-cluster__home" href="/index.php" aria-label="Association">
+        <img src="/images/Favicon-Main2.png" alt="La Forge des Joueurs">
       </a>
       <div class="lfdj-nav-cluster__main">
-        <a href="./jdf.php" class="<?= $lfdj_current === 'jdf.php' ? 'active' : '' ?>">Figurines</a>
-        <a href="./jdr.php" class="<?= $lfdj_current === 'jdr.php' ? 'active' : '' ?>">Jeu de Rôle</a>
-        <a href="./jdp.php" class="<?= $lfdj_current === 'jdp.php' ? 'active' : '' ?>">Sur Plateau</a>
-        <a href="./jdc.php" class="<?= $lfdj_current === 'jdc.php' ? 'active' : '' ?>">Carte à collectionner</a>
+        <a href="/jdf.php" class="<?= $lfdj_current === 'jdf.php' ? 'active' : '' ?>">Figurines</a>
+        <a href="/jdr.php" class="<?= $lfdj_current === 'jdr.php' ? 'active' : '' ?>">Jeu de Rôle</a>
+        <a href="/jdp.php" class="<?= $lfdj_current === 'jdp.php' ? 'active' : '' ?>">Sur Plateau</a>
+        <a href="/jdc.php" class="<?= $lfdj_current === 'jdc.php' ? 'active' : '' ?>">Carte à collectionner</a>
       </div>
 
       <div class="lfdj-header-tools">
-        <a class="lfdj-cta-discord" href="./discord">
+        <a class="lfdj-cta-discord" href="/discord">
           <i class="fa-brands fa-discord" aria-hidden="true"></i>
           Rejoignez le Discord
           <i class="fa-solid fa-arrow-up-right lfdj-cta-discord__arrow" aria-hidden="true"></i>
@@ -31,8 +31,8 @@
 
   <!-- MOBILE -->
   <div class="lfdj-nav-container lfdj-nav-mobile">
-    <a class="lfdj-mobile-home" href="./index.php" aria-label="Association">
-      <img src="./images/Favicon-Main2.png" alt="La Forge des Joueurs">
+    <a class="lfdj-mobile-home" href="/index.php" aria-label="Association">
+      <img src="/images/Favicon-Main2.png" alt="La Forge des Joueurs">
     </a>
 
     <div class="lfdj-dropdown">
@@ -41,16 +41,16 @@
       </button>
 
       <div class="lfdj-dropdown-content" aria-label="Navigation mobile">
-        <a href="./index.php" aria-label="Association">
+        <a href="/index.php" aria-label="Association">
           <i class="fa-solid fa-house" aria-hidden="true"></i>
         </a>
 
-        <a href="./jdf.php" class="<?= $lfdj_current === 'jdf.php' ? 'active' : '' ?>">Figurines</a>
-        <a href="./jdr.php" class="<?= $lfdj_current === 'jdr.php' ? 'active' : '' ?>">Jeu de Rôle</a>
-        <a href="./jdp.php" class="<?= $lfdj_current === 'jdp.php' ? 'active' : '' ?>">Sur Plateau</a>
-        <a href="./jdc.php" class="<?= $lfdj_current === 'jdc.php' ? 'active' : '' ?>">Carte à collectionner</a>
+        <a href="/jdf.php" class="<?= $lfdj_current === 'jdf.php' ? 'active' : '' ?>">Figurines</a>
+        <a href="/jdr.php" class="<?= $lfdj_current === 'jdr.php' ? 'active' : '' ?>">Jeu de Rôle</a>
+        <a href="/jdp.php" class="<?= $lfdj_current === 'jdp.php' ? 'active' : '' ?>">Sur Plateau</a>
+        <a href="/jdc.php" class="<?= $lfdj_current === 'jdc.php' ? 'active' : '' ?>">Carte à collectionner</a>
 
-        <a class="lfdj-cta-discord lfdj-cta-discord--mobile" href="./discord">
+        <a class="lfdj-cta-discord lfdj-cta-discord--mobile" href="/discord">
           <i class="fa-brands fa-discord" aria-hidden="true"></i>
           Rejoignez le Discord
           <i class="fa-solid fa-arrow-up-right lfdj-cta-discord__arrow" aria-hidden="true"></i>
@@ -69,6 +69,6 @@
 
 </header>
 
-<script src="./importation-js/menu.js"></script>
+<script src="/importation-js/menu.js"></script>
 
 <hr class="lfdj-hautdepage">

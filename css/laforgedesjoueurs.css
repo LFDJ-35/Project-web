@@ -512,15 +512,6 @@ span{
   margin: 8px 0 !important;
 }
 
-.lfdj-helloasso a:hover{
-  color: var(--white-color);
-}
-
-.lfdj-helloasso {
-  text-transform:uppercase!important;
-    font-weight:600;
-}
-
 .lfdj-title-icon::before,
 .lfdj-title-icon::after{
   content: "";
@@ -1002,6 +993,219 @@ color: white !important;
 .lfdj-calendar-list li strong{
   font-weight: 500 !important;
   color: var(--black-color);
+}
+
+/* ========================== AGENDA (accueil) ========================== */
+.lfdj-agenda-single{
+  max-width: 700px;
+  margin: 0 auto 55px auto;
+}
+
+@media (max-width: 875px){
+  .lfdj-agenda-single{
+    padding: 0 10%;
+    width: auto;
+    max-width: none;
+  }
+}
+
+.lfdj-agenda-next{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: var(--primary-color);
+  color: #171717;
+}
+
+.lfdj-agenda-next--bais{
+  background: var(--secondary-color);
+  color: #ffffff;
+}
+
+.lfdj-agenda-next-eyebrow{
+  display: block;
+  font-family: var(--font-third);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: .75;
+  margin-bottom: 8px;
+}
+
+.lfdj-agenda-next-body{
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lfdj-agenda-next-day{
+  font-family: var(--font-primary);
+  font-size: 36px;
+  font-weight: 700 !important;
+  line-height: 1;
+  color: inherit;
+}
+
+.lfdj-agenda-next-month{
+  font-family: var(--font-third);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: inherit;
+}
+
+.lfdj-agenda-next-venue{
+  margin-left: auto;
+  font-family: var(--font-third);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: inherit !important;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.lfdj-agenda-empty{
+  font-size: 13px;
+  color: var(--black-color);
+  opacity: .6;
+  font-style: italic;
+  text-transform: none;
+  padding: 10px 0;
+}
+
+.lfdj-agenda-rows{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lfdj-agenda-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+  border-left: 4px solid var(--primary-color);
+  background: rgba(200,164,77,.05);
+}
+
+.lfdj-agenda-row--bais{
+  border-left-color: var(--secondary-color);
+  background: rgba(142,83,58,.05);
+}
+
+.lfdj-agenda-row-date{
+  font-size: 13px;
+  color: var(--black-color);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  font-family: var(--font-third);
+}
+
+.lfdj-agenda-row-venue{
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--primary-color) !important;
+  font-family: var(--font-third);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lfdj-agenda-row--bais .lfdj-agenda-row-venue{
+  color: var(--secondary-color) !important;
+}
+
+.lfdj-agenda-row-venue:hover{
+  text-decoration: underline;
+}
+
+.lfdj-agenda-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 700px;
+  margin: 0 auto 55px auto;
+}
+
+@media (max-width: 875px){
+  .lfdj-agenda-actions{
+    padding: 0 10%;
+    width: auto;
+    max-width: none;
+    justify-content: center;
+  }
+}
+
+/* Bouton pilule partagé avec le hero (Discord / Calendrier) */
+.lfdj-cta-btn{
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px !important;
+  border-radius: 999px !important;
+  font-family: var(--font-third);
+  font-weight: 700 !important;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  transition: transform .15s ease, background-color .2s ease;
+}
+
+.lfdj-cta-btn:hover,
+.lfdj-cta-btn:focus-visible{
+  transform: translateY(-1px);
+}
+
+.lfdj-cta-btn--gold{
+  background: var(--primary-color);
+  color: #171717 !important;
+}
+
+.lfdj-cta-btn--gold:hover,
+.lfdj-cta-btn--gold:focus-visible{
+  background: var(--secondary-color);
+  color: #ffffff !important;
+}
+
+.lfdj-agenda-download-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--secondary-color) !important;
+  font-family: var(--font-third);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: none;
+}
+
+.lfdj-agenda-download-link:hover,
+.lfdj-agenda-download-link:focus-visible{
+  color: var(--primary-color) !important;
+}
+
+.lfdj-agenda-download-format{
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(142,83,58,.15);
+  color: inherit;
 }
 
 /* ========================== MAP ========================== */

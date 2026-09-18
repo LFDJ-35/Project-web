@@ -112,45 +112,86 @@
   </div>
 
 
-  <section id="calenadars">
-    <div>
-      <h4>Salle 1 : <a href="https://osm.org/go/erocfZeJU?way=92887210">Mille Club de Vitré</a></h3>
-        <div class="lfdj-calendar">
-          <ul class="lfdj-calendar-list">
-            <li><span>Janvier</span><strong>10 & 24</strong></li>
-            <li><span>Février</span><strong>14 & 21</strong></li>
-            <li><span>Mars</span><strong>14 & 21</strong></li>
-            <li><span>Avril</span><strong>11 & 18</strong></li>
-            <li><span>Mai</span><strong>09 & 16</strong></li>
-            <li><span>Juin</span><strong>13 & 20</strong></li>
-            <li><span>Juillet</span><strong>11 & 18</strong></li>
-            <li><span>Août</span><strong>08 & 15</strong></li>
-            <li><span>Septembre</span><strong>12 & 26</strong></li>
-            <li><span>Octobre</span><strong>10 & 17</strong></li>
-            <li><span>Novembre</span><strong>14 & 21</strong></li>
-            <li><span>Décembre</span><strong>12 & 19</strong></li>
-          </ul>
-        </div>
-    </div>
+  <?php
+  date_default_timezone_set('Europe/Paris');
 
-    <div>
-      <h4>Salle 2 : <a href="https://osm.org/go/eroSYatnK?way=724135796">Salle des sports de Bais</a></h3>
-        <div class="lfdj-calendar">
-          <ul class="lfdj-calendar-list">
-            <li><span>Septembre</span><strong>19</strong></li>
-            <li><span>Octobre</span><strong>24</strong></li>
-            <li><span>Novembre</span><strong>28</strong></li>
-          </ul>
-        </div>
+  $lfdj_mois_fr = [1=>'Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  $lfdj_jours_fr = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+
+  require('importation-php/agenda-data.php');
+
+  function lfdj_agenda_prepare($lieux, $mois_fr, $jours_fr){
+    $today = new DateTime('today');
+    $all = [];
+    foreach($lieux as $cle => $lieu){
+      foreach($lieu['dates'] as $d){
+        $dt = new DateTime($d);
+        if($dt >= $today){
+          $all[] = ['date' => $dt, 'lieu' => $cle, 'label' => $lieu['label'], 'url' => $lieu['url']];
+        }
+      }
+    }
+    usort($all, fn($a, $b) => $a['date'] <=> $b['date']);
+
+    $format = function($item) use ($mois_fr, $jours_fr){
+      $dt = $item['date'];
+      return [
+        'jour'   => $jours_fr[(int)$dt->format('w')],
+        'numero' => $dt->format('d'),
+        'mois'   => $mois_fr[(int)$dt->format('n')],
+        'annee'  => $dt->format('Y'),
+        'lieu'   => $item['lieu'],
+        'label'  => $item['label'],
+        'url'    => $item['url'],
+      ];
+    };
+
+    $next = $all ? $format(array_shift($all)) : null;
+    $rows = array_map($format, $all);
+
+    return ['featured' => $next, 'rows' => $rows];
+  }
+
+  $lfdj_agenda = lfdj_agenda_prepare($lfdj_agenda_lieux, $lfdj_mois_fr, $lfdj_jours_fr);
+  ?>
+
+  <section class="lfdj-agenda-single" id="calendar">
+    <?php if($lfdj_agenda['featured']): $f = $lfdj_agenda['featured']; ?>
+    <div class="lfdj-agenda-next lfdj-agenda-next--<?= $f['lieu'] ?>">
+      <span class="lfdj-agenda-next-eyebrow">Prochaine séance</span>
+      <div class="lfdj-agenda-next-body">
+        <strong class="lfdj-agenda-next-day"><?= $f['numero'] ?></strong>
+        <span class="lfdj-agenda-next-month"><?= $f['mois'] ?></span>
+        <a class="lfdj-agenda-next-venue" href="<?= $f['url'] ?>"><?= $f['label'] ?></a>
+      </div>
     </div>
+    <?php else: ?>
+    <p class="lfdj-agenda-empty">Aucune date prévue pour le moment.</p>
+    <?php endif; ?>
+
+    <?php if($lfdj_agenda['rows']): ?>
+    <ul class="lfdj-agenda-rows">
+      <?php foreach($lfdj_agenda['rows'] as $r): ?>
+      <li class="lfdj-agenda-row lfdj-agenda-row--<?= $r['lieu'] ?>">
+        <span class="lfdj-agenda-row-date"><?= $r['numero'] ?> <?= $r['mois'] ?></span>
+        <a class="lfdj-agenda-row-venue" href="<?= $r['url'] ?>"><?= $r['label'] ?></a>
+      </li>
+      <?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
   </section>
 
-  <div class="lfdj-bloc-text lfdj-helloasso">
+  <div class="lfdj-agenda-actions">
     <a href="https://www.helloasso.com/associations/la-forge-des-joueurs/adhesions/adhesion-2026-1"
       target="_blank"
       rel="noopener"
-      class="lfdj-submenu-btn">
-      <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>&nbsp;Adhérer à l'association</a>
+      class="lfdj-cta-btn lfdj-cta-btn--gold">
+      <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Adhérer à l'association</a>
+
+    <a href="./calendrier.ics.php" download class="lfdj-agenda-download-link" aria-label="Télécharger le calendrier au format ICS">
+      <i class="fa-solid fa-download" aria-hidden="true"></i>
+      <span class="lfdj-agenda-download-format">.ICS</span>
+    </a>
   </div>
 
   <div class="lfdj-bloc-text">

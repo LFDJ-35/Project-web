@@ -57,7 +57,7 @@
   </div>
 
   <div class="lfdj-footer-bottom">
-    <div class="lfdj-footer-bottom-left">&copy; 2026 - 2027 La Forge des Joueurs</div>
+    <div class="lfdj-footer-bottom-left">&copy; 2025 - <?php echo date("Y") ?> La Forge des Joueurs</div>
     <div class="lfdj-footer-bottom-center">Une table, des joueurs, une passion commune.</div>
     <a href="/mentions-legales.php" class="lfdj-footer-bottom-right">Mentions légales</a>
   </div>

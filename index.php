@@ -14,6 +14,34 @@
 
   <?php require('importation-php/menu.php'); ?>
 
+  <section class="lfdj-hero-banner" aria-labelledby="lfdj-hero-title">
+    <div class="lfdj-hero-banner-stage">
+      <img class="lfdj-hero-banner-image" src="photos/IMG_20260905_094836.jpg" alt="Le stand de la Forge des Joueurs lors d'un forum des associations à Vitré" width="4000" height="2250" fetchpriority="high">
+
+      <img class="lfdj-hero-logo" src="images/Typographie-Blanc.png" alt="La Forge des Joueurs">
+
+      <div class="lfdj-hero-banner-card">
+        <p class="lfdj-hero-eyebrow"><span class="lfdj-hero-dot" aria-hidden="true"></span>Vitré &middot; Bais</p>
+        <h1 id="lfdj-hero-title">Forgeons nos<br>histoires<br><em>ensemble</em></h1>
+        <p class="lfdj-hero-lede">Jeux de rôle, figurines, cartes et jeux de société. Débutants comme confirmés, la première session est gratuite.</p>
+        <div class="lfdj-hero-actions">
+          <a class="lfdj-hero-btn" href="/discord"><i class="fa-brands fa-discord" aria-hidden="true"></i> Rejoindre le Discord</a>
+          <a class="lfdj-hero-btn lfdj-hero-btn--copper" href="#lfdj-calendrier">Voir le calendrier</a>
+        </div>
+        <div class="lfdj-hero-welcome"><span aria-hidden="true">◎</span> Ouvert à tous <span>·</span> 2 à 3 samedis par mois</div>
+      </div>
+
+      <div class="lfdj-hero-caption"><span aria-hidden="true"></span><span>Une association, une communauté</span></div>
+    </div>
+  </section>
+
+  <div class="lfdj-trust-band">
+    <p>Une asso à taille humaine.<br><strong>Un plaisir qui nous rassemble.</strong></p>
+    <div><strong>Vitré</strong><span>Mille-Club du Chêne</span></div>
+    <div><strong>Bais</strong><span>Salle des Sports</span></div>
+    <div><strong>20&nbsp;<small>€/an</small></strong><span>l'adhésion</span></div>
+  </div>
+
   <div class="lfdj-divtitle">
     <h4>La Forge des Joueurs</h4>
     <h2>L'Association<br></h2>
@@ -26,7 +54,7 @@
       Elle réunit des joueurs et joueuses de tous âges et de tous horizons, débutants comme confirmés, autour du plaisir de jouer, d’échanger et de partager des moments conviviaux.
     </p>
     <p>
-      Les rencontres ont lieu <strong>deux samedis par mois</strong> au Mille-Club du Chêne, à Vitré et plus rarement, à la salle des sports de Bais. Certains jeux sont joués de manière régulière au sein de l’association, comme Blood Bowl, qui fait l’objet de ligues et de tournois internes, ou encore de nombreuses campagnes de jeu de rôle menées sur plusieurs mois.
+      Les rencontres ont lieu <strong>deux samedis par mois</strong> au Mille-Club du Chêne, à Vitré, complétées depuis peu par <strong>un samedi supplémentaire chaque mois</strong> à la salle des sports de Bais, où nous multiplions notre présence. Certains jeux sont joués de manière régulière au sein de l’association, comme Blood Bowl, qui fait l’objet de ligues et de tournois internes, ou encore de nombreuses campagnes de jeu de rôle menées sur plusieurs mois.
       La Forge des Joueurs entretient également des partenariats avec plusieurs acteurs du milieu ludique local.
     </p>
     <p>
@@ -68,7 +96,7 @@
     </a>
   </div>
 
-  <div class="lfdj-divtitle">
+  <div class="lfdj-divtitle" id="lfdj-calendrier">
     <h4>Nos rendez-vous</h4>
     <h2>Calendrier</h2>
     <div class="lfdj-title-icon"><i class="fa-solid fa-calendar-days"></i></div>
@@ -76,7 +104,7 @@
 
   <div class="lfdj-bloc-text">
     <p>
-      Les rencontres de la Forge des Joueurs se déroulent généralement de <strong>14h à 01h</strong> au Mille-Club du Chêne, à Vitré et plus rarement, à la salle des sports de Bais.
+      Les rencontres de la Forge des Joueurs se déroulent généralement de <strong>14h à 01h</strong>, que ce soit au Mille-Club du Chêne à Vitré ou, une fois par mois, à la salle des sports de Bais.
       Les <strong>après-midis</strong> sont consacrés aux jeux de société, de plateau et de figurines, ainsi qu’à la découverte de nouveaux jeux.
       Les <strong>soirées</strong> sont, quant à elles, principalement dédiées au jeu de rôle, avec des univers variés et accessibles à tous.
       Une pause conviviale est généralement prévue en début de soirée pour se restaurer avant de reprendre les parties.

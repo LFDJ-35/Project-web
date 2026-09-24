@@ -79,15 +79,14 @@ function lfdj_menu_links(array $links, string $current)
     </a>
 
     <div class="lfdj-dropdown">
+      <a class="lfdj-mobile-discord-btn" href="/discord" aria-label="Rejoignez le Discord">
+        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+      </a>
       <button class="lfdj-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
 
       <div class="lfdj-dropdown-content" aria-label="Navigation mobile">
-        <a href="/index.php" aria-label="Association">
-          <i class="fa-solid fa-house" aria-hidden="true"></i>
-        </a>
-
         <button type="button" class="lfdj-mobile-subbtn <?= in_array($lfdj_current, $lfdj_jeux_pages) ? 'active' : '' ?>" aria-expanded="false">
           Jeux <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
         </button>
@@ -101,12 +100,6 @@ function lfdj_menu_links(array $links, string $current)
         <div class="lfdj-mobile-subcontent">
           <?php lfdj_menu_links($lfdj_activite_links, $lfdj_current); ?>
         </div>
-
-        <a class="lfdj-cta-discord lfdj-cta-discord--mobile" href="/discord">
-          <i class="fa-brands fa-discord" aria-hidden="true"></i>
-          Rejoignez le Discord
-          <i class="fa-solid fa-arrow-up-right lfdj-cta-discord__arrow" aria-hidden="true"></i>
-        </a>
       </div>
     </div>
 

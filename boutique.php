@@ -29,7 +29,7 @@ function create_collection_element(string $collection_root, array $element, bool
 {
   echo ('<button type="button" class="lfdj-design-thumb ' . ($is_active ? "active" : "") . '" data-file="' . $element["data-file"] . '" data-code="' . $element["data-code"] . '" aria-label="' . $element["label"] . '">');
   if ($element["data-file"] == "") {
-    echo ("<span>Vierge</span>");
+    echo ('<span class="lfdj-design-thumb-blank" aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>');
   } else {
     echo ('<img src="' . $collection_root . $element["data-file"] . '" alt="' . $element["label"] . '" loading="lazy">');
   }
@@ -108,7 +108,7 @@ function create_color_swatches(array $swatches)
 <div class="lfdj-bloc-text">
   <p>
     Après plusieurs semaines à comparer les prestataires et à valider les designs avec
-    <a href="https://www.instagram.com/estelle_arte/" target="_blank" rel="noopener"><strong>Estelle</strong></a>,
+    <a href="https://www.instagram.com/estelle_arttt/" target="_blank" rel="noopener"><strong>Estelle</strong></a>,
     illustratrice de l'association, la Forge des Joueurs lance ses
     <strong>précommandes de goodies textiles</strong>&nbsp;: t-shirts, maillots et sweats.
   </p>
@@ -127,13 +127,25 @@ function create_color_swatches(array $swatches)
   </p>
 </div>
 
-<div class="lfdj-notice-box">
+<div class="lfdj-notice-box lfdj-notice-box--engagement">
   <p>
+    <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
     <strong>Un article précommandé est un engagement&nbsp;:</strong> il devra être réglé
     dès que la commande groupée sera passée auprès du prestataire. C'est grâce à vos
     précommandes qu'on peut estimer nos tarifs dégressifs et en faire profiter tout le
     monde&nbsp;: une annulation est problématique pour l'ensemble du groupe.
     Soyons raisonnables, on compte sur vous&nbsp;!
+  </p>
+</div>
+
+<div class="lfdj-notice-box lfdj-notice-box--warning">
+  <p>
+    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+    <strong>Attention&nbsp;:</strong> les mockups utilisés ci-dessous ne sont pas les
+    produits officiels finaux, mais des visuels permettant de se projeter sur le rendu.
+    De même, les images affichées sont volontairement en qualité réduite, pour un
+    chargement de page optimal&nbsp;: ce sont bien les fichiers finaux, la définition
+    sera simplement restaurée en haute qualité au moment de la commande.
   </p>
 </div>
 
@@ -149,23 +161,30 @@ function create_color_swatches(array $swatches)
 
 <div class="lfdj-bloc-text">
   <p>
-    Le design choisi est imprimé <strong>au dos du t-shirt</strong>, comme sur l'aperçu ci-dessous.
-    Designs imaginés par <strong>Estelle</strong> (pseudo <strong>Pingu</strong>&nbsp;🐧),
-    illustratrice de l'association&nbsp;: en courtoisie pour son travail bénévole, un lien vers son
-    <a href="https://www.instagram.com/estelle_arte/" target="_blank" rel="noopener">Instagram</a> est indiqué ici.
+    Design imaginé par <strong>Estelle 🐧</strong> illustratrice en courtoisie pour son travail bénévole, un lien vers son
+    <a href="https://www.instagram.com/estelle_arttt/" target="_blank" rel="noopener">Instagram</a>.
+    Le t-shirt utilisé est le
+    <a href="https://www.lesfilosophes.fr/products/descartes-t-shirt-en-coton-bio-fabrique-en-france" target="_blank" rel="noopener">Descartes</a>,
+    en coton bio fabriqué en France par Les Philosophes.
   </p>
 </div>
 
 <div class="lfdj-boutique-wrap">
 
   <div class="lfdj-boutique-preview">
+    <div class="lfdj-jersey-tabs" role="group" aria-label="Vue du t-shirt">
+      <button type="button" class="lfdj-size-pill" data-view="FACE">Face</button>
+      <button type="button" class="lfdj-size-pill active" data-view="DOS">Dos</button>
+    </div>
     <div class="lfdj-boutique-preview-frame">
-      <img id="lfdj-tshirt-base" src="./images/Textile/COLLECTION-PINGU/TSHIRT/TSHIRT-BLANC.webp" alt="T-shirt dos, coloris blanc" width="2050" height="2529">
-      <img id="lfdj-tshirt-design" src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-ALIEN.webp" alt="Design Alien" width="2050" height="2529">
+      <img id="lfdj-tshirt-base" src="./images/Textile/DESCARTES/TSHIRT-DOS-BLANC.webp" alt="T-shirt dos, coloris blanc" width="2050" height="2529">
+      <img id="lfdj-tshirt-design" src="./images/Textile/COLLECTION-PINGU/TSHIRT/DESIGN-PINGU-ALIEN.webp" alt="Design Alien" width="2050" height="2529">
+      <img id="lfdj-tshirt-logo" src="./images/Textile/COLLECTION-PINGU/TSHIRT/LOGO-PINGU-FACE-BLANC.webp" alt="Logo, face" width="2113" height="2351">
+      <button type="button" class="lfdj-zoom-btn" aria-label="Agrandir l'image">+</button>
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-ref-code">EST-ALI-BLA-M-Q1</code>
-      <button type="button" id="lfdj-ref-copy" class="lfdj-ref-copy-btn-small">Copier</button>
+      <button type="button" id="lfdj-ref-copy" class="lfdj-ref-copy-btn-small" aria-label="Copier la référence"><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
     </p>
   </div>
 
@@ -177,13 +196,14 @@ function create_color_swatches(array $swatches)
 
       <?php
         create_collection("/images/Textile/COLLECTION-PINGU/TSHIRT/", array(
-          array("data-file" => "DESIGN-ALIEN.webp", "data-code" => "ALI", "label" => "Design Alien"),
-          array("data-file" => "DESIGN-BLOODBOWL.webp", "data-code" => "BB", "label" => "Design Blood Bowl"),
-          array("data-file" => "DESIGN-BLOODBOWLGOLD.webp", "data-code" => "BBG", "label" => "Design Blood Bowl Gold"),
-          array("data-file" => "DESIGN-CYBERPUNKGOLD.webp", "data-code" => "CPG", "label" => "Design Cyberpunk Gold"),
-          array("data-file" => "DESIGN-DRAGON.webp", "data-code" => "DRA", "label" => "Design Dragon"),
-          array("data-file" => "DESIGN-DRAGONGOLD.webp", "data-code" => "DRG", "label" => "Design Dragon Gold"),
-          array("data-file" => "DESIGN-SPACEMARINE.webp", "data-code" => "SM", "label" => "Design Space Marine"),
+          array("data-file" => "DESIGN-PINGU-ALIEN.webp", "data-code" => "ALI", "label" => "Design Alien"),
+          array("data-file" => "DESIGN-PINGU-BLOODBOWL.webp", "data-code" => "BB", "label" => "Design Blood Bowl"),
+          array("data-file" => "DESIGN-PINGU-CYBERPUNK.webp", "data-code" => "CPK", "label" => "Design Cyberpunk"),
+          array("data-file" => "DESIGN-PINGU-DRAGON.webp", "data-code" => "DRA", "label" => "Design Dragon"),
+          array("data-file" => "DESIGN-PINGU-SPACEMARINE.webp", "data-code" => "SM", "label" => "Design Space Marine"),
+          array("data-file" => "DESIGN-PINGU-TRIO-JDF-SPACEMARINE.webp", "data-code" => "TRISM", "label" => "Design Trio, Space Marine en avant"),
+          array("data-file" => "DESIGN-PINGU-TRIO-JDR-DRAGON.webp", "data-code" => "TRIDRA", "label" => "Design Trio, Dragon en avant"),
+          array("data-file" => "DESIGN-PINGU-QUINTET-DRAGON.webp", "data-code" => "QUIDRA", "label" => "Design Quintet, Dragon en avant"),
         ));
       ?>
       </div>
@@ -194,11 +214,16 @@ function create_color_swatches(array $swatches)
       <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
         <?php
         create_color_swatches(array(
-          array("data-file" => "TSHIRT-BLANC.webp", "data-code" => "BLA", "color" => "#f4f3f0", "label" => "Blanc"),
-          array("data-file" => "TSHIRT-BLEU.webp", "data-code" => "BLE", "color" => "#7189ab", "label" => "Bleu"),
-          array("data-file" => "TSHIRT-JAUNE.webp", "data-code" => "JAU", "color" => "#c2a05a", "label" => "Jaune"),
-          array("data-file" => "TSHIRT-NOIR.webp", "data-code" => "NOI", "color" => "#222222", "label" => "Noir"),
-          array("data-file" => "TSHIRT-ROSE.webp", "data-code" => "ROS", "color" => "#c98f8a", "label" => "Rose"),
+          array("data-color" => "BLANC", "data-code" => "BLA", "color" => "#f4f3f0", "label" => "Blanc"),
+          array("data-color" => "BORDEAUX", "data-code" => "BOR", "color" => "#661f24", "label" => "Bordeaux"),
+          array("data-color" => "CIEL", "data-code" => "CIE", "color" => "#b5d9f3", "label" => "Ciel"),
+          array("data-color" => "MARINE", "data-code" => "MAR", "color" => "#1d253a", "label" => "Marine"),
+          array("data-color" => "NOIR", "data-code" => "NOI", "color" => "#333332", "label" => "Noir"),
+          array("data-color" => "ROSEFUCHSIA", "data-code" => "RFU", "color" => "#f34b8d", "label" => "Rose fuchsia"),
+          array("data-color" => "ROSEPALE", "data-code" => "RPA", "color" => "#ecdade", "label" => "Rose pâle"),
+          array("data-color" => "ROUGE", "data-code" => "RGE", "color" => "#e0222b", "label" => "Rouge"),
+          array("data-color" => "ROYAL", "data-code" => "ROY", "color" => "#054bac", "label" => "Royal"),
+          array("data-color" => "VERT", "data-code" => "VER", "color" => "#345c4a", "label" => "Vert"),
         ));
         ?>
       </div>
@@ -227,12 +252,7 @@ function create_color_swatches(array $swatches)
         </div>
       </div>
       <div class="lfdj-price-inline">
-        <span class="lfdj-price-tag-inline">23&nbsp;€ la pièce</span>
-        <p class="lfdj-price-caption">
-          Coton bio, fabriqué en France (référence
-          <a href="https://www.lesfilosophes.fr/products/descartes-t-shirt-en-coton-bio-fabrique-en-france" target="_blank" rel="noopener">Descartes, Les Philosophes</a>).
-          Prix fixe, ne pourra que baisser.
-        </p>
+        <span class="lfdj-price-tag-inline">25&nbsp;€ la pièce</span>
       </div>
     </div>
 
@@ -254,42 +274,62 @@ function create_color_swatches(array $swatches)
 
 <div class="lfdj-bloc-text">
   <p>
-    Une petite collection plus personnelle, imaginée par <strong>Spirito</strong> (Johan B.),
-    membre de l'association&nbsp;: en courtoisie pour son travail bénévole, un lien vers son
-    site <a href="https://www.spirito.fr" target="_blank" rel="noopener">www.spirito.fr</a> est indiqué ici.
-    Par souci de transparence, <strong>sachez que ces designs ont été réalisés en partie
-    à l'aide de l'intelligence artificielle</strong>.
-  </p>
-  <p>
-    Le design choisi est imprimé <strong>devant</strong> le t-shirt, comme sur l'aperçu ci-dessous.
-    Disponible uniquement en <strong>noir</strong>, même tarif que la collection Pingu.
+    Une collection imaginée par <strong>Spirito</strong>, en courtoisie pour son travail bénévole,
+    un lien vers son site <a href="https://www.spirito.fr" target="_blank" rel="noopener">www.spirito.fr</a>
+    est indiqué ici. Par souci de transparence, sachez que ces designs ont en partie été réalisés
+    à l'aide de l'intelligence artificielle, bien qu'entièrement retouchés à la main. Le t-shirt
+    utilisé est le
+    <a href="https://www.lesfilosophes.fr/products/descartes-t-shirt-en-coton-bio-fabrique-en-france" target="_blank" rel="noopener">Descartes</a>,
+    en coton bio fabriqué en France par Les Philosophes.
   </p>
 </div>
 
 <div class="lfdj-boutique-wrap">
 
   <div class="lfdj-boutique-preview">
+    <div class="lfdj-jersey-tabs" role="group" aria-label="Vue du t-shirt">
+      <button type="button" class="lfdj-size-pill active" data-view="FACE">Face</button>
+      <button type="button" class="lfdj-size-pill" data-view="DOS">Dos</button>
+    </div>
     <div class="lfdj-boutique-preview-frame">
-      <img id="lfdj-pipito-base" src="./images/Textile/COLLECTION-PIPITO/TSHIRT_B-BEER.webp" alt="T-shirt La Forge des Joueurs, design Actuellement en repos long" width="2050" height="2529">
+      <img id="lfdj-pipito-base" src="./images/Textile/DESCARTES/TSHIRT-FACE-NOIR.webp" alt="T-shirt, coloris noir, face" width="1129" height="1393">
+      <img id="lfdj-pipito-design" src="./images/Textile/COLLECTION-PIPITO/DESIGN-PIPITO-BEER.webp" alt="Design Actuellement en repos long" width="2500" height="2500">
+      <button type="button" class="lfdj-zoom-btn" aria-label="Agrandir l'image">+</button>
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-pipito-ref-code">PIP-BEE-NOI-M-Q1</code>
-      <button type="button" id="lfdj-pipito-ref-copy" class="lfdj-ref-copy-btn-small">Copier</button>
+      <button type="button" id="lfdj-pipito-ref-copy" class="lfdj-ref-copy-btn-small" aria-label="Copier la référence"><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
     </p>
   </div>
 
   <div class="lfdj-boutique-controls">
 
     <div class="lfdj-boutique-group">
-      <h5>Design</h5>
+      <h5>Design (face)</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
 
         <?php
         create_collection("/images/Textile/COLLECTION-PIPITO/", array(
-          array("data-file" => "TSHIRT_B-BEER.webp", "data-code" => "BEE", "label" => "Actuellement en repos long"),
-          array("data-file" => "TSHIRT_B-COFFRE.webp", "data-code" => "COF", "label" => "Coffret vraiment gourmand"),
-          array("data-file" => "TSHIRT_B-MENHIR.webp", "data-code" => "MEN", "label" => "Solide comme un menhir"),
-          array("data-file" => "TSHIRT_B-PIOU.webp", "data-code" => "PIO", "label" => "Grand destin, petit héro"),
+          array("data-file" => "DESIGN-PIPITO-BEER.webp", "data-code" => "BEE", "label" => "Actuellement en repos long"),
+          array("data-file" => "DESIGN-PIPITO-COFFRE.webp", "data-code" => "COF", "label" => "Coffret vraiment gourmand"),
+          array("data-file" => "DESIGN-PIPITO-MENHIR.webp", "data-code" => "MEN", "label" => "Solide comme un menhir"),
+          array("data-file" => "DESIGN-PIPITO-PIOU.webp", "data-code" => "PIO", "label" => "Grand destin, petit héro"),
+        ));
+        ?>
+      </div>
+    </div>
+
+    <div class="lfdj-boutique-group">
+      <h5>Coloris</h5>
+      <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
+        <?php
+        create_color_swatches(array(
+          array("data-color" => "NOIR", "data-code" => "NOI", "color" => "#333332", "label" => "Noir"),
+          array("data-color" => "BORDEAUX", "data-code" => "BOR", "color" => "#661f24", "label" => "Bordeaux"),
+          array("data-color" => "MARINE", "data-code" => "MAR", "color" => "#1d253a", "label" => "Marine"),
+          array("data-color" => "ROUGE", "data-code" => "RGE", "color" => "#e0222b", "label" => "Rouge"),
+          array("data-color" => "ROYAL", "data-code" => "ROY", "color" => "#054bac", "label" => "Royal"),
+          array("data-color" => "VERT", "data-code" => "VER", "color" => "#345c4a", "label" => "Vert"),
         ));
         ?>
       </div>
@@ -318,12 +358,7 @@ function create_color_swatches(array $swatches)
         </div>
       </div>
       <div class="lfdj-price-inline">
-        <span class="lfdj-price-tag-inline">23&nbsp;€ la pièce</span>
-        <p class="lfdj-price-caption">
-          Coton bio, fabriqué en France (référence
-          <a href="https://www.lesfilosophes.fr/products/descartes-t-shirt-en-coton-bio-fabrique-en-france" target="_blank" rel="noopener">Descartes, Les Philosophes</a>).
-          Prix fixe, ne pourra que baisser.
-        </p>
+        <span class="lfdj-price-tag-inline">25&nbsp;€ la pièce</span>
       </div>
     </div>
 
@@ -347,19 +382,27 @@ function create_color_swatches(array $swatches)
   <p>
     Le t-shirt simple de l'association, floqué du logo, à offrir ou à porter lors des
     portes ouvertes et conventions. Disponible en deux coloris, même tarif que les
-    autres collections de t-shirts.
+    autres collections de t-shirts. Le t-shirt utilisé est le
+    <a href="https://www.lesfilosophes.fr/products/descartes-t-shirt-en-coton-bio-fabrique-en-france" target="_blank" rel="noopener">Descartes</a>,
+    en coton bio fabriqué en France par Les Philosophes.
   </p>
 </div>
 
 <div class="lfdj-boutique-wrap">
 
   <div class="lfdj-boutique-preview">
+    <div class="lfdj-jersey-tabs" role="group" aria-label="Vue du t-shirt">
+      <button type="button" class="lfdj-size-pill active" data-view="FACE">Face</button>
+      <button type="button" class="lfdj-size-pill" data-view="DOS">Dos</button>
+    </div>
     <div class="lfdj-boutique-preview-frame lfdj-generique-preview-frame">
-      <img id="lfdj-generique-base" src="./images/Textile/COLLECTION-GENERIQUE/TSHIRT_W-GENERIQUE.webp" alt="T-shirt générique, coloris blanc, face et dos" width="4864" height="3242">
+      <img id="lfdj-generique-base" src="./images/Textile/DESCARTES/TSHIRT-FACE-BLANC.webp" alt="T-shirt générique, coloris blanc, face" width="1297" height="1600">
+      <img id="lfdj-generique-logo" src="./images/Textile/COLLECTION-GENERIQUE/LOGO-GENERIQUE-FACE-BLANC.webp" alt="Logo, face" width="1297" height="1600">
+      <button type="button" class="lfdj-zoom-btn" aria-label="Agrandir l'image">+</button>
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-generique-ref-code">GEN-XX-BLA-M-Q1</code>
-      <button type="button" id="lfdj-generique-ref-copy" class="lfdj-ref-copy-btn-small">Copier</button>
+      <button type="button" id="lfdj-generique-ref-copy" class="lfdj-ref-copy-btn-small" aria-label="Copier la référence"><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
     </p>
   </div>
 
@@ -370,8 +413,8 @@ function create_color_swatches(array $swatches)
       <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
         <?php
         create_color_swatches(array(
-          array("data-file" => "TSHIRT_W-GENERIQUE.webp", "data-code" => "BLA", "color" => "#f4f3f0", "label" => "Blanc"),
-          array("data-file" => "TSHIRT_Y-GENERIQUE.webp", "data-code" => "JAU", "color" => "#c2a05a", "label" => "Jaune"),
+          array("data-color" => "BLANC", "data-code" => "BLA", "color" => "#f4f3f0", "label" => "Blanc"),
+          array("data-color" => "NOIR", "data-code" => "NOI", "color" => "#1a1a1a", "label" => "Noir"),
         ));
         ?>
       </div>
@@ -400,12 +443,7 @@ function create_color_swatches(array $swatches)
         </div>
       </div>
       <div class="lfdj-price-inline">
-        <span class="lfdj-price-tag-inline">23&nbsp;€ la pièce</span>
-        <p class="lfdj-price-caption">
-          Coton bio, fabriqué en France (référence
-          <a href="https://www.lesfilosophes.fr/products/descartes-t-shirt-en-coton-bio-fabrique-en-france" target="_blank" rel="noopener">Descartes, Les Philosophes</a>).
-          Prix fixe, ne pourra que baisser.
-        </p>
+        <span class="lfdj-price-tag-inline">25&nbsp;€ la pièce</span>
       </div>
     </div>
 
@@ -427,16 +465,9 @@ function create_color_swatches(array $swatches)
 
 <div class="lfdj-bloc-text">
   <p>
-    Second volet de la boutique&nbsp;: des <strong>maillots</strong> personnalisables,
-    réalisés en collaboration entre <strong>Estelle</strong> et <strong>Johan</strong>,
-    disponibles en <strong>noir</strong> ou en <strong>jaune</strong>, avec un design
-    au choix pour le dos (ou aucun, en version <strong>vierge</strong>). La
-    <strong>face avant n'est pas personnalisable</strong>&nbsp;: elle reste telle quelle,
-    frappée du logo de l'association.
-  </p>
-  <p>
-    Au dos, indiquez votre <strong>nom</strong> et votre <strong>numéro</strong>
-    pour un aperçu fidèle au rendu final.
+    Des <strong>maillots</strong> personnalisables type sport, issus d'une collaboration entre
+    <strong>Estelle</strong> et <strong>Johan</strong>. N'oubliez pas d'indiquer votre nom et le
+    numéro que vous préférez, pour un aperçu fidèle au rendu final.
   </p>
 </div>
 
@@ -452,10 +483,11 @@ function create_color_swatches(array $swatches)
       <img id="lfdj-jersey-design" src="./images/Textile/MAILLOTS-LFDJ/DESIGN-BLOODBOWL.webp" alt="Design Blood Bowl" width="7000" height="7000">
       <div id="lfdj-jersey-name" class="lfdj-jersey-text lfdj-jersey-name">VOTRE NOM</div>
       <div id="lfdj-jersey-number" class="lfdj-jersey-text lfdj-jersey-number">00</div>
+      <button type="button" class="lfdj-zoom-btn" aria-label="Agrandir l'image">+</button>
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-jersey-ref-code">MAI-BB-NOI-M-NOM-00-Q1</code>
-      <button type="button" id="lfdj-jersey-ref-copy" class="lfdj-ref-copy-btn-small">Copier</button>
+      <button type="button" id="lfdj-jersey-ref-copy" class="lfdj-ref-copy-btn-small" aria-label="Copier la référence"><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
     </p>
   </div>
 
@@ -470,6 +502,9 @@ function create_color_swatches(array $swatches)
           array("data-file" => "DESIGN-BLOODBOWL.webp", "data-code" => "BB", "label" => "Design Blood Bowl"),
           array("data-file" => "DESIGN-CYBERPUNK.webp", "data-code" => "CPK", "label" => "Design Cyberpunk"),
           array("data-file" => "DESIGN-DRAGON.webp", "data-code" => "DRA", "label" => "Design Dragon"),
+          array("data-file" => "DESIGN-TRIO-BLOODBOWL.webp", "data-code" => "TRIBB", "label" => "Design Trio, Blood Bowl en avant"),
+          array("data-file" => "DESIGN-TRIO-CYBERPUNK.webp", "data-code" => "TRICPK", "label" => "Design Trio, Cyberpunk en avant"),
+          array("data-file" => "DESIGN-TRIO-DRAGON.webp", "data-code" => "TRIDRA", "label" => "Design Trio, Dragon en avant"),
           array("data-file" => "", "data-code" => "VIE", "label" => "Vierge, sans design"),
         ));
       ?>
@@ -529,7 +564,7 @@ function create_color_swatches(array $swatches)
       <div class="lfdj-price-inline">
         <span class="lfdj-price-tag-inline">35&nbsp;€ la pièce</span>
         <p class="lfdj-price-caption">
-          Fabriqué en Aquitaine 🇫🇷 par
+          Fabriqué en Aquitaine (France) par
           <a href="https://printtex64.com/" target="_blank" rel="noopener">Printex64</a>.
         </p>
       </div>
@@ -541,11 +576,11 @@ function create_color_swatches(array $swatches)
 
 </section>
 
-<section aria-label="Sweats">
+<section aria-label="Sweat Rousseau">
 
 <div class="lfdj-divtitle">
   <h4>Encore un peu de chaleur</h4>
-  <h3>sweats</h3>
+  <h3>sweat rousseau</h3>
   <div class="lfdj-title-icon">
     <i class="fa-solid fa-vest"></i>
   </div>
@@ -553,32 +588,30 @@ function create_color_swatches(array $swatches)
 
 <div class="lfdj-bloc-text">
   <p>
-    Troisième volet de la boutique&nbsp;: deux modèles de <strong>sweats à capuche</strong>,
-    <strong>Rousseau</strong> (classique) et <strong>Montaigne</strong> (zippé),
-    personnalisables avec les designs de la collection Pingu imprimés au dos.
+    Le sweat à capuche
+    <a href="https://www.lesfilosophes.fr/products/rousseau-hoodie-coton-bio-unisexe-couleurs" target="_blank" rel="noopener">Rousseau</a>,
+    personnalisable avec les designs de la collection Pingu imprimés au dos, en coton bio
+    fabriqué par Les Philosophes&nbsp;: confection en France, tissu et teinture au Portugal,
+    coton de Turquie.
   </p>
 </div>
 
 <div class="lfdj-boutique-wrap">
 
   <div class="lfdj-boutique-preview">
-    <div class="lfdj-jersey-tabs" role="group" aria-label="Choix du modèle">
-      <button type="button" class="lfdj-size-pill active" data-product="ROUSSEAU">Rousseau</button>
-      <button type="button" class="lfdj-size-pill" data-product="MONTAIGNE">Montaigne</button>
+    <div class="lfdj-jersey-tabs lfdj-sweat-view-tabs" role="group" aria-label="Vue du sweat">
+      <button type="button" class="lfdj-size-pill" data-view="FACE">Face</button>
+      <button type="button" class="lfdj-size-pill active" data-view="DOS">Dos</button>
     </div>
     <div class="lfdj-sweat-preview-frame">
-      <img id="lfdj-sweat-base" src="./images/Textile/COLLECTION-PINGU/SWEAT/SWEAT-ROUSSEAU-BLEU.webp" alt="Sweat Rousseau, coloris bleu" width="2816" height="3457">
-      <img id="lfdj-sweat-design" src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-ALIEN.webp" alt="Design Alien" width="2816" height="3457">
+      <img id="lfdj-sweat-rousseau-base" src="./images/Textile/ROUSSEAU/SWEAT-DOS-BORDEAUX.webp" alt="Sweat Rousseau, coloris bordeaux" width="2816" height="3457">
+      <img id="lfdj-sweat-rousseau-design" src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-PINGU-ALIEN.webp" alt="Design Alien" width="2816" height="3457">
+      <img id="lfdj-sweat-rousseau-logo" src="./images/Textile/COLLECTION-PINGU/SWEAT/LOGO-PINGU-FACE-NOIR.webp" alt="Logo, face" width="1297" height="1600" class="lfdj-hidden">
+      <button type="button" class="lfdj-zoom-btn" aria-label="Agrandir l'image">+</button>
     </div>
     <p class="lfdj-ref-inline">
-      Réf.&nbsp;: <code id="lfdj-sweat-ref-code">SWE-ROUS-ALI-BLE-M-Q1</code>
-      <button type="button" id="lfdj-sweat-ref-copy" class="lfdj-ref-copy-btn-small">Copier</button>
-    </p>
-    <p class="lfdj-sweat-disclaimer">
-      Aperçu indicatif&nbsp;: le rendu réel du tissu et de la coupe est visible sur les fiches
-      <a href="https://www.lesfilosophes.fr/products/rousseau-hoodie-coton-bio-unisexe-couleurs" target="_blank" rel="noopener">Rousseau</a>
-      et
-      <a href="https://www.lesfilosophes.fr/products/montaigne-hoodie-zippe-coton-bio-unisexe-classique" target="_blank" rel="noopener">Montaigne</a>.
+      Réf.&nbsp;: <code id="lfdj-sweat-rousseau-ref-code">SWE-ROUS-ALI-BOR-M-Q1</code>
+      <button type="button" id="lfdj-sweat-rousseau-ref-copy" class="lfdj-ref-copy-btn-small" aria-label="Copier la référence"><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
     </p>
   </div>
 
@@ -588,39 +621,31 @@ function create_color_swatches(array $swatches)
       <h5>Design (dos)</h5>
       <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
         <?php
-
         create_collection("/images/Textile/COLLECTION-PINGU/SWEAT/", array(
-          array("data-file" => "DESIGN-ALIEN.webp", "label" => "Design Alien", "data-code" => "ALI"),
-          array("data-file" => "DESIGN-BLOODBOWL.webp", "label" => "Design Blood Bowl", "data-code" => "BB"),
-          array("data-file" => "DESIGN-BLOODBOWLGOLD.webp", "label" => "Design Blood Bowl Gold", "data-code" => "BBG"),
-          array("data-file" => "DESIGN-CYBERPUNKGOLD.webp", "label" => "Design Cyberpunk Gold", "data-code" => "CPG"),
-          array("data-file" => "DESIGN-DRAGON.webp", "label" => "Design Dragon", "data-code" => "DRA"),
-          array("data-file" => "DESIGN-DRAGONGOLD.webp", "label" => "Design Dragon Gold", "data-code" => "DRG"),
-          array("data-file" => "DESIGN-SPACEMARINE.webp", "label" => "Design Space Marine", "data-code" => "SM"),
+          array("data-file" => "DESIGN-PINGU-ALIEN.webp", "label" => "Design Alien", "data-code" => "ALI"),
+          array("data-file" => "DESIGN-PINGU-BLOODBOWL.webp", "label" => "Design Blood Bowl", "data-code" => "BB"),
+          array("data-file" => "DESIGN-PINGU-CYBERPUNK.webp", "label" => "Design Cyberpunk", "data-code" => "CPK"),
+          array("data-file" => "DESIGN-PINGU-DRAGON.webp", "label" => "Design Dragon", "data-code" => "DRA"),
+          array("data-file" => "DESIGN-PINGU-SPACEMARINE.webp", "label" => "Design Space Marine", "data-code" => "SM"),
+          array("data-file" => "DESIGN-PINGU-TRIO-JDF-SPACEMARINE.webp", "label" => "Design Trio, Space Marine en avant", "data-code" => "TRISM"),
+          array("data-file" => "DESIGN-PINGU-TRIO-JDR-DRAGON.webp", "label" => "Design Trio, Dragon en avant", "data-code" => "TRIDRA"),
+          array("data-file" => "DESIGN-PINGU-QUINTET-DRAGON.webp", "label" => "Design Quintet, Dragon en avant", "data-code" => "QUIDRA"),
         ));
-
         ?>
       </div>
     </div>
 
     <div class="lfdj-boutique-group">
       <h5>Coloris</h5>
-      <div class="lfdj-color-row" data-product-colors="ROUSSEAU" role="group" aria-label="Choix du coloris Rousseau">
+      <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
         <?php
         create_color_swatches(array(
-          array("data-file" => "BLEU", "data-code" => "BLE", "color" => "#2a3e62", "label" => "Bleu"),
-          array("data-file" => "ROUGE", "data-code" => "RGE", "color" => "#833748", "label" => "Rouge"),
-          array("data-file" => "VERT", "data-code" => "VER", "color" => "#396c69", "label" => "Vert"),
-        ));
-        ?>
-      </div>
-      <div class="lfdj-color-row lfdj-hidden" data-product-colors="MONTAIGNE" role="group" aria-label="Choix du coloris Montaigne">
-        <?php
-        create_color_swatches(array(
-          array("data-file" => "BLANC", "data-code" => "BLA", "color" => "#f3f3f3", "label" => "Blanc"),
-          array("data-file" => "GRIS", "data-code" => "GRI", "color" => "#b4b4b4", "label" => "Gris"),
-          array("data-file" => "GRISFONCE", "data-code" => "GRF", "color" => "#696969", "label" => "Gris foncé"),
-          array("data-file" => "NOIR", "data-code" => "NOI", "color" => "#151515", "label" => "Noir"),
+          array("data-color" => "BORDEAUX", "data-code" => "BOR", "color" => "#692329", "label" => "Bordeaux"),
+          array("data-color" => "CIEL", "data-code" => "CIE", "color" => "#b9d5f0", "label" => "Ciel"),
+          array("data-color" => "MARINE", "data-code" => "MAR", "color" => "#242b3f", "label" => "Marine"),
+          array("data-color" => "ROUGE", "data-code" => "RGE", "color" => "#e11421", "label" => "Rouge"),
+          array("data-color" => "ROYAL", "data-code" => "ROY", "color" => "#0266cd", "label" => "Royal"),
+          array("data-color" => "VERT", "data-code" => "VER", "color" => "#335d50", "label" => "Vert"),
         ));
         ?>
       </div>
@@ -644,19 +669,118 @@ function create_color_swatches(array $swatches)
         <h5>Quantité</h5>
         <div class="lfdj-qty-stepper">
           <button type="button" class="lfdj-qty-btn" data-action="decrement" aria-label="Diminuer la quantité">&minus;</button>
-          <input type="number" id="lfdj-input-sweat-qty" class="lfdj-qty-value" min="1" step="1" value="1" inputmode="numeric">
+          <input type="number" id="lfdj-input-sweat-rousseau-qty" class="lfdj-qty-value" min="1" step="1" value="1" inputmode="numeric">
           <button type="button" class="lfdj-qty-btn" data-action="increment" aria-label="Augmenter la quantité">+</button>
         </div>
       </div>
       <div class="lfdj-price-inline">
-        <span class="lfdj-price-tag-inline" id="lfdj-sweat-price">60&nbsp;€ la pièce</span>
-        <p class="lfdj-price-caption">
-          Coton bio (référence
-          <a href="https://www.lesfilosophes.fr/products/rousseau-hoodie-coton-bio-unisexe-couleurs" target="_blank" rel="noopener">Rousseau</a>
-          et
-          <a href="https://www.lesfilosophes.fr/products/montaigne-hoodie-zippe-coton-bio-unisexe-classique" target="_blank" rel="noopener">Montaigne</a>,
-          Les Philosophes). Confection 🇫🇷, tissu &amp; teinture 🇵🇹, coton 🇹🇷. Tarif indicatif.
-        </p>
+        <span class="lfdj-price-tag-inline">62&nbsp;€ la pièce</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+<section aria-label="Sweat Montaigne">
+
+<div class="lfdj-divtitle">
+  <h4>Encore un peu de chaleur</h4>
+  <h3>sweat montaigne</h3>
+  <div class="lfdj-title-icon">
+    <i class="fa-solid fa-vest"></i>
+  </div>
+</div>
+
+<div class="lfdj-bloc-text">
+  <p>
+    Le sweat à capuche
+    <a href="https://www.lesfilosophes.fr/products/montaigne-hoodie-zippe-coton-bio-unisexe-classique" target="_blank" rel="noopener">Montaigne</a>,
+    personnalisable avec les designs de la collection Pingu imprimés au dos, en coton bio
+    fabriqué par Les Philosophes&nbsp;: confection en France, tissu et teinture au Portugal,
+    coton de Turquie.
+  </p>
+</div>
+
+<div class="lfdj-boutique-wrap">
+
+  <div class="lfdj-boutique-preview">
+    <div class="lfdj-jersey-tabs lfdj-sweat-view-tabs" role="group" aria-label="Vue du sweat">
+      <button type="button" class="lfdj-size-pill" data-view="FACE">Face</button>
+      <button type="button" class="lfdj-size-pill active" data-view="DOS">Dos</button>
+    </div>
+    <div class="lfdj-sweat-preview-frame">
+      <img id="lfdj-sweat-montaigne-base" src="./images/Textile/MONTAIGNE/SWEAT-DOS-BLANC.webp" alt="Sweat Montaigne, coloris blanc" width="2816" height="3457">
+      <img id="lfdj-sweat-montaigne-design" src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-PINGU-ALIEN.webp" alt="Design Alien" width="2816" height="3457">
+      <img id="lfdj-sweat-montaigne-logo" src="./images/Textile/COLLECTION-PINGU/SWEAT/LOGO-PINGU-FACE-BLANC.webp" alt="Logo, face" width="1297" height="1600" class="lfdj-hidden">
+      <button type="button" class="lfdj-zoom-btn" aria-label="Agrandir l'image">+</button>
+    </div>
+    <p class="lfdj-ref-inline">
+      Réf.&nbsp;: <code id="lfdj-sweat-montaigne-ref-code">SWE-MONT-ALI-BLA-M-Q1</code>
+      <button type="button" id="lfdj-sweat-montaigne-ref-copy" class="lfdj-ref-copy-btn-small" aria-label="Copier la référence"><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
+    </p>
+  </div>
+
+  <div class="lfdj-boutique-controls">
+
+    <div class="lfdj-boutique-group">
+      <h5>Design (dos)</h5>
+      <div class="lfdj-design-grid" role="group" aria-label="Choix du design">
+        <?php
+        create_collection("/images/Textile/COLLECTION-PINGU/SWEAT/", array(
+          array("data-file" => "DESIGN-PINGU-ALIEN.webp", "label" => "Design Alien", "data-code" => "ALI"),
+          array("data-file" => "DESIGN-PINGU-BLOODBOWL.webp", "label" => "Design Blood Bowl", "data-code" => "BB"),
+          array("data-file" => "DESIGN-PINGU-CYBERPUNK.webp", "label" => "Design Cyberpunk", "data-code" => "CPK"),
+          array("data-file" => "DESIGN-PINGU-DRAGON.webp", "label" => "Design Dragon", "data-code" => "DRA"),
+          array("data-file" => "DESIGN-PINGU-SPACEMARINE.webp", "label" => "Design Space Marine", "data-code" => "SM"),
+          array("data-file" => "DESIGN-PINGU-TRIO-JDF-SPACEMARINE.webp", "label" => "Design Trio, Space Marine en avant", "data-code" => "TRISM"),
+          array("data-file" => "DESIGN-PINGU-TRIO-JDR-DRAGON.webp", "label" => "Design Trio, Dragon en avant", "data-code" => "TRIDRA"),
+          array("data-file" => "DESIGN-PINGU-QUINTET-DRAGON.webp", "label" => "Design Quintet, Dragon en avant", "data-code" => "QUIDRA"),
+        ));
+        ?>
+      </div>
+    </div>
+
+    <div class="lfdj-boutique-group">
+      <h5>Coloris</h5>
+      <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
+        <?php
+        create_color_swatches(array(
+          array("data-color" => "BLANC", "data-code" => "BLA", "color" => "#ffffff", "label" => "Blanc"),
+          array("data-color" => "GRISCLAIR", "data-code" => "GRC", "color" => "#b1afb2", "label" => "Gris clair"),
+          array("data-color" => "GRISFONCE", "data-code" => "GRF", "color" => "#4f5151", "label" => "Gris foncé"),
+          array("data-color" => "NOIR", "data-code" => "NOI", "color" => "#1f1f1f", "label" => "Noir"),
+        ));
+        ?>
+      </div>
+    </div>
+
+    <div class="lfdj-boutique-group">
+      <h5>Taille</h5>
+      <div class="lfdj-size-row" role="group" aria-label="Choix de la taille">
+        <button type="button" class="lfdj-size-pill" data-code="XS">XS</button>
+        <button type="button" class="lfdj-size-pill" data-code="S">S</button>
+        <button type="button" class="lfdj-size-pill active" data-code="M">M</button>
+        <button type="button" class="lfdj-size-pill" data-code="L">L</button>
+        <button type="button" class="lfdj-size-pill" data-code="XL">XL</button>
+        <button type="button" class="lfdj-size-pill" data-code="2XL">2XL</button>
+        <button type="button" class="lfdj-size-pill" data-code="3XL">3XL</button>
+      </div>
+    </div>
+
+    <div class="lfdj-boutique-group lfdj-qty-price-row">
+      <div>
+        <h5>Quantité</h5>
+        <div class="lfdj-qty-stepper">
+          <button type="button" class="lfdj-qty-btn" data-action="decrement" aria-label="Diminuer la quantité">&minus;</button>
+          <input type="number" id="lfdj-input-sweat-montaigne-qty" class="lfdj-qty-value" min="1" step="1" value="1" inputmode="numeric">
+          <button type="button" class="lfdj-qty-btn" data-action="increment" aria-label="Augmenter la quantité">+</button>
+        </div>
+      </div>
+      <div class="lfdj-price-inline">
+        <span class="lfdj-price-tag-inline">76&nbsp;€ la pièce</span>
       </div>
     </div>
 
@@ -679,8 +803,9 @@ function create_color_swatches(array $swatches)
 <div class="lfdj-bloc-text">
   <p>
     Un sac <strong>tote bag</strong> tricolore siglé du logo de l'association, avec le
-    label <strong>Origine France Garantie</strong>&nbsp;🇫🇷 (référence
-    <a href="https://www.europeancatalog.com/fr/ki3205-sac-de-shopping-tricolore-origine-france-garantie.html" target="_blank" rel="noopener">KI3205, European Catalog</a>).
+    label <strong>Origine France Garantie</strong>. Le modèle utilisé est le
+    <a href="https://www.europeancatalog.com/fr/ki3205-sac-de-shopping-tricolore-origine-france-garantie.html" target="_blank" rel="noopener">KI3205</a>,
+    chez European Catalog.
   </p>
 </div>
 
@@ -689,10 +814,11 @@ function create_color_swatches(array $swatches)
   <div class="lfdj-boutique-preview">
     <div class="lfdj-boutique-preview-frame lfdj-totbag-preview-frame">
       <img id="lfdj-totbag-base" src="./images/Textile/TOT-BAG/PS_KI3205_NATURAL.webp" alt="Tote bag La Forge des Joueurs, coloris naturel" width="660" height="616">
+      <button type="button" class="lfdj-zoom-btn" aria-label="Agrandir l'image">+</button>
     </div>
     <p class="lfdj-ref-inline">
       Réf.&nbsp;: <code id="lfdj-totbag-ref-code">TOT-NAT-Q1</code>
-      <button type="button" id="lfdj-totbag-ref-copy" class="lfdj-ref-copy-btn-small">Copier</button>
+      <button type="button" id="lfdj-totbag-ref-copy" class="lfdj-ref-copy-btn-small" aria-label="Copier la référence"><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
     </p>
   </div>
 

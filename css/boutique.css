@@ -40,7 +40,7 @@
 }
 
 .lfdj-generique-preview-frame{
-  aspect-ratio: 4864 / 3242;
+  aspect-ratio: 1297 / 1600;
 }
 
 .lfdj-totbag-preview-frame{
@@ -53,6 +53,10 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+#lfdj-pipito-design{
+  transform: scale(.6);
 }
 
 .lfdj-boutique-controls{
@@ -180,10 +184,34 @@
   color: var(--secondary-color);
 }
 
+.lfdj-notice-box i{
+  color: var(--secondary-color);
+  margin-right: 6px;
+}
+
+.lfdj-notice-box--warning{
+  background-color: rgba(142,83,58,.15);
+}
+
+.lfdj-notice-box--engagement{
+  background-color: rgba(200,164,77,.15);
+  border-color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.lfdj-notice-box--engagement strong,
+.lfdj-notice-box--engagement i{
+  color: var(--primary-color);
+}
+
+@media (max-width: 850px){
+  .lfdj-notice-box--engagement{ margin-bottom: 15px; }
+}
+
 .lfdj-qty-price-row{
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: center;
   gap: 20px;
 }
 
@@ -211,8 +239,14 @@
 }
 
 .lfdj-ref-inline{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--black-color);
   text-transform: none;
   letter-spacing: normal;
@@ -221,22 +255,24 @@
 }
 
 .lfdj-ref-inline code{
-  font-family: var(--font-secondary);
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--secondary-color);
+  font-family: "Courier New", ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--black-color);
   opacity: 1;
 }
 
 .lfdj-ref-copy-btn-small{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
   border: 1px solid rgba(141,141,141,.5);
-  border-radius: 12px;
-  padding: 3px 12px;
-  margin-left: 6px;
+  border-radius: 50%;
+  padding: 0;
   background: transparent;
   color: var(--black-color);
-  font-family: var(--font-third);
-  font-weight: 600;
   font-size: 12px;
   cursor: pointer;
 }
@@ -256,6 +292,10 @@
   justify-content: center;
   gap: 10px;
   margin-bottom: 12px;
+}
+
+.lfdj-jersey-tabs .lfdj-size-pill{
+  text-transform: uppercase;
 }
 
 .lfdj-jersey-preview-frame{
@@ -313,13 +353,10 @@
   justify-content: center;
 }
 
-.lfdj-design-thumb-blank span{
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.lfdj-design-thumb-blank i{
+  font-size: 20px;
   color: var(--black-color);
-  text-align: center;
+  opacity: .5;
 }
 
 .lfdj-jersey-inputs{
@@ -441,4 +478,101 @@
 .lfdj-jersey-inputs input:focus{
   outline: none;
   border-color: var(--primary-color);
+}
+
+/* ========================== ZOOM IMAGES ========================== */
+.lfdj-zoom-btn{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  background: var(--white-color);
+  color: var(--black-color);
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.lfdj-zoom-btn:hover{
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.lfdj-zoom-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 60px 20px;
+}
+
+.lfdj-zoom-overlay.active{
+  display: flex;
+}
+
+.lfdj-zoom-stage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.lfdj-zoom-stage .lfdj-zoom-btn{
+  display: none;
+}
+
+.lfdj-zoom-stage .lfdj-boutique-preview-frame,
+.lfdj-zoom-stage .lfdj-jersey-preview-frame,
+.lfdj-zoom-stage .lfdj-sweat-preview-frame{
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.lfdj-zoom-stage .lfdj-jersey-tabs,
+.lfdj-zoom-stage .lfdj-design-grid{
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.lfdj-zoom-stage .lfdj-jersey-tabs .lfdj-size-pill{
+  color: var(--white-color);
+  border-color: rgba(255,255,255,.4);
+}
+
+.lfdj-zoom-stage .lfdj-jersey-tabs .lfdj-size-pill.active{
+  border-color: var(--primary-color);
+  background-color: rgba(200,164,77,.25);
+}
+
+.lfdj-zoom-close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--white-color);
+  color: var(--black-color);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10001;
 }

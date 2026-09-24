@@ -1,52 +1,54 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const basePath = "./images/Textile/COLLECTION-PINGU/SWEAT/";
+/**
+ * Initialise un configurateur de sweat autonome (Rousseau ou Montaigne).
+ * Les deux modèles sont maintenant deux sections indépendantes plutôt que
+ * partagées dans un seul bloc avec bascule produit.
+ * @param {object} opts
+ * @param {string} opts.idPrefix Préfixe des ids (ex. "lfdj-sweat-rousseau")
+ * @param {string} opts.garmentPath Dossier des photos du sweat vierge
+ * @param {string} opts.refModel Code modèle pour la référence (ex. "ROUS")
+ * @param {string} opts.qtyId Id de l'input quantité
+ * @param {object} opts.lightColors Coloris jugés assez clairs pour le logo à encre noire
+ */
+function lfdjInitSweat(opts) {
+  const designPath = "./images/Textile/COLLECTION-PINGU/SWEAT/";
 
-  const baseImg = document.getElementById("lfdj-sweat-base");
-  const designImg = document.getElementById("lfdj-sweat-design");
-  const refCode = document.getElementById("lfdj-sweat-ref-code");
-  const copyBtn = document.getElementById("lfdj-sweat-ref-copy");
-  const qtyInput = document.getElementById("lfdj-input-sweat-qty");
-  const priceTag = document.getElementById("lfdj-sweat-price");
-
+  const baseImg = document.getElementById(opts.idPrefix + "-base");
   if (!baseImg) return;
 
+  const designImg = document.getElementById(opts.idPrefix + "-design");
+  const logoImg = document.getElementById(opts.idPrefix + "-logo");
+  const refCode = document.getElementById(opts.idPrefix + "-ref-code");
+  const copyBtn = document.getElementById(opts.idPrefix + "-ref-copy");
+  const qtyInput = document.getElementById(opts.qtyId);
+
   const wrap = baseImg.closest(".lfdj-boutique-wrap");
-  const productTabs = wrap.querySelectorAll(".lfdj-jersey-tabs .lfdj-size-pill");
+  const viewTabs = wrap.querySelectorAll(".lfdj-sweat-view-tabs .lfdj-size-pill");
   const designThumbs = wrap.querySelectorAll(".lfdj-design-thumb");
-  const colorRows = wrap.querySelectorAll(".lfdj-color-row");
+  const colorSwatches = wrap.querySelectorAll(".lfdj-color-swatch");
   const sizePills = wrap.querySelectorAll(".lfdj-size-row .lfdj-size-pill");
 
-  const productCodes = { ROUSSEAU: "ROUS", MONTAIGNE: "MONT" };
-  const productPrices = { ROUSSEAU: "60", MONTAIGNE: "74" };
-
-  const getActiveColorRow = () => {
-    const product = lfdjGetActive(productTabs)?.dataset.product || "ROUSSEAU";
-    return wrap.querySelector('.lfdj-color-row[data-product-colors="' + product + '"]');
-  };
-
   const render = () => {
-    const product = lfdjGetActive(productTabs)?.dataset.product || "ROUSSEAU";
-
-    colorRows.forEach((row) => {
-      row.classList.toggle("lfdj-hidden", row.dataset.productColors !== product);
-    });
-
-    const colorRow = getActiveColorRow();
-    const color = colorRow ? lfdjGetActive(colorRow.querySelectorAll(".lfdj-color-swatch")) : null;
+    const color = lfdjGetActive(colorSwatches);
     const design = lfdjGetActive(designThumbs);
+    const view = lfdjGetActive(viewTabs)?.dataset.view || "DOS";
+    const isDos = view === "DOS";
 
     if (color) {
-      baseImg.src = basePath + "SWEAT-" + product + "-" + color.dataset.file + ".webp";
-      baseImg.alt = "Sweat " + (product === "ROUSSEAU" ? "Rousseau" : "Montaigne") + ", coloris " + (color.getAttribute("aria-label") || "").toLowerCase();
+      baseImg.src = opts.garmentPath + "SWEAT-" + view + "-" + color.dataset.color + ".webp";
+      baseImg.alt = "Sweat, coloris " + (color.getAttribute("aria-label") || "").toLowerCase() + ", " + view.toLowerCase();
     }
 
-    if (design) {
-      designImg.src = basePath + design.dataset.file;
+    designImg.classList.toggle("lfdj-hidden", !isDos);
+    logoImg.classList.toggle("lfdj-hidden", isDos);
+
+    if (design && isDos) {
+      designImg.src = designPath + design.dataset.file;
       designImg.alt = "Design " + (design.getAttribute("aria-label") || "").replace("Design ", "");
     }
 
-    if (priceTag) {
-      priceTag.textContent = productPrices[product] + " € la pièce";
+    if (!isDos && color) {
+      const isLight = opts.lightColors[color.dataset.color] === true;
+      logoImg.src = designPath + (isLight ? "LOGO-PINGU-FACE-BLANC.webp" : "LOGO-PINGU-FACE-NOIR.webp");
     }
 
     updateReference();
@@ -54,15 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateReference = () => {
     if (!refCode) return;
-    const product = lfdjGetActive(productTabs)?.dataset.product || "ROUSSEAU";
-    const colorRow = getActiveColorRow();
-    const color = colorRow ? lfdjGetActive(colorRow.querySelectorAll(".lfdj-color-swatch")) : null;
+    const color = lfdjGetActive(colorSwatches);
     const design = lfdjGetActive(designThumbs);
     const size = lfdjGetActive(sizePills);
     if (!color || !design || !size) return;
     refCode.textContent = [
       "SWE",
-      productCodes[product],
+      opts.refModel,
       design.dataset.code,
       color.dataset.code,
       size.dataset.code,
@@ -70,16 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ].join("-");
   };
 
-  productTabs.forEach((btn) => {
+  viewTabs.forEach((btn) => {
     btn.addEventListener("click", () => {
-      lfdjSelectOne(productTabs, btn);
-      const colorRow = getActiveColorRow();
-      if (colorRow) {
-        const swatches = colorRow.querySelectorAll(".lfdj-color-swatch");
-        if (swatches.length && !lfdjGetActive(swatches)) {
-          lfdjSelectOne(swatches, swatches[0]);
-        }
-      }
+      lfdjSelectOne(viewTabs, btn);
       render();
     });
   });
@@ -91,12 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  colorRows.forEach((row) => {
-    row.querySelectorAll(".lfdj-color-swatch").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        lfdjSelectOne(row.querySelectorAll(".lfdj-color-swatch"), btn);
-        render();
-      });
+  colorSwatches.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      lfdjSelectOne(colorSwatches, btn);
+      render();
     });
   });
 
@@ -111,4 +102,22 @@ document.addEventListener("DOMContentLoaded", () => {
   lfdjInitCopyButton(copyBtn, refCode);
 
   render();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  lfdjInitSweat({
+    idPrefix: "lfdj-sweat-rousseau",
+    garmentPath: "./images/Textile/ROUSSEAU/",
+    refModel: "ROUS",
+    qtyId: "lfdj-input-sweat-rousseau-qty",
+    lightColors: { CIEL: true },
+  });
+
+  lfdjInitSweat({
+    idPrefix: "lfdj-sweat-montaigne",
+    garmentPath: "./images/Textile/MONTAIGNE/",
+    refModel: "MONT",
+    qtyId: "lfdj-input-sweat-montaigne-qty",
+    lightColors: { BLANC: true, GRISCLAIR: true },
+  });
 });

@@ -1,17 +1,63 @@
-<?php $lfdj_current = basename($_SERVER['SCRIPT_NAME']); ?>
+<?php
+$lfdj_current = basename($_SERVER['SCRIPT_NAME']);
+
+$lfdj_jeux_links = [
+  ['href' => '/jdf.php', 'icon' => 'fa-chess-knight', 'label' => '… de Figurines'],
+  ['href' => '/jdr.php', 'icon' => 'fa-dice', 'label' => '… de Rôle'],
+  ['href' => '/jdp.php', 'icon' => 'fa-chess-board', 'label' => '… de Plateau'],
+  ['href' => '/jdc.php', 'icon' => 'fa-clone', 'label' => '… de Cartes'],
+];
+$lfdj_activite_links = [
+  ['href' => '/peinture.php', 'icon' => 'fa-paintbrush', 'label' => 'Peinture'],
+  ['href' => '/atelier.php', 'icon' => 'fa-hammer', 'label' => 'Atelier'],
+  ['href' => '/bloodbowl.php', 'icon' => 'fa-chess-knight', 'label' => 'Ligue Bloodbowl S2'],
+  ['href' => '/palmares.php', 'icon' => 'fa-medal', 'label' => 'Palmarès'],
+];
+
+$lfdj_jeux_pages = array_map('basename', array_column($lfdj_jeux_links, 'href'));
+$lfdj_activite_pages = array_map('basename', array_column($lfdj_activite_links, 'href'));
+
+/**
+ * Affiche une liste de liens de sous-menu (desktop et mobile), avec icône et état actif.
+ * @param array $links Liste de tableaux associatifs "href", "icon", "label"
+ * @param string $current Nom du fichier de la page courante (basename)
+ */
+function lfdj_menu_links(array $links, string $current)
+{
+  foreach ($links as $link) {
+    $is_active = basename($link['href']) === $current;
+    echo '<a href="' . $link['href'] . '" class="' . ($is_active ? 'active' : '') . '">'
+      . '<i class="fa-solid ' . $link['icon'] . '" aria-hidden="true"></i> ' . $link['label']
+      . '</a>';
+  }
+}
+?>
+<link rel="stylesheet" href="/css/header.css">
 <header id="lfdj-sticky-header" class="lfdj-header lfdj-bg">
 
   <!-- PC -->
   <div class="lfdj-nav-container lfdj-nav-pc">
     <nav class="lfdj-nav-grid" aria-label="Navigation principale">
-      <a class="lfdj-nav-cluster__home" href="/index.php" aria-label="Association">
-        <img src="/images/Favicon-Main2.png" alt="La Forge des Joueurs">
+      <a class="lfdj-nav-cluster__home" href="/index.php" aria-label="Accueil, La Forge des Joueurs">
+        <img src="/images/Typographie-Blanc.png" alt="La Forge des Joueurs">
       </a>
       <div class="lfdj-nav-cluster__main">
-        <a href="/jdf.php" class="<?= $lfdj_current === 'jdf.php' ? 'active' : '' ?>">Figurines</a>
-        <a href="/jdr.php" class="<?= $lfdj_current === 'jdr.php' ? 'active' : '' ?>">Jeu de Rôle</a>
-        <a href="/jdp.php" class="<?= $lfdj_current === 'jdp.php' ? 'active' : '' ?>">Sur Plateau</a>
-        <a href="/jdc.php" class="<?= $lfdj_current === 'jdc.php' ? 'active' : '' ?>">Carte à collectionner</a>
+        <div class="lfdj-submenu">
+          <button type="button" class="lfdj-submenu-btn <?= in_array($lfdj_current, $lfdj_jeux_pages) ? 'active' : '' ?>" aria-haspopup="true" aria-expanded="false">
+            Jeux <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="lfdj-submenu-content">
+            <?php lfdj_menu_links($lfdj_jeux_links, $lfdj_current); ?>
+          </div>
+        </div>
+        <div class="lfdj-submenu">
+          <button type="button" class="lfdj-submenu-btn <?= in_array($lfdj_current, $lfdj_activite_pages) ? 'active' : '' ?>" aria-haspopup="true" aria-expanded="false">
+            Activité <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="lfdj-submenu-content">
+            <?php lfdj_menu_links($lfdj_activite_links, $lfdj_current); ?>
+          </div>
+        </div>
       </div>
 
       <div class="lfdj-header-tools">
@@ -36,25 +82,27 @@
     </a>
 
     <div class="lfdj-dropdown">
+      <a class="lfdj-mobile-discord-btn" href="/discord" aria-label="Rejoignez le Discord">
+        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+      </a>
       <button class="lfdj-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
 
       <div class="lfdj-dropdown-content" aria-label="Navigation mobile">
-        <a href="/index.php" aria-label="Association">
-          <i class="fa-solid fa-house" aria-hidden="true"></i>
-        </a>
+        <button type="button" class="lfdj-mobile-subbtn <?= in_array($lfdj_current, $lfdj_jeux_pages) ? 'active' : '' ?>" aria-expanded="false">
+          Jeux <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="lfdj-mobile-subcontent">
+          <?php lfdj_menu_links($lfdj_jeux_links, $lfdj_current); ?>
+        </div>
 
-        <a href="/jdf.php" class="<?= $lfdj_current === 'jdf.php' ? 'active' : '' ?>">Figurines</a>
-        <a href="/jdr.php" class="<?= $lfdj_current === 'jdr.php' ? 'active' : '' ?>">Jeu de Rôle</a>
-        <a href="/jdp.php" class="<?= $lfdj_current === 'jdp.php' ? 'active' : '' ?>">Sur Plateau</a>
-        <a href="/jdc.php" class="<?= $lfdj_current === 'jdc.php' ? 'active' : '' ?>">Carte à collectionner</a>
-
-        <a class="lfdj-cta-discord lfdj-cta-discord--mobile" href="/discord">
-          <i class="fa-brands fa-discord" aria-hidden="true"></i>
-          Rejoignez le Discord
-          <i class="fa-solid fa-arrow-up-right lfdj-cta-discord__arrow" aria-hidden="true"></i>
-        </a>
+        <button type="button" class="lfdj-mobile-subbtn <?= in_array($lfdj_current, $lfdj_activite_pages) ? 'active' : '' ?>" aria-expanded="false">
+          Activité <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="lfdj-mobile-subcontent">
+          <?php lfdj_menu_links($lfdj_activite_links, $lfdj_current); ?>
+        </div>
       </div>
     </div>
 

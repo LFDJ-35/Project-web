@@ -1,0 +1,61 @@
+/* ========================================================================
+   PAGE MENTIONS LÉGALES — styles propres à mentions-legales.php.
+   Fichier dédié, chargé uniquement sur cette page : ne touche jamais à
+   laforgedesjoueurs.css, donc zéro conflit possible avec les autres branches.
+   Typographie volontairement neutre/technique (sans-serif, sobre), à l'écart
+   de la charte "vitrine" du reste du site — cf. issue #68.
+   ======================================================================== */
+
+.lfdj-ml-content{
+  max-width: 720px;
+  margin: 60px auto 55px auto;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
+.lfdj-ml-content h2{
+  margin-bottom: 20px;
+}
+
+.lfdj-ml-intro{
+  font-family: var(--font-third);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--black-color);
+  text-align: left;
+  margin: 0 0 40px 0;
+}
+
+.lfdj-ml-section{
+  margin-bottom: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(128,128,128,.25);
+}
+
+.lfdj-ml-section h3{
+  font-family: var(--font-third);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--secondary-color);
+  text-align: left;
+  margin: 0 0 12px 0;
+}
+
+.lfdj-ml-section p{
+  font-family: var(--font-third);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--black-color);
+  text-align: left;
+  margin: 0 0 14px 0;
+}
+
+.lfdj-ml-section p:last-child{
+  margin-bottom: 0;
+}
+
+.lfdj-ml-section a{
+  color: var(--secondary-color);
+}

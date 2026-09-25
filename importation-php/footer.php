@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/footer.css">
 <div class="lfdj-waves">
 	<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none" style="margin-top: -60px;">
 		<defs>
@@ -29,21 +30,18 @@
       </p>
     </div>
 
-    <nav class="lfdj-footer-col" aria-label="Activités">
-      <h4>Activités</h4>
-      <a href="/jdf.php">Figurines</a>
-      <a href="/jdr.php">Jeu de Rôle</a>
-      <a href="/jdp.php">Sur Plateau</a>
-      <a href="/jdc.php">Carte à collectionner</a>
-      <a href="/bloodbowl.php">Ligue Bloodbowl</a>
-    </nav>
-
     <nav class="lfdj-footer-col" aria-label="Association">
       <h4>Association</h4>
       <a href="/partenaires.php">Partenaires</a>
-      <a href="/mentions-legales.php">Règlement Intérieur</a>
-      <a href="/mentions-legales.php">Statuts</a>
-      <a href="/boutique.php">Précommande de goodies</a>
+      <a href="/boutique.php">Boutique Textile</a>
+    </nav>
+
+    <nav class="lfdj-footer-col" aria-label="Ressources">
+      <h4>Ressources</h4>
+      <a href="/documents/statuts_2026.pdf">Statuts</a>
+      <a href="/documents/reglement_interieur.pdf">Règlement Intérieur</a>
+      <a href="/documents/decharge_parentale.pdf">Décharge Parentale</a>
+      <a href="/documents/droit_image.pdf">Droit à l'image</a>
     </nav>
 
     <nav class="lfdj-footer-col lfdj-footer-col--social" aria-label="Nous suivre">

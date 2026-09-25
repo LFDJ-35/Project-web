@@ -8,6 +8,8 @@ $lfdj_jeux_links = [
   ['href' => '/jdc.php', 'icon' => 'fa-clone', 'label' => '… de Cartes'],
 ];
 $lfdj_activite_links = [
+  ['href' => '/peinture.php', 'icon' => 'fa-paintbrush', 'label' => 'Peinture'],
+  ['href' => '/atelier.php', 'icon' => 'fa-hammer', 'label' => 'Atelier'],
   ['href' => '/bloodbowl.php', 'icon' => 'fa-chess-knight', 'label' => 'Ligue Bloodbowl S2'],
   ['href' => '/palmares.php', 'icon' => 'fa-medal', 'label' => 'Palmarès'],
 ];

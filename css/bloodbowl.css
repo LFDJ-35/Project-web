@@ -3,16 +3,6 @@
    Fichier dédié, chargé uniquement sur cette page : ne touche jamais à
    laforgedesjoueurs.css, donc zéro conflit possible avec les autres branches.
    ======================================================================== */
-.lfdj-bb-season-panel .lfdj-hero{
-  margin: 0 auto 55px auto;
-}
-
-.lfdj-bb-season-panel .lfdj-hero img{
-  max-height: 250px;
-  width: auto;
-  object-fit: cover;
-}
-
 .lfdj-bb-season-tabs-nav{
   display: flex;
   justify-content: center;
@@ -242,71 +232,11 @@
   letter-spacing: .04em;
 }
 
-.lfdj-bb-teams-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-  max-width: 1000px;
-  margin: 0 auto 55px auto;
-  padding: 0 5%;
-}
-
-.lfdj-bb-pools-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 800px;
-  margin: 0 auto 55px auto;
-  padding: 0 5%;
-}
-
-.lfdj-bb-pool-title{
+.lfdj-bb-team-emoji-cell{
   text-align: center;
-  font-family: var(--font-secondary);
-  font-size: 18px;
-  color: var(--primary-color);
-  margin: 0 0 14px 0;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-}
-
-.lfdj-bb-pool-teams{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.lfdj-bb-team-card{
-  padding: 16px 18px;
-  background: var(--background);
-  border: 1px solid rgba(141,141,141,.25);
-  border-left: 3px solid var(--lfdj-bb-team-color, var(--primary-color));
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.lfdj-bb-team-card h4{
-  margin: 0;
-  font-size: 14px;
-  text-align: left;
-  color: var(--black-color);
-  text-transform: none;
-  letter-spacing: normal;
-}
-
-.lfdj-bb-team-race{
-  font-size: 11px;
-  color: var(--secondary-color);
-  text-transform: uppercase;
-  letter-spacing: .04em;
-}
-
-.lfdj-bb-team-coach{
-  font-size: 11px;
-  color: var(--black-color);
-  opacity: .6;
+  font-size: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .lfdj-bb-achievements-grid{
@@ -365,4 +295,133 @@
   opacity: .7;
 }
 
+.lfdj-bb-photo-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 1000px;
+  margin: 0 auto 45px auto;
+  padding: 0 5%;
+}
 
+@media (min-width: 600px){
+  .lfdj-bb-photo-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.lfdj-bb-photo-grid a{
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.2);
+  transition: transform .2s ease, box-shadow .2s ease;
+  cursor: zoom-in;
+}
+
+.lfdj-bb-photo-grid a:hover,
+.lfdj-bb-photo-grid a:focus-visible{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.3);
+}
+
+.lfdj-bb-photo-grid img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.lfdj-bb-photo-grid a:hover img,
+.lfdj-bb-photo-grid a:focus-visible img{
+  transform: scale(1.06);
+}
+
+/* ========================== LIGHTBOX GALERIE ========================== */
+.lfdj-bb-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 70px;
+  box-sizing: border-box;
+  background: rgba(0,0,0,.9);
+}
+
+.lfdj-bb-lightbox[hidden]{
+  display: none;
+}
+
+.lfdj-bb-lightbox-img{
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.6);
+}
+
+.lfdj-bb-lightbox-close,
+.lfdj-bb-lightbox-prev,
+.lfdj-bb-lightbox-next{
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.1);
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+
+.lfdj-bb-lightbox-close:hover,
+.lfdj-bb-lightbox-prev:hover,
+.lfdj-bb-lightbox-next:hover{
+  background: rgba(255,255,255,.22);
+}
+
+.lfdj-bb-lightbox-close{
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.lfdj-bb-lightbox-prev,
+.lfdj-bb-lightbox-next{
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+}
+
+.lfdj-bb-lightbox-prev{ left: 12px; }
+.lfdj-bb-lightbox-next{ right: 12px; }
+
+.lfdj-bb-lightbox-caption{
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  opacity: .8;
+  font-family: var(--font-third);
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+@media (max-width: 600px){
+  .lfdj-bb-lightbox{ padding: 70px 16px; }
+  .lfdj-bb-lightbox-prev{ left: 4px; }
+  .lfdj-bb-lightbox-next{ right: 4px; }
+}

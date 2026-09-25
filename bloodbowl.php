@@ -4,7 +4,7 @@
 
 <head>
 <title>Blood Bowl — Vitré Bowl Cup | La Forge des Joueurs</title>
-<meta name="description" content="Blood Bowl à la Forge des Joueurs : présentation, ligue interne Vitré Bowl Cup, Saison 2 en préparation et classement final de la Saison 1." />
+<meta name="description" content="Blood Bowl à la Forge des Joueurs : présentation, ligue interne Vitré Bowl Cup, classements de la Saison 2 en cours et classement final de la Saison 1." />
 <?php require('importation-php/regles.php'); ?>
 <link rel="stylesheet" href="./css/bloodbowl.css">
 </head>
@@ -14,44 +14,27 @@
 <?php require('importation-php/menu.php'); ?>
 
 <?php
-// Emoji et couleur propres à chaque équipe, choisis sur son nom plutôt que sur sa race
-// (deux équipes peuvent partager une race, jamais un nom). La couleur reprend la teinte
-// dominante de l'emoji, pour que la bordure de la carte lui corresponde vraiment.
+// Emoji propre à chaque équipe, choisi sur son nom plutôt que sur sa race
+// (deux équipes peuvent partager une race, jamais un nom).
 $lfdj_bb_s1_teams = [
-  ["name" => "tout glisse sur ma peau !", "race" => "Hommes Lézard", "coach" => "droops", "emoji" => "💪🏻", "color" => "#c88a5a"],
-  ["name" => "Les savonnettes", "race" => "Amazones", "coach" => "Hinoto", "emoji" => "🧼", "color" => "#e07aa8"],
-  ["name" => "Bella Chaos", "race" => "Élus du Chaos", "coach" => "JokerParano", "emoji" => "😈", "color" => "#8e44ad"],
-  ["name" => "Lorien Masters (of puppets)", "race" => "Elfes sylvains", "coach" => "Kalimsshar57", "emoji" => "🎭", "color" => "#7d5ba6"],
-  ["name" => "Les Sang Peur", "race" => "Vampires", "coach" => "LaBarbe", "emoji" => "🩸", "color" => "#a5291e"],
-  ["name" => "Bière brune et Salade de phalanges", "race" => "Nains", "coach" => "Lucachouca", "emoji" => "🍻", "color" => "#c9852f"],
-  ["name" => "Les Korrigans Volants", "race" => "Gnomes", "coach" => "OggyOneKenobi", "emoji" => "⛏️", "color" => "#8b6b4a"],
-  ["name" => "Les rats musqués", "race" => "Skavens", "coach" => "Sardaukar [rudy]", "emoji" => "🐀", "color" => "#7d7d78"],
-  ["name" => "Les jaguars insaisissables", "race" => "Amazones", "coach" => "seth29", "emoji" => "🐆", "color" => "#d9642b"],
-  ["name" => "Cuetzpallin Nomades", "race" => "Hommes Lézard", "coach" => "Topaz", "emoji" => "🦎", "color" => "#4f9153"],
+  ["name" => "Tout glisse sur ma peau !", "race" => "Hommes Lézard", "coach" => "Droops", "emoji" => "💪🏻"],
+  ["name" => "Les savonnettes", "race" => "Amazones", "coach" => "Hinoto", "emoji" => "🧼"],
+  ["name" => "Bella Chaos", "race" => "Élus du Chaos", "coach" => "JokerParano", "emoji" => "😈"],
+  ["name" => "Lorien Masters (of puppets)", "race" => "Elfes sylvains", "coach" => "Kalimsshar57", "emoji" => "🎭"],
+  ["name" => "Les Sang Peur", "race" => "Vampires", "coach" => "LaBarbe", "emoji" => "🩸"],
+  ["name" => "Bière brune et Salade de phalanges", "race" => "Nains", "coach" => "Lucachouca", "emoji" => "🍻"],
+  ["name" => "Les Korrigans Volants", "race" => "Gnomes", "coach" => "OggyOneKenobi", "emoji" => "⛏️"],
+  ["name" => "Les rats musqués", "race" => "Skavens", "coach" => "Sardaukar [rudy]", "emoji" => "🐀"],
+  ["name" => "Les jaguars insaisissables", "race" => "Amazones", "coach" => "Seth29", "emoji" => "🐆"],
+  ["name" => "Cuetzpallin Nomades", "race" => "Hommes Lézard", "coach" => "Topaz", "emoji" => "🦎"],
 ];
 
 $lfdj_bb_team_emoji = array_column($lfdj_bb_s1_teams, "emoji", "name");
 $lfdj_bb_s1_team_count = count($lfdj_bb_s1_teams);
 
-/**
- * Affiche la carte d'une équipe (emoji, nom, race, coach), utilisée pour la Saison 1
- * comme pour la Saison 2 afin d'éviter de dupliquer ce bloc de markup.
- */
-function lfdj_bb_team_card(array $team): void
-{
-  $color = htmlspecialchars($team["color"] ?? "var(--primary-color)");
-  ?>
-  <article class="lfdj-bb-team-card" style="--lfdj-bb-team-color: <?= $color ?>;">
-    <h4><span aria-hidden="true"><?= $team["emoji"] ?? "🎲" ?></span> <?= htmlspecialchars($team["name"]) ?></h4>
-    <span class="lfdj-bb-team-race"><?= htmlspecialchars($team["race"]) ?></span>
-    <span class="lfdj-bb-team-coach"><?= htmlspecialchars($team["coach"]) ?></span>
-  </article>
-  <?php
-}
-
 $lfdj_bb_s1_matches = [
   "J1" => [
-    ["a" => "Les Korrigans Volants", "score" => "0 - 2", "b" => "tout glisse sur ma peau !"],
+    ["a" => "Les Korrigans Volants", "score" => "0 - 2", "b" => "Tout glisse sur ma peau !"],
     ["a" => "Bière brune et Salade de phalanges", "score" => "1 - 0", "b" => "Les Sang Peur"],
     ["a" => "Les savonnettes", "score" => "0 - 2", "b" => "Lorien Masters (of puppets)"],
     ["a" => "Les rats musqués", "score" => "1 - 0", "b" => "Cuetzpallin Nomades"],
@@ -61,19 +44,19 @@ $lfdj_bb_s1_matches = [
     ["a" => "Les Sang Peur", "score" => "0 - 3", "b" => "Les savonnettes"],
     ["a" => "Les jaguars insaisissables", "score" => "3 - 0", "b" => "Les Korrigans Volants"],
     ["a" => "Bière brune et Salade de phalanges", "score" => "1 - 0", "b" => "Bella Chaos"],
-    ["a" => "tout glisse sur ma peau !", "score" => "1 - 2", "b" => "Cuetzpallin Nomades"],
+    ["a" => "Tout glisse sur ma peau !", "score" => "1 - 2", "b" => "Cuetzpallin Nomades"],
     ["a" => "Lorien Masters (of puppets)", "score" => "1 - 0", "b" => "Les rats musqués"],
   ],
   "J3" => [
     ["a" => "Les jaguars insaisissables", "score" => "1 - 0", "b" => "Cuetzpallin Nomades"],
-    ["a" => "Lorien Masters (of puppets)", "score" => "3 - 3", "b" => "tout glisse sur ma peau !"],
+    ["a" => "Lorien Masters (of puppets)", "score" => "3 - 3", "b" => "Tout glisse sur ma peau !"],
     ["a" => "Bière brune et Salade de phalanges", "score" => "1 - 0", "b" => "Les savonnettes"],
     ["a" => "Les Sang Peur", "score" => "0 - 3", "b" => "Les rats musqués"],
     ["a" => "Les Korrigans Volants", "score" => "3 - 1", "b" => "Bella Chaos"],
   ],
   "J4" => [
     ["a" => "Les jaguars insaisissables", "score" => "2 - 1", "b" => "Lorien Masters (of puppets)"],
-    ["a" => "Les Sang Peur", "score" => "0 - 4", "b" => "tout glisse sur ma peau !"],
+    ["a" => "Les Sang Peur", "score" => "0 - 4", "b" => "Tout glisse sur ma peau !"],
     ["a" => "Bière brune et Salade de phalanges", "score" => "2 - 0", "b" => "Les rats musqués"],
     ["a" => "Les savonnettes", "score" => "2 - 0", "b" => "Bella Chaos"],
     ["a" => "Les Korrigans Volants", "score" => "2 - 2", "b" => "Cuetzpallin Nomades"],
@@ -82,7 +65,7 @@ $lfdj_bb_s1_matches = [
     ["a" => "Lorien Masters (of puppets)", "score" => "3 - 0", "b" => "Les Korrigans Volants"],
     ["a" => "Les jaguars insaisissables", "score" => "2 - 1", "b" => "Les Sang Peur"],
     ["a" => "Cuetzpallin Nomades", "score" => "1 - 1", "b" => "Bella Chaos"],
-    ["a" => "Bière brune et Salade de phalanges", "score" => "1 - 1", "b" => "tout glisse sur ma peau !"],
+    ["a" => "Bière brune et Salade de phalanges", "score" => "1 - 1", "b" => "Tout glisse sur ma peau !"],
     ["a" => "Les rats musqués", "score" => "2 - 1", "b" => "Les savonnettes"],
   ],
   "J6" => [
@@ -90,25 +73,25 @@ $lfdj_bb_s1_matches = [
     ["a" => "Bella Chaos", "score" => "0 - 2", "b" => "Les rats musqués"],
     ["a" => "Les jaguars insaisissables", "score" => "1 - 0", "b" => "Bière brune et Salade de phalanges"],
     ["a" => "Les Sang Peur", "score" => "1 - 2", "b" => "Les Korrigans Volants"],
-    ["a" => "Les savonnettes", "score" => "1 - 2", "b" => "tout glisse sur ma peau !"],
+    ["a" => "Les savonnettes", "score" => "1 - 2", "b" => "Tout glisse sur ma peau !"],
   ],
   "J7" => [
     ["a" => "Bella Chaos", "score" => "1 - 2", "b" => "Lorien Masters (of puppets)"],
     ["a" => "Bière brune et Salade de phalanges", "score" => "1 - 3", "b" => "Les Korrigans Volants"],
     ["a" => "Les jaguars insaisissables", "score" => "1 - 0", "b" => "Les savonnettes"],
-    ["a" => "Les rats musqués", "score" => "0 - 2", "b" => "tout glisse sur ma peau !"],
+    ["a" => "Les rats musqués", "score" => "0 - 2", "b" => "Tout glisse sur ma peau !"],
     ["a" => "Cuetzpallin Nomades", "score" => "1 - 1", "b" => "Les Sang Peur"],
   ],
   "J8" => [
     ["a" => "Les Sang Peur", "score" => "0 - 4", "b" => "Lorien Masters (of puppets)"],
     ["a" => "Les jaguars insaisissables", "score" => "1 - 2", "b" => "Les rats musqués"],
     ["a" => "Cuetzpallin Nomades", "score" => "1 - 2", "b" => "Bière brune et Salade de phalanges"],
-    ["a" => "Bella Chaos", "score" => "2 - 1", "b" => "tout glisse sur ma peau !"],
+    ["a" => "Bella Chaos", "score" => "2 - 1", "b" => "Tout glisse sur ma peau !"],
     ["a" => "Les savonnettes", "score" => "1 - 1", "b" => "Les Korrigans Volants"],
   ],
   "J9" => [
     ["a" => "Bella Chaos", "score" => "3 - 1", "b" => "Les Sang Peur"],
-    ["a" => "Les jaguars insaisissables", "score" => "2 - 1", "b" => "tout glisse sur ma peau !"],
+    ["a" => "Les jaguars insaisissables", "score" => "2 - 1", "b" => "Tout glisse sur ma peau !"],
     ["a" => "Bière brune et Salade de phalanges", "score" => "2 - 3", "b" => "Lorien Masters (of puppets)"],
     ["a" => "Cuetzpallin Nomades", "score" => "2 - 0", "b" => "Les savonnettes"],
     ["a" => "Les rats musqués", "score" => "2 - 0", "b" => "Les Korrigans Volants"],
@@ -117,6 +100,14 @@ $lfdj_bb_s1_matches = [
 
 $lfdj_bb_s1_journee_count = count($lfdj_bb_s1_matches);
 $lfdj_bb_s1_match_count = array_sum(array_map("count", $lfdj_bb_s1_matches));
+
+// Liste à plat des matchs (utilisée par lfdj_bb_results_toggle), avec la journée en "meta".
+$lfdj_bb_s1_results = [];
+foreach ($lfdj_bb_s1_matches as $journee => $matches) {
+  foreach ($matches as $match) {
+    $lfdj_bb_s1_results[] = $match + ["meta" => $journee];
+  }
+}
 
 /**
  * Calcule le classement final à partir des résultats de tous les matchs.
@@ -179,6 +170,96 @@ function lfdj_bb_compute_standings(array $teams, array $matchdays)
   return $standings;
 }
 
+/**
+ * Affiche un tableau de classement complet, utilisé aussi bien pour la Saison 1
+ * (une seule poule) que pour chaque poule de la Saison 2, afin de garder une
+ * présentation identique entre les deux.
+ */
+function lfdj_bb_standings_table(array $standings): void
+{
+  ?>
+  <div class="lfdj-bb-standings-wrap">
+    <table class="lfdj-bb-standings-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th aria-hidden="true"></th>
+          <th>Équipe</th>
+          <th>Race</th>
+          <th>Coach</th>
+          <th>J</th>
+          <th>V</th>
+          <th>N</th>
+          <th>D</th>
+          <th>Marqués</th>
+          <th>Encaissés</th>
+          <th>Diff.</th>
+          <th>Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($standings as $i => $s): ?>
+        <tr class="<?= $i === 0 ? "lfdj-bb-champion-row" : "" ?>">
+          <td><?= $i + 1 ?></td>
+          <td class="lfdj-bb-team-emoji-cell"><span aria-hidden="true"><?= $s["emoji"] ?? "" ?></span></td>
+          <td class="lfdj-bb-team-name"><?= htmlspecialchars($s["name"]) ?></td>
+          <td><?= htmlspecialchars($s["race"]) ?></td>
+          <td><?= htmlspecialchars($s["coach"]) ?></td>
+          <td><?= $s["played"] ?></td>
+          <td><?= $s["w"] ?></td>
+          <td><?= $s["d"] ?></td>
+          <td><?= $s["l"] ?></td>
+          <td><?= $s["for"] ?></td>
+          <td><?= $s["against"] ?></td>
+          <td><?= $s["diff"] > 0 ? "+" . $s["diff"] : $s["diff"] ?></td>
+          <td class="lfdj-bb-pts"><?= $s["pts"] ?></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+  <?php
+}
+
+/**
+ * Affiche le bouton "Afficher les résultats" et la grille dépliable des matchs joués,
+ * utilisé aussi bien pour la Saison 1 que pour la Saison 2.
+ * @param array $matches Liste de matchs ["a"=>, "score"=>, "b"=>, "meta"=> (ex. "J3" ou "Poule A · J1")]
+ * @param array $teamEmoji Table de correspondance nom d'équipe => emoji
+ * @param string $gridId id HTML unique du panneau, pour relier le bouton (aria-controls) à son contenu
+ */
+function lfdj_bb_results_toggle(array $matches, array $teamEmoji, string $gridId): void
+{
+  if (!$matches) return;
+  ?>
+  <div class="lfdj-bb-results-toggle">
+    <button type="button" class="lfdj-bb-results-toggle-btn" aria-expanded="false" aria-controls="<?= $gridId ?>">
+      Afficher les <?= count($matches) ?> résultats de la saison
+    </button>
+    <div class="lfdj-bb-results-grid" id="<?= $gridId ?>" hidden>
+      <?php foreach ($matches as $match):
+        [$scoreA, $scoreB] = array_map("intval", explode(" - ", $match["score"]));
+        $loserClassA = $scoreA < $scoreB ? " lfdj-bb-result-team--loser" : "";
+        $loserClassB = $scoreB < $scoreA ? " lfdj-bb-result-team--loser" : "";
+      ?>
+      <article class="lfdj-bb-result-card">
+        <span class="lfdj-bb-result-team lfdj-bb-result-team--a<?= $loserClassA ?>">
+          <span aria-hidden="true"><?= $teamEmoji[$match["a"]] ?? "" ?></span>
+          <span class="lfdj-bb-result-team-name"><?= htmlspecialchars($match["a"]) ?></span>
+        </span>
+        <span class="lfdj-bb-result-score"><?= htmlspecialchars($match["score"]) ?></span>
+        <span class="lfdj-bb-result-team lfdj-bb-result-team--b<?= $loserClassB ?>">
+          <span class="lfdj-bb-result-team-name"><?= htmlspecialchars($match["b"]) ?></span>
+          <span aria-hidden="true"><?= $teamEmoji[$match["b"]] ?? "" ?></span>
+        </span>
+        <span class="lfdj-bb-result-meta"><?= htmlspecialchars($match["meta"]) ?></span>
+      </article>
+      <?php endforeach; ?>
+    </div>
+  </div>
+  <?php
+}
+
 $lfdj_bb_s1_standings = lfdj_bb_compute_standings($lfdj_bb_s1_teams, $lfdj_bb_s1_matches);
 $lfdj_bb_s1_champion = $lfdj_bb_s1_standings[0];
 
@@ -211,44 +292,78 @@ $lfdj_bb_s1_achievements = [
   ["title" => "Le Boucher", "icon" => "fa-solid fa-skull", "name" => "Homme-Arbre", "team" => "Les Korrigans Volants", "stat" => "8 sorties infligées"],
   ["title" => "Le Rouleau Compresseur", "icon" => "fa-solid fa-fire", "name" => $lfdj_bb_s1_best_attack["name"], "stat" => $lfdj_bb_s1_best_attack["for"] . " Touchdown"],
   ["title" => "Le Mur Infranchissable", "icon" => "fa-solid fa-shield-halved", "name" => $lfdj_bb_s1_best_defense["name"], "stat" => $lfdj_bb_s1_best_defense["against"] . " Touchdown"],
-  ["title" => "Les Rois du Sale Coup", "icon" => "fa-solid fa-hand-fist", "name" => "tout glisse sur ma peau !", "stat" => "19 sorties infligées"],
+  ["title" => "Les Rois du Sale Coup", "icon" => "fa-solid fa-hand-fist", "name" => "Tout glisse sur ma peau !", "stat" => "19 sorties infligées"],
 ];
 
-// Saison 2 : les 10 équipes confirmées sur Mordorbihan, réparties dans les 2 poules
-// officielles de la compétition. Aucun résultat n'est encore tombé au moment de la
-// rédaction de cette page.
+// Saison 2 : les 12 équipes confirmées sur Mordorbihan, réparties dans les 2 poules
+// officielles de la compétition.
 $lfdj_bb_s2_pools = [
-  "Poule 1" => [
-    ["name" => "Fungus Flingerz", "race" => "Snotlings", "coach" => "Kalimsshar57", "emoji" => "🍄", "color" => "#c0533b"],
-    ["name" => "Saumons Enragés United", "race" => "Nordiques", "coach" => "Sardaukar [rudy]", "emoji" => "🐟", "color" => "#e8825a"],
-    ["name" => "toc toc, ca va couper", "race" => "Gobelins", "coach" => "droops", "emoji" => "🔪", "color" => "#8c96a0"],
-    ["name" => "Etoiles rouges de Fondcombe", "race" => "Union elfique", "coach" => "TKPcerbros", "emoji" => "🌟", "color" => "#d4af37"],
-    ["name" => "Camillionaires", "race" => "Hommes Lézard", "coach" => "Nexus Nihil", "emoji" => "🦎", "color" => "#4f9153"],
+  "Poule A" => [
+    ["name" => "Fungus Flingerz", "race" => "Snotlings", "coach" => "Kalimsshar57", "emoji" => "🍄"],
+    ["name" => "Saumons Enragés United", "race" => "Nordiques", "coach" => "Sardaukar [rudy]", "emoji" => "🐟"],
+    ["name" => "Toc toc ça va couper", "race" => "Gobelins", "coach" => "Droops", "emoji" => "🔪"],
+    ["name" => "Etoiles rouges de Fondcombe", "race" => "Union elfique", "coach" => "TKPcerbros", "emoji" => "🌟"],
+    ["name" => "Camillionaires", "race" => "Hommes Lézard", "coach" => "Nexus Nihil", "emoji" => "🦎"],
+    ["name" => "The Greentide Gitz", "race" => "Orques Noirs", "coach" => "nisrock", "emoji" => "🌊"],
   ],
-  "Poule 2" => [
-    ["name" => "Caresses et douceurs", "race" => "Élus du Chaos", "coach" => "seth29", "emoji" => "🍬", "color" => "#e07aa8"],
-    ["name" => "Les Panthères de Khemet", "race" => "Amazones", "coach" => "Spirito", "emoji" => "🐈‍⬛", "color" => "#4a4a52"],
-    ["name" => "Les sablés de la fosse", "race" => "Rois des tombes", "coach" => "JokerParano", "emoji" => "🍪", "color" => "#c9a063"],
-    ["name" => "Les Chevaliers de la Table Basse", "race" => "Bretonniens", "coach" => "OggyOneKenobi", "emoji" => "⚔️", "color" => "#3b5b8c"],
-    ["name" => "Rotten Queen Club", "race" => "Horreurs nécromantiques", "coach" => "Niktazheur", "emoji" => "💀", "color" => "#5a7a4a"],
+  "Poule B" => [
+    ["name" => "Caresses et douceurs", "race" => "Élus du Chaos", "coach" => "Seth29", "emoji" => "🍬"],
+    ["name" => "Les Panthères de Khemet", "race" => "Amazones", "coach" => "Spirito", "emoji" => "🐈‍⬛"],
+    ["name" => "Les sablés de la fosse", "race" => "Rois des tombes", "coach" => "JokerParano", "emoji" => "🍪"],
+    ["name" => "Les Chevaliers de la Table Basse", "race" => "Bretonniens", "coach" => "OggyOneKenobi", "emoji" => "⚔️"],
+    ["name" => "Rotten Queen Club", "race" => "Horreurs nécromantiques", "coach" => "Niktazheur", "emoji" => "💀"],
+    ["name" => "Rubrique Nécrologique", "race" => "Morts ambulants", "coach" => "Lucachouca", "emoji" => "📰"],
   ],
 ];
 
 $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
+
+// Résultats au fil de l'eau, saisis au fur et à mesure que Mordorbihan publie les feuilles de match.
+$lfdj_bb_s2_matches = [
+  "Poule A" => [
+    "J1" => [
+      ["a" => "Camillionaires", "score" => "1 - 4", "b" => "Fungus Flingerz"],
+      ["a" => "Saumons Enragés United", "score" => "0 - 1", "b" => "Toc toc ça va couper"],
+    ],
+  ],
+  "Poule B" => [
+    "J1" => [
+      ["a" => "Caresses et douceurs", "score" => "1 - 0", "b" => "Rubrique Nécrologique"],
+      ["a" => "Les sablés de la fosse", "score" => "1 - 2", "b" => "Rotten Queen Club"],
+      ["a" => "Les Chevaliers de la Table Basse", "score" => "1 - 0", "b" => "Les Panthères de Khemet"],
+    ],
+  ],
+];
+
+$lfdj_bb_s2_standings = [];
+foreach ($lfdj_bb_s2_pools as $lfdj_bb_pool_name => $lfdj_bb_pool_teams) {
+  $lfdj_bb_s2_standings[$lfdj_bb_pool_name] = lfdj_bb_compute_standings($lfdj_bb_pool_teams, $lfdj_bb_s2_matches[$lfdj_bb_pool_name] ?? []);
+}
+
+// Emoji des 12 équipes des deux poules, et liste à plat des matchs joués (meta = "Poule X · Jy").
+$lfdj_bb_s2_team_emoji = array_column(array_merge(...array_values($lfdj_bb_s2_pools)), "emoji", "name");
+$lfdj_bb_s2_results = [];
+foreach ($lfdj_bb_s2_matches as $lfdj_bb_pool_name => $lfdj_bb_pool_journees) {
+  foreach ($lfdj_bb_pool_journees as $journee => $matches) {
+    foreach ($matches as $match) {
+      $lfdj_bb_s2_results[] = $match + ["meta" => "$lfdj_bb_pool_name · $journee"];
+    }
+  }
+}
 ?>
 
 <div class="lfdj-bb-season-tabs">
   <nav class="lfdj-bb-season-tabs-nav" aria-label="Saisons de la Vitré Bowl Cup">
-    <button type="button" class="lfdj-bb-season-tab-btn is-active" data-tab="presentation"><i class="fa-solid fa-chess-knight" aria-hidden="true"></i> Présentation</button>
-    <button type="button" class="lfdj-bb-season-tab-btn" data-tab="s2"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Saison 2 — ça démarre !</button>
-    <button type="button" class="lfdj-bb-season-tab-btn" data-tab="s1"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Saison 1 — Archives</button>
+    <button type="button" class="lfdj-bb-season-tab-btn" data-tab="presentation"><i class="fa-solid fa-chess-knight" aria-hidden="true"></i> Présentation</button>
+    <button type="button" class="lfdj-bb-season-tab-btn is-active" data-tab="s2"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Saison 2</button>
+    <button type="button" class="lfdj-bb-season-tab-btn" data-tab="s1"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Saison 1</button>
   </nav>
 
-  <section class="lfdj-bb-season-panel lfdj-bb-season-panel--presentation" data-panel="presentation">
+  <section class="lfdj-bb-season-panel lfdj-bb-season-panel--presentation" data-panel="presentation" hidden>
 
     <div class="lfdj-divtitle">
       <h4>Assembler, peindre… puis jouer</h4>
-      <h2>Blood Bowl à la Forge des Joueurs</h2>
+      <h2>Blood Bowl</h2>
       <div class="lfdj-title-icon">
         <i class="fa-solid fa-chess-knight"></i>
       </div>
@@ -268,11 +383,33 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
       </p>
     </div>
 
-    <div class="lfdj-hero">
-      <img
-        src="https://www.hobby2000.be/web/image/161737-c684f996/image_2024-08-20_104017463.webp?access_token=c1d386a3-cdd5-4733-9cbf-2ade90b618eb"
-        alt="Blood Bowl - Match à la Forge des Joueurs"
-        loading="lazy">
+    <div class="lfdj-bb-photo-grid" id="lfdj-bb-photo-grid">
+      <a href="./images/Bloodbowl/IMG20260912143047.webp">
+        <img src="./images/Bloodbowl/IMG20260912143047.webp" alt="Un coach lance les dés en pleine partie" loading="lazy">
+      </a>
+      <a href="./images/Bloodbowl/IMG_20260111_013316.webp">
+        <img src="./images/Bloodbowl/IMG_20260111_013316.webp" alt="Équipe du Chaos sur le terrain, dés au sol après une action" loading="lazy">
+      </a>
+      <a href="./images/Bloodbowl/IMG_20260401_213103.webp">
+        <img src="./images/Bloodbowl/IMG_20260401_213103.webp" alt="Figurine de Roi des Tombes peinte, gros plan" loading="lazy">
+      </a>
+      <a href="./images/Bloodbowl/IMG_20260520_152257.webp">
+        <img src="./images/Bloodbowl/IMG_20260520_152257.webp" alt="Équipe d'Elfes sylvains fraîchement peinte" loading="lazy">
+      </a>
+      <a href="./images/Bloodbowl/PXL_20260124_145421872.webp">
+        <img src="./images/Bloodbowl/PXL_20260124_145421872.webp" alt="Figurine d'Amazone peinte, sur le plateau de jeu" loading="lazy">
+      </a>
+      <a href="./images/Bloodbowl/figurine_retouche.webp">
+        <img src="./images/Bloodbowl/figurine_retouche.webp" alt="Figurine peinte, gros plan artistique sur les détails" loading="lazy">
+      </a>
+    </div>
+
+    <div class="lfdj-bb-lightbox" id="lfdj-bb-lightbox" hidden>
+      <button type="button" class="lfdj-bb-lightbox-close" aria-label="Fermer la galerie">&times;</button>
+      <button type="button" class="lfdj-bb-lightbox-prev" aria-label="Photo précédente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+      <img class="lfdj-bb-lightbox-img" src="" alt="">
+      <button type="button" class="lfdj-bb-lightbox-next" aria-label="Photo suivante"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+      <p class="lfdj-bb-lightbox-caption"></p>
     </div>
 
     <div class="lfdj-bloc-text">
@@ -320,11 +457,11 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
 
   </section>
 
-  <section class="lfdj-bb-season-panel lfdj-bb-season-panel--s2" data-panel="s2" hidden>
+  <section class="lfdj-bb-season-panel lfdj-bb-season-panel--s2" data-panel="s2">
 
     <div class="lfdj-divtitle">
       <h4>Ligue interne Blood Bowl</h4>
-      <h2>Vitré Bowl Cup — Saison 2</h2>
+      <h2>Vitré Bowl Cup</h2>
       <div class="lfdj-title-icon">
         <i class="fa-solid fa-seedling"></i>
       </div>
@@ -333,30 +470,23 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
     <div class="lfdj-bloc-text">
       <p>
         La <strong>Saison 2</strong> de la Vitré Bowl Cup arrive : <strong><?= $lfdj_bb_s2_team_count ?> équipes</strong> de la Forge des Joueurs
-        sont engagées, aux côtés de deux équipes invitées d'autres clubs. Le calendrier vient d'être publié sur
-        <a href="https://mordorbihan.fr/fr/bloodbowl/competition/521" target="_blank" rel="noopener">Mordorbihan</a>
-        et les premiers matchs n'ont pas encore été joués — tout reste à faire !
+        sont engagées, réparties en deux poules. Le calendrier est publié sur
+        <a href="https://mordorbihan.fr/fr/bloodbowl/competition/521" target="_blank" rel="noopener">Mordorbihan</a>.
       </p>
     </div>
 
+    <?php foreach ($lfdj_bb_s2_pools as $lfdj_bb_pool_name => $lfdj_bb_pool_teams): ?>
     <div class="lfdj-divtitle">
-      <h4>Elles prennent le relais</h4>
-      <h3>Équipes engagées</h3>
+      <h3><?= htmlspecialchars($lfdj_bb_pool_name) ?></h3>
       <div class="lfdj-title-icon">
         <i class="fa-solid fa-shield-halved"></i>
       </div>
     </div>
 
-    <div class="lfdj-bb-pools-grid">
-      <?php foreach ($lfdj_bb_s2_pools as $poolName => $poolTeams): ?>
-      <section class="lfdj-bb-pool" aria-label="<?= htmlspecialchars($poolName) ?>">
-        <h4 class="lfdj-bb-pool-title"><?= htmlspecialchars($poolName) ?></h4>
-        <div class="lfdj-bb-pool-teams">
-          <?php foreach ($poolTeams as $team): lfdj_bb_team_card($team); endforeach; ?>
-        </div>
-      </section>
-      <?php endforeach; ?>
-    </div>
+    <?php lfdj_bb_standings_table($lfdj_bb_s2_standings[$lfdj_bb_pool_name]); ?>
+    <?php endforeach; ?>
+
+    <?php lfdj_bb_results_toggle($lfdj_bb_s2_results, $lfdj_bb_s2_team_emoji, "lfdj-bb-s2-results-grid"); ?>
 
   </section>
 
@@ -364,7 +494,7 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
 
     <div class="lfdj-divtitle">
       <h4>Ligue interne Blood Bowl</h4>
-      <h2>Vitré Bowl Cup — Saison 1</h2>
+      <h2>Vitré Bowl Cup</h2>
       <div class="lfdj-title-icon">
         <i class="fa-solid fa-trophy"></i>
       </div>
@@ -395,82 +525,9 @@ $lfdj_bb_s2_team_count = array_sum(array_map("count", $lfdj_bb_s2_pools));
       </div>
     </div>
 
-    <div class="lfdj-bb-standings-wrap">
-      <table class="lfdj-bb-standings-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Équipe</th>
-            <th>Race</th>
-            <th>Coach</th>
-            <th>J</th>
-            <th>V</th>
-            <th>N</th>
-            <th>D</th>
-            <th>Marqués</th>
-            <th>Encaissés</th>
-            <th>Diff.</th>
-            <th>Pts</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($lfdj_bb_s1_standings as $i => $s): ?>
-          <tr class="<?= $i === 0 ? "lfdj-bb-champion-row" : "" ?>">
-            <td><?= $i + 1 ?></td>
-            <td class="lfdj-bb-team-name"><?= htmlspecialchars($s["name"]) ?></td>
-            <td><?= htmlspecialchars($s["race"]) ?></td>
-            <td><?= htmlspecialchars($s["coach"]) ?></td>
-            <td><?= $s["played"] ?></td>
-            <td><?= $s["w"] ?></td>
-            <td><?= $s["d"] ?></td>
-            <td><?= $s["l"] ?></td>
-            <td><?= $s["for"] ?></td>
-            <td><?= $s["against"] ?></td>
-            <td><?= $s["diff"] > 0 ? "+" . $s["diff"] : $s["diff"] ?></td>
-            <td class="lfdj-bb-pts"><?= $s["pts"] ?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-    </div>
+    <?php lfdj_bb_standings_table($lfdj_bb_s1_standings); ?>
 
-    <div class="lfdj-bb-results-toggle">
-      <button type="button" class="lfdj-bb-results-toggle-btn" aria-expanded="false" aria-controls="lfdj-bb-results-grid">
-        Afficher les <?= $lfdj_bb_s1_match_count ?> résultats de la saison
-      </button>
-      <div class="lfdj-bb-results-grid" id="lfdj-bb-results-grid" hidden>
-        <?php foreach ($lfdj_bb_s1_matches as $journee => $matches): foreach ($matches as $match):
-          [$lfdj_bb_scoreA, $lfdj_bb_scoreB] = array_map("intval", explode(" - ", $match["score"]));
-          $lfdj_bb_loserClassA = $lfdj_bb_scoreA < $lfdj_bb_scoreB ? " lfdj-bb-result-team--loser" : "";
-          $lfdj_bb_loserClassB = $lfdj_bb_scoreB < $lfdj_bb_scoreA ? " lfdj-bb-result-team--loser" : "";
-        ?>
-        <article class="lfdj-bb-result-card">
-          <span class="lfdj-bb-result-team lfdj-bb-result-team--a<?= $lfdj_bb_loserClassA ?>">
-            <span aria-hidden="true"><?= $lfdj_bb_team_emoji[$match["a"]] ?? "" ?></span>
-            <span class="lfdj-bb-result-team-name"><?= htmlspecialchars($match["a"]) ?></span>
-          </span>
-          <span class="lfdj-bb-result-score"><?= htmlspecialchars($match["score"]) ?></span>
-          <span class="lfdj-bb-result-team lfdj-bb-result-team--b<?= $lfdj_bb_loserClassB ?>">
-            <span class="lfdj-bb-result-team-name"><?= htmlspecialchars($match["b"]) ?></span>
-            <span aria-hidden="true"><?= $lfdj_bb_team_emoji[$match["b"]] ?? "" ?></span>
-          </span>
-          <span class="lfdj-bb-result-meta"><?= htmlspecialchars($journee) ?></span>
-        </article>
-        <?php endforeach; endforeach; ?>
-      </div>
-    </div>
-
-    <div class="lfdj-divtitle">
-      <h4>Elles ont fait la saison</h4>
-      <h3>Équipes engagées</h3>
-      <div class="lfdj-title-icon">
-        <i class="fa-solid fa-shield-halved"></i>
-      </div>
-    </div>
-
-    <div class="lfdj-bb-teams-grid">
-      <?php foreach ($lfdj_bb_s1_teams as $team): lfdj_bb_team_card($team); endforeach; ?>
-    </div>
+    <?php lfdj_bb_results_toggle($lfdj_bb_s1_results, $lfdj_bb_team_emoji, "lfdj-bb-s1-results-grid"); ?>
 
     <div class="lfdj-divtitle">
       <h4>Petits exploits de la saison</h4>

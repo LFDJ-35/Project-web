@@ -9,6 +9,7 @@ $lfdj_jeux_links = [
 ];
 $lfdj_activite_links = [
   ['href' => '/bloodbowl.php', 'icon' => 'fa-chess-knight', 'label' => 'Ligue Bloodbowl S2'],
+  ['href' => '/palmares.php', 'icon' => 'fa-medal', 'label' => 'Palmarès'],
 ];
 
 $lfdj_jeux_pages = array_map('basename', array_column($lfdj_jeux_links, 'href'));

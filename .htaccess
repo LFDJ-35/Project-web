@@ -16,6 +16,10 @@ ErrorDocument 404 /404.php
   RewriteCond %{HTTP_HOST} ^www\.laforgedesjoueurs\.fr [NC]
   RewriteRule ^ https://laforgedesjoueurs.fr%{REQUEST_URI} [L,R=301]
 
+  # --- /xxx.php se comporte comme /xxx (ex. /discord.php), sans casser les vraies pages ---
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)\.php$ /$1 [L]
+
   # --- Redirection Discord ---
   RewriteRule ^discord/?$ https://discord.gg/xpDz9AudxW [L,R=302]
 

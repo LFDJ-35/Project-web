@@ -384,23 +384,23 @@ foreach ($lfdj_bb_s2_matches as $lfdj_bb_pool_name => $lfdj_bb_pool_journees) {
     </div>
 
     <div class="lfdj-bb-photo-grid" id="lfdj-bb-photo-grid">
-      <a href="./images/Bloodbowl/IMG20260912143047.webp">
-        <img src="./images/Bloodbowl/IMG20260912143047.webp" alt="Un coach lance les dés en pleine partie" loading="lazy">
+      <a href="./images/Bloodbowl/IMG-BLOODBOWL-1.webp">
+        <img src="./images/Bloodbowl/IMG-BLOODBOWL-1.webp" alt="Un coach lance les dés en pleine partie" loading="lazy">
       </a>
-      <a href="./images/Bloodbowl/IMG_20260111_013316.webp">
-        <img src="./images/Bloodbowl/IMG_20260111_013316.webp" alt="Équipe du Chaos sur le terrain, dés au sol après une action" loading="lazy">
+      <a href="./images/Bloodbowl/IMG-BLOODBOWL-2.webp">
+        <img src="./images/Bloodbowl/IMG-BLOODBOWL-2.webp" alt="Équipe du Chaos sur le terrain, dés au sol après une action" loading="lazy">
       </a>
-      <a href="./images/Bloodbowl/IMG_20260401_213103.webp">
-        <img src="./images/Bloodbowl/IMG_20260401_213103.webp" alt="Figurine de Roi des Tombes peinte, gros plan" loading="lazy">
+      <a href="./images/Bloodbowl/IMG-BLOODBOWL-3.webp">
+        <img src="./images/Bloodbowl/IMG-BLOODBOWL-3.webp" alt="Figurine de Roi des Tombes peinte, gros plan" loading="lazy">
       </a>
-      <a href="./images/Bloodbowl/IMG_20260520_152257.webp">
-        <img src="./images/Bloodbowl/IMG_20260520_152257.webp" alt="Équipe d'Elfes sylvains fraîchement peinte" loading="lazy">
+      <a href="./images/Bloodbowl/IMG-BLOODBOWL-4.webp">
+        <img src="./images/Bloodbowl/IMG-BLOODBOWL-4.webp" alt="Équipe d'Elfes sylvains fraîchement peinte" loading="lazy">
       </a>
-      <a href="./images/Bloodbowl/PXL_20260124_145421872.webp">
-        <img src="./images/Bloodbowl/PXL_20260124_145421872.webp" alt="Figurine d'Amazone peinte, sur le plateau de jeu" loading="lazy">
+      <a href="./images/Bloodbowl/IMG-BLOODBOWL-5.webp">
+        <img src="./images/Bloodbowl/IMG-BLOODBOWL-5.webp" alt="Figurine d'Amazone peinte, sur le plateau de jeu" loading="lazy">
       </a>
-      <a href="./images/Bloodbowl/figurine_retouche.webp">
-        <img src="./images/Bloodbowl/figurine_retouche.webp" alt="Figurine peinte, gros plan artistique sur les détails" loading="lazy">
+      <a href="./images/Bloodbowl/IMG-BLOODBOWL-6.webp">
+        <img src="./images/Bloodbowl/IMG-BLOODBOWL-6.webp" alt="Figurine peinte, gros plan artistique sur les détails" loading="lazy">
       </a>
     </div>
 

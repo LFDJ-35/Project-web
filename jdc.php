@@ -6,6 +6,7 @@
   <title>Jeux de cartes à Vitré | La Forge des Joueurs</title>
   <meta name="description" content="Jeux de cartes à la Forge des Joueurs : Magic, AracKhan Wars, Yu-Gi-Oh et autres formats joués ponctuellement à Vitré." />
   <?php require('importation-php/regles.php'); ?>
+  <link rel="stylesheet" href="./css/jdc.css">
 </head>
 
 <body class="lfdj-maincontainer">
@@ -38,7 +39,7 @@
   <h4>Entre souvenirs et pratiques actuelles</h4>
   <h3>Jeux présents</h3>
   <div class="lfdj-title-icon">
-    <i class="fa-solid fa-spade"></i>
+    <i class="fa-solid fa-diamond"></i>
   </div>
 </div>
 
@@ -70,6 +71,29 @@
   </p>
 </div>
 
+<div class="lfdj-jdc-photo-grid" id="lfdj-jdc-photo-grid">
+  <a href="./images/JDC/IMG-JDC-1.webp">
+    <img src="./images/JDC/IMG-JDC-1.webp" alt="Une partie en cours, autour de la table" loading="lazy">
+  </a>
+  <a href="./images/JDC/IMG-JDC-2.webp">
+    <img src="./images/JDC/IMG-JDC-2.webp" alt="Plateau de jeu AracKhan Wars en pleine partie" loading="lazy">
+  </a>
+  <a href="./images/JDC/IMG-JDC-3.webp">
+    <img src="./images/JDC/IMG-JDC-3.webp" alt="Duel de Flesh & Blood, cartes et dés sur le tapis" loading="lazy">
+  </a>
+  <a href="./images/JDC/IMG-JDC-4.webp">
+    <img src="./images/JDC/IMG-JDC-4.webp" alt="Un autre duel de Flesh & Blood en cours" loading="lazy">
+  </a>
+</div>
+
+<div class="lfdj-jdc-lightbox" id="lfdj-jdc-lightbox" hidden>
+  <button type="button" class="lfdj-jdc-lightbox-close" aria-label="Fermer la galerie">&times;</button>
+  <button type="button" class="lfdj-jdc-lightbox-prev" aria-label="Photo précédente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+  <img class="lfdj-jdc-lightbox-img" src="" alt="">
+  <button type="button" class="lfdj-jdc-lightbox-next" aria-label="Photo suivante"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+  <p class="lfdj-jdc-lightbox-caption"></p>
+</div>
+
 <div class="lfdj-divtitle">
   <h4>Rien n’est figé</h4>
   <h2>Ouvert aux envies</h2>
@@ -85,14 +109,11 @@
     Une envie, quelques personnes motivées,
     et une table peut rapidement se mettre en place.
   </p>
-  <p>
-    Les échanges et propositions se font principalement via le
-    <a href="./discord" class="discord">Discord</a> de l’association.
-  </p>
 </div>
 
 <hr class="lfdj-midpage">
 
 <?php require('importation-php/footer.php'); ?>
+<script src="./importation-js/jdc.js"></script>
 </body>
 </html>

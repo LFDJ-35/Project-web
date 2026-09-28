@@ -215,7 +215,6 @@ function create_color_swatches(array $swatches)
         <?php
         create_color_swatches(array(
           array("data-color" => "BLANC", "data-code" => "BLA", "color" => "#f4f3f0", "label" => "Blanc"),
-          array("data-color" => "BORDEAUX", "data-code" => "BOR", "color" => "#661f24", "label" => "Bordeaux"),
           array("data-color" => "CIEL", "data-code" => "CIE", "color" => "#b5d9f3", "label" => "Ciel"),
           array("data-color" => "MARINE", "data-code" => "MAR", "color" => "#1d253a", "label" => "Marine"),
           array("data-color" => "NOIR", "data-code" => "NOI", "color" => "#333332", "label" => "Noir"),
@@ -604,13 +603,13 @@ function create_color_swatches(array $swatches)
       <button type="button" class="lfdj-size-pill active" data-view="DOS">Dos</button>
     </div>
     <div class="lfdj-sweat-preview-frame">
-      <img id="lfdj-sweat-rousseau-base" src="./images/Textile/ROUSSEAU/SWEAT-DOS-BORDEAUX.webp" alt="Sweat Rousseau, coloris bordeaux" width="2816" height="3457">
+      <img id="lfdj-sweat-rousseau-base" src="./images/Textile/ROUSSEAU/SWEAT-DOS-CIEL.webp" alt="Sweat Rousseau, coloris ciel" width="2816" height="3457">
       <img id="lfdj-sweat-rousseau-design" src="./images/Textile/COLLECTION-PINGU/SWEAT/DESIGN-PINGU-ALIEN.webp" alt="Design Alien" width="2816" height="3457">
       <img id="lfdj-sweat-rousseau-logo" src="./images/Textile/COLLECTION-PINGU/SWEAT/LOGO-PINGU-FACE-NOIR.webp" alt="Logo, face" width="1297" height="1600" class="lfdj-hidden">
       <button type="button" class="lfdj-zoom-btn" aria-label="Agrandir l'image">+</button>
     </div>
     <p class="lfdj-ref-inline">
-      Réf.&nbsp;: <code id="lfdj-sweat-rousseau-ref-code">SWE-ROUS-ALI-BOR-M-Q1</code>
+      Réf.&nbsp;: <code id="lfdj-sweat-rousseau-ref-code">SWE-ROUS-ALI-CIE-M-Q1</code>
       <button type="button" id="lfdj-sweat-rousseau-ref-copy" class="lfdj-ref-copy-btn-small" aria-label="Copier la référence"><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
     </p>
   </div>
@@ -630,6 +629,7 @@ function create_color_swatches(array $swatches)
           array("data-file" => "DESIGN-PINGU-TRIO-JDF-SPACEMARINE.webp", "label" => "Design Trio, Space Marine en avant", "data-code" => "TRISM"),
           array("data-file" => "DESIGN-PINGU-TRIO-JDR-DRAGON.webp", "label" => "Design Trio, Dragon en avant", "data-code" => "TRIDRA"),
           array("data-file" => "DESIGN-PINGU-QUINTET-DRAGON.webp", "label" => "Design Quintet, Dragon en avant", "data-code" => "QUIDRA"),
+          array("data-file" => "GENERIQUE-NOIR.webp", "label" => "Design La Forge des Joueurs", "data-code" => "GEN"),
         ));
         ?>
       </div>
@@ -640,7 +640,6 @@ function create_color_swatches(array $swatches)
       <div class="lfdj-color-row" role="group" aria-label="Choix du coloris">
         <?php
         create_color_swatches(array(
-          array("data-color" => "BORDEAUX", "data-code" => "BOR", "color" => "#692329", "label" => "Bordeaux"),
           array("data-color" => "CIEL", "data-code" => "CIE", "color" => "#b9d5f0", "label" => "Ciel"),
           array("data-color" => "MARINE", "data-code" => "MAR", "color" => "#242b3f", "label" => "Marine"),
           array("data-color" => "ROUGE", "data-code" => "RGE", "color" => "#e11421", "label" => "Rouge"),
@@ -738,6 +737,7 @@ function create_color_swatches(array $swatches)
           array("data-file" => "DESIGN-PINGU-TRIO-JDF-SPACEMARINE.webp", "label" => "Design Trio, Space Marine en avant", "data-code" => "TRISM"),
           array("data-file" => "DESIGN-PINGU-TRIO-JDR-DRAGON.webp", "label" => "Design Trio, Dragon en avant", "data-code" => "TRIDRA"),
           array("data-file" => "DESIGN-PINGU-QUINTET-DRAGON.webp", "label" => "Design Quintet, Dragon en avant", "data-code" => "QUIDRA"),
+          array("data-file" => "GENERIQUE-NOIR.webp", "label" => "Design La Forge des Joueurs", "data-code" => "GEN"),
         ));
         ?>
       </div>

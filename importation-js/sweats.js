@@ -42,7 +42,15 @@ function lfdjInitSweat(opts) {
     logoImg.classList.toggle("lfdj-hidden", isDos);
 
     if (design && isDos) {
-      designImg.src = designPath + design.dataset.file;
+      if (design.dataset.code === "GEN") {
+        // Contrairement au logo FACE, ces deux fichiers nomment la couleur
+        // d'encre réelle (pas le fond ciblé) : encre noire sur les couleurs
+        // claires, encre blanche sur les couleurs foncées.
+        const isLight = color ? opts.lightColors[color.dataset.color] === true : false;
+        designImg.src = designPath + (isLight ? "GENERIQUE-NOIR.webp" : "GENERIQUE-BLANC.webp");
+      } else {
+        designImg.src = designPath + design.dataset.file;
+      }
       designImg.alt = "Design " + (design.getAttribute("aria-label") || "").replace("Design ", "");
     }
 

@@ -32,8 +32,10 @@
 
     <nav class="lfdj-footer-col" aria-label="Association">
       <h4>Association</h4>
+      <a href="/bloodbowl.php">Ligue Bloodbowl S2</a>
       <a href="/partenaires.php">Partenaires</a>
       <a href="/boutique.php">Boutique Textile</a>
+      <a href="/palmares.php">Palmarès</a>
     </nav>
 
     <nav class="lfdj-footer-col" aria-label="Ressources">

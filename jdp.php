@@ -6,6 +6,7 @@
   <title>Jeux de plateau à Vitré | La Forge des Joueurs</title>
   <meta name="description" content="Jeux de plateau à la Forge des Joueurs : soirées conviviales, découvertes, coopération et jeux du moment à Vitré." />
   <?php require('importation-php/regles.php'); ?>
+  <link rel="stylesheet" href="./css/jdp.css">
 </head>
 
 <body class="lfdj-maincontainer">
@@ -34,6 +35,35 @@
     </p>
   </div>
 
+  <div class="lfdj-jdp-photo-grid" id="lfdj-jdp-photo-grid">
+    <a href="./images/JDP/IMG-JDP-1.webp">
+      <img src="./images/JDP/IMG-JDP-1.webp" alt="Une partie de jeu de figurines en cours, autour de la table" loading="lazy">
+    </a>
+    <a href="./images/JDP/IMG-JDP-2.webp">
+      <img src="./images/JDP/IMG-JDP-2.webp" alt="Figurines grises sur un plateau modulaire, jeu d'aventure fantastique" loading="lazy">
+    </a>
+    <a href="./images/JDP/IMG-JDP-3.webp">
+      <img src="./images/JDP/IMG-JDP-3.webp" alt="Fiches d'unités, figurines et dés lors d'une mise en place" loading="lazy">
+    </a>
+    <a href="./images/JDP/IMG-JDP-4.webp">
+      <img src="./images/JDP/IMG-JDP-4.webp" alt="Machina Arcana installé sur la table" loading="lazy">
+    </a>
+    <a href="./images/JDP/IMG-JDP-5.webp">
+      <img src="./images/JDP/IMG-JDP-5.webp" alt="Le plateau de Roots en pleine partie, vue d'ensemble" loading="lazy">
+    </a>
+    <a href="./images/JDP/IMG-JDP-6.webp">
+      <img src="./images/JDP/IMG-JDP-6.webp" alt="Deux joueurs souriants autour d'une partie de Roots" loading="lazy">
+    </a>
+  </div>
+
+  <div class="lfdj-jdp-lightbox" id="lfdj-jdp-lightbox" hidden>
+    <button type="button" class="lfdj-jdp-lightbox-close" aria-label="Fermer la galerie">&times;</button>
+    <button type="button" class="lfdj-jdp-lightbox-prev" aria-label="Photo précédente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+    <img class="lfdj-jdp-lightbox-img" src="" alt="">
+    <button type="button" class="lfdj-jdp-lightbox-next" aria-label="Photo suivante"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+    <p class="lfdj-jdp-lightbox-caption"></p>
+  </div>
+
   <div class="lfdj-divtitle">
     <h4>Ce qui tourne en ce moment</h4>
     <h3>Jeux du moment</h3>
@@ -48,7 +78,7 @@
     <strong>Némésis</strong>, pour son ambiance tendue et ses choix difficiles,
     <strong>Zombicide: Black Plague</strong>, pour ses parties coopératives
     dynamiques et accessibles,
-    ainsi que <a href="roots.php"><strong>Roots</strong></a>,
+    ainsi que <strong>Roots</strong>,
     apprécié pour sa profondeur stratégique et ses affrontements asymétriques.
   </p>
   <p>
@@ -78,26 +108,9 @@
     </p>
   </div>
 
-  <div class="lfdj-divtitle">
-    <h4>Envie d’un format plus “tournoi” ?</h4>
-    <h3>Et Roots ?</h3>
-    <div class="lfdj-title-icon">
-      <i class="fa-solid fa-tree"></i>
-    </div>
-  </div>
-
-  <div class="lfdj-bloc-text">
-    <p>
-      <a href="roots.php"><strong>Roots</strong></a> fait partie des jeux appréciés par plusieurs membres,
-      et peut aussi se jouer dans des formats plus organisés.
-      Si vous voulez découvrir ce versant plus compétitif,
-      vous pouvez consulter notre page dédiée :
-      <a href="./roots.php">Découvrir Roots et nos tournois</a>.
-    </p>
-  </div>
-
   <hr class="lfdj-midpage">
 
   <?php require('importation-php/footer.php'); ?>
+  <script src="./importation-js/jdp.js"></script>
 </body>
 </html>

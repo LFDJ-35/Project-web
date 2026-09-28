@@ -1,0 +1,162 @@
+/* ========================================================================
+   PAGE PARTENAIRES — styles propres à partenaires.php.
+   Fichier dédié, chargé uniquement sur cette page : ne touche jamais à
+   laforgedesjoueurs.css, donc zéro conflit possible avec les autres branches.
+   Ville de Bais en partenaire vedette, tous les autres partenaires à égalité
+   dans une seule grille — cf. retour de Spirito.
+   ======================================================================== */
+
+/* --- Carré logo (icône en attendant les vrais logos) --- */
+.lfdj-partenaires-logo{
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.lfdj-partenaires-logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.lfdj-partenaires-logo i{
+  font-size: 42px;
+  color: var(--primary-color);
+}
+
+.lfdj-partenaires-logo--featured{
+  width: 200px;
+  height: 200px;
+}
+
+.lfdj-partenaires-logo--featured i{
+  font-size: 52px;
+}
+
+/* --- Partenaire vedette --- */
+.lfdj-partenaires-featured{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 420px;
+  margin: 0 auto 32px auto;
+  padding: 32px 24px;
+  background: var(--background);
+  border: 1px solid rgba(200,164,77,.5);
+  border-radius: 14px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.lfdj-partenaires-featured h3{
+  font-family: var(--font-secondary);
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.lfdj-partenaires-featured p{
+  font-family: var(--font-third);
+  font-size: 14px;
+  color: var(--black-color);
+  opacity: .85;
+  margin: 0;
+}
+
+/* --- Grille des partenaires, tous à égalité --- */
+.lfdj-partenaires-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto 32px auto;
+  padding: 0 5%;
+}
+
+@media (min-width: 480px){
+  .lfdj-partenaires-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px){
+  .lfdj-partenaires-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.lfdj-partenaires-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 26px 20px;
+  background: var(--background);
+  border: 1px solid rgba(141,141,141,.25);
+  border-radius: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.lfdj-partenaires-card:hover,
+.lfdj-partenaires-card:focus-within{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.18);
+}
+
+.lfdj-partenaires-card h3{
+  font-family: var(--font-secondary);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--black-color);
+  margin: 0;
+}
+
+.lfdj-partenaires-card p{
+  font-family: var(--font-third);
+  font-size: 13px;
+  color: var(--black-color);
+  opacity: .8;
+  margin: 0;
+}
+
+/* --- Liens (site + réseaux) sous chaque partenaire --- */
+.lfdj-partenaires-links{
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.lfdj-partenaires-links a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(141,141,141,.15);
+  color: var(--black-color);
+  font-size: 12px;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.lfdj-partenaires-links a:hover,
+.lfdj-partenaires-links a:focus-visible{
+  background: var(--primary-color);
+  color: #171717;
+}

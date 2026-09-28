@@ -1,0 +1,222 @@
+/* ========================================================================
+   FOOTER — styles du footer partagé (importation-php/footer.php), y compris
+   la vague décorative qui le précède. Fichier dédié, chargé uniquement via
+   footer.php : une branche qui ne touche qu'au footer a un diff nul sur
+   laforgedesjoueurs.css.
+   ======================================================================== */
+
+/* ========================== WAVES ========================== */
+.lfdj-waves{
+  display: block;
+  margin: 0;
+}
+
+.waves{
+  display: block;
+  margin-top: -150px;
+  width: 100%;
+  height: 60px;
+  z-index: 4;
+}
+
+.wave1 use{ animation: move-forever1 10s linear infinite; animation-delay: -2s; }
+.wave2 use{ animation: move-forever2 12s linear infinite; animation-delay: -1s; }
+.wave3 use{ animation: move-forever3 14s linear infinite; animation-delay: -2s; }
+
+@keyframes move-forever1{
+  from{ transform: translate3d(-90px,0,0); }
+  to{ transform: translate3d(85px,0,0); }
+}
+@keyframes move-forever2{
+  from{ transform: translate3d(-90px,0,0); }
+  to{ transform: translate3d(85px,0,0); }
+}
+@keyframes move-forever3{
+  from{ transform: translate3d(-90px,0,0); }
+  to{ transform: translate3d(85px,0,0); }
+}
+
+/* ========================== FOOTER ========================== */
+
+.lfdj-site-footer{
+  background-color: #171717;
+  color: #cfcfcf;
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  font-family: var(--font-third);
+}
+
+.lfdj-site-footer a{
+  color: #cfcfcf;
+}
+
+.lfdj-site-footer-top{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 24px 30px 24px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 850px){
+  .lfdj-site-footer-top{
+    grid-template-columns: 1fr 1fr;
+    padding: 40px 8% 20px 8%;
+  }
+}
+
+@media (max-width: 500px){
+  .lfdj-site-footer-top{
+    grid-template-columns: 1fr;
+  }
+}
+
+.lfdj-footer-logo{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-color) !important;
+  font-family: var(--font-third);
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.lfdj-footer-logo img{
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.lfdj-footer-logo span{
+  color: var(--primary-color) !important;
+}
+
+.lfdj-footer-logo strong{
+  color: var(--primary-color) !important;
+  font-weight: 700;
+}
+
+.lfdj-footer-tagline{
+  margin: 12px 0 0 0;
+  font-size: 13px;
+  color: var(--primary-color);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.lfdj-footer-desc{
+  margin: 8px 0 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #9a9a9a;
+  text-transform: none;
+  letter-spacing: normal;
+  max-width: 320px;
+}
+
+.lfdj-footer-col h4{
+  color: #fff;
+  font-family: var(--font-third);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 16px 0;
+  text-align: left;
+}
+
+.lfdj-footer-col{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lfdj-footer-col a{
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: normal;
+  transition: color .15s ease;
+}
+
+.lfdj-footer-col a:hover,
+.lfdj-footer-col a:focus{
+  color: var(--primary-color);
+}
+
+.lfdj-footer-col a i{
+  width: 40px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.lfdj-footer-social{
+  display: flex;
+  gap: 10px;
+}
+
+.lfdj-footer-social a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,.08);
+  font-size: 15px;
+  line-height: 1;
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.lfdj-footer-social a i{
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+}
+
+.lfdj-footer-social a:hover,
+.lfdj-footer-social a:focus{
+  background-color: var(--primary-color);
+  color: #171717;
+}
+
+.lfdj-footer-bottom{
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 16px 24px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8a8a8a;
+}
+
+.lfdj-footer-bottom-center{
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.lfdj-footer-bottom-right{
+  color: #8a8a8a !important;
+}
+
+.lfdj-footer-bottom-right:hover,
+.lfdj-footer-bottom-right:focus{
+  color: var(--primary-color) !important;
+}
+
+@media (max-width: 600px){
+  .lfdj-footer-bottom{
+    justify-content: center;
+    text-align: center;
+  }
+}

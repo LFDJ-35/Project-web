@@ -1,0 +1,135 @@
+/* ========================================================================
+   PAGE PALMARÈS — styles propres à palmares.php.
+   Fichier dédié, chargé uniquement sur cette page : ne touche jamais à
+   laforgedesjoueurs.css, donc zéro conflit possible avec les autres branches.
+   ======================================================================== */
+
+.lfdj-palmares-list{
+  max-width: 720px;
+  margin: 0 auto 55px auto;
+  padding: 0 5%;
+}
+
+.lfdj-palmares-group{
+  margin-bottom: 26px;
+}
+
+.lfdj-palmares-group-title{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-secondary);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-transform: none;
+  letter-spacing: normal;
+  margin: 0 0 8px 0;
+}
+
+.lfdj-palmares-group-title i{
+  font-size: 14px;
+  opacity: .8;
+}
+
+.lfdj-palmares-group-meta{
+  font-family: var(--font-third);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--black-color);
+  opacity: .55;
+}
+
+.lfdj-palmares-row{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  border-left: 4px solid var(--lfdj-palmares-color);
+  background: var(--lfdj-palmares-bg);
+}
+
+.lfdj-palmares-row--1{
+  --lfdj-palmares-color: #d4af37;
+  --lfdj-palmares-bg: rgba(212,175,55,.12);
+}
+
+.lfdj-palmares-row--2,
+.lfdj-palmares-row--3{
+  padding: 6px 12px;
+  margin-left: 14px;
+}
+
+.lfdj-palmares-row--2{ --lfdj-palmares-color: #b8b8b8; --lfdj-palmares-bg: rgba(184,184,184,.1); }
+.lfdj-palmares-row--3{ --lfdj-palmares-color: #b3702a; --lfdj-palmares-bg: rgba(179,112,42,.12); }
+
+.lfdj-palmares-row-place{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--lfdj-palmares-color);
+  color: #171717;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.lfdj-palmares-row--2 .lfdj-palmares-row-place,
+.lfdj-palmares-row--3 .lfdj-palmares-row-place{
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+}
+
+.lfdj-palmares-row-name{
+  font-family: var(--font-third);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--black-color);
+  text-transform: none;
+}
+
+.lfdj-palmares-row--2 .lfdj-palmares-row-name,
+.lfdj-palmares-row--3 .lfdj-palmares-row-name{
+  font-size: 13px;
+}
+
+.lfdj-palmares-row-detail{
+  margin-left: auto;
+  padding-left: 10px;
+  font-size: 11px;
+  color: var(--black-color);
+  opacity: .6;
+  text-align: right;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.lfdj-palmares-group-link{
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.lfdj-palmares-hero{
+  max-width: 420px;
+  margin: 0 auto 45px auto;
+  padding: 0 5%;
+}
+
+.lfdj-palmares-hero img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 26px rgba(0,0,0,.3);
+}

@@ -7,7 +7,6 @@
 <title>Jeu de rôle à Vitré | La Forge des Joueurs</title>
 <meta name="description" content="Jeu de rôle à la Forge des Joueurs : tables variées, maîtres du jeu, univers multiples et parties en présentiel à Vitré." />
 <?php require('importation-php/regles.php'); ?>
-<link rel="stylesheet" href="./css/jdr.css">
 </head>
 
 <body class="lfdj-maincontainer">
@@ -32,23 +31,6 @@
     <strong>raconter une histoire ensemble</strong>.
   </p>
 </div>
-
-  <div class="lfdj-jdr-photo-grid" id="lfdj-jdr-photo-grid">
-    <a href="./images/JDR/IMG-JDR-1.webp">
-      <img src="./images/JDR/IMG-JDR-1.webp" alt="Une table de jeu de rôle en pleine partie, joueurs et maître du jeu réunis" loading="lazy">
-    </a>
-    <a href="./images/JDR/IMG-JDR-2.webp">
-      <img src="./images/JDR/IMG-JDR-2.webp" alt="Partie de jeu de rôle Cyberpunk, plateau et figurines lumineuses sur la table" loading="lazy">
-    </a>
-  </div>
-
-  <div class="lfdj-jdr-lightbox" id="lfdj-jdr-lightbox" hidden>
-    <button type="button" class="lfdj-jdr-lightbox-close" aria-label="Fermer la galerie">&times;</button>
-    <button type="button" class="lfdj-jdr-lightbox-prev" aria-label="Photo précédente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-    <img class="lfdj-jdr-lightbox-img" src="" alt="">
-    <button type="button" class="lfdj-jdr-lightbox-next" aria-label="Photo suivante"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-    <p class="lfdj-jdr-lightbox-caption"></p>
-  </div>
 
 <div class="lfdj-divtitle">
   <h4>Comme un ongle...</h4>
@@ -101,5 +83,4 @@
 <hr class="lfdj-midpage">
 
 <?php require('importation-php/footer.php'); ?>
-<script src="./importation-js/jdr.js"></script>
 </body>

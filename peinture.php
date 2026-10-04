@@ -37,17 +37,8 @@
     <a href="./images/Peinture/IMG-PEINTURE-1.webp">
       <img src="./images/Peinture/IMG-PEINTURE-1.webp" alt="Cavalier miniature peint en détail" loading="lazy">
     </a>
-    <a href="./images/Peinture/IMG-PEINTURE-2.webp">
-      <img src="./images/Peinture/IMG-PEINTURE-2.webp" alt="Conseils de peinture échangés lors d'une session à plusieurs" loading="lazy">
-    </a>
     <a href="./images/Peinture/IMG-PEINTURE-3.webp">
       <img src="./images/Peinture/IMG-PEINTURE-3.webp" alt="Figurine en cours de peinture sur l'établi" loading="lazy">
-    </a>
-    <a href="./images/Peinture/IMG-PEINTURE-4.webp">
-      <img src="./images/Peinture/IMG-PEINTURE-4.webp" alt="Séance de peinture en groupe autour de la table" loading="lazy">
-    </a>
-    <a href="./images/Peinture/IMG-PEINTURE-5.webp">
-      <img src="./images/Peinture/IMG-PEINTURE-5.webp" alt="Plusieurs figurines peintes présentées côte à côte" loading="lazy">
     </a>
     <a href="./images/Peinture/IMG-PEINTURE-6.webp">
       <img src="./images/Peinture/IMG-PEINTURE-6.webp" alt="Pots de peinture et matériel de modélisme" loading="lazy">

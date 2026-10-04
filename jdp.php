@@ -36,9 +36,6 @@
   </div>
 
   <div class="lfdj-jdp-photo-grid" id="lfdj-jdp-photo-grid">
-    <a href="./images/JDP/IMG-JDP-1.webp">
-      <img src="./images/JDP/IMG-JDP-1.webp" alt="Une partie de jeu de figurines en cours, autour de la table" loading="lazy">
-    </a>
     <a href="./images/JDP/IMG-JDP-2.webp">
       <img src="./images/JDP/IMG-JDP-2.webp" alt="Figurines grises sur un plateau modulaire, jeu d'aventure fantastique" loading="lazy">
     </a>
@@ -50,9 +47,6 @@
     </a>
     <a href="./images/JDP/IMG-JDP-5.webp">
       <img src="./images/JDP/IMG-JDP-5.webp" alt="Le plateau de Roots en pleine partie, vue d'ensemble" loading="lazy">
-    </a>
-    <a href="./images/JDP/IMG-JDP-6.webp">
-      <img src="./images/JDP/IMG-JDP-6.webp" alt="Deux joueurs souriants autour d'une partie de Roots" loading="lazy">
     </a>
   </div>
 

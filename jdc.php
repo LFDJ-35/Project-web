@@ -72,9 +72,6 @@
 </div>
 
 <div class="lfdj-jdc-photo-grid" id="lfdj-jdc-photo-grid">
-  <a href="./images/JDC/IMG-JDC-1.webp">
-    <img src="./images/JDC/IMG-JDC-1.webp" alt="Une partie en cours, autour de la table" loading="lazy">
-  </a>
   <a href="./images/JDC/IMG-JDC-2.webp">
     <img src="./images/JDC/IMG-JDC-2.webp" alt="Plateau de jeu AracKhan Wars en pleine partie" loading="lazy">
   </a>

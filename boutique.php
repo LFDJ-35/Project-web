@@ -107,45 +107,43 @@ function create_color_swatches(array $swatches)
 
 <div class="lfdj-bloc-text">
   <p>
-    Après plusieurs semaines à comparer les prestataires et à valider les designs avec
+    La Forge des Joueurs lance ses <strong>précommandes de goodies textiles</strong>&nbsp;:
+    t-shirts, maillots et sweats, sur des designs réalisés avec
     <a href="https://www.instagram.com/estelle_arttt/" target="_blank" rel="noopener"><strong>Estelle</strong></a>,
-    illustratrice de l'association, la Forge des Joueurs lance ses
-    <strong>précommandes de goodies textiles</strong>&nbsp;: t-shirts, maillots et sweats.
+    illustratrice de l'association.
   </p>
   <p>
-    Cette page <strong>n'est pas une boutique en ligne classique</strong>&nbsp;: elle sert à
-    <strong>composer et visualiser</strong> votre article, puis à générer sa référence.
-    Les tarifs affichés sont ceux d'un premier devis fournisseur, pris comme base&nbsp;;
-    ils ne pourront évoluer qu'à la <strong>baisse</strong> une fois les quantités réelles connues.
+    <strong>1.</strong> Composez vos articles, copiez la référence générée dans le
+    <a href="https://docs.google.com/spreadsheets/d/1N33kyrAUG4bHaU7Hm_OirJmB8C72Rlye8F2bkU2DdT8/edit?usp=sharing" target="_blank" rel="noopener">tableau de précommande</a>&nbsp;:
+    cela nous aide à définir la quantité globale à faire deviser.
   </p>
   <p>
-    Pour précommander&nbsp;: composez votre article ci-dessous, copiez la référence générée,
-    puis notez-la (avec la quantité souhaitée) dans le
-    <a href="https://docs.google.com/spreadsheets/d/1N33kyrAUG4bHaU7Hm_OirJmB8C72Rlye8F2bkU2DdT8/edit?usp=sharing" target="_blank" rel="noopener">tableau de précommande partagé</a>.
-    Aucun paiement n'est demandé à ce stade&nbsp;: il sera organisé une fois les commandes
-    groupées et les tarifs définitifs validés.
+    <strong>2.</strong> Les devis sont ensuite négociés pour obtenir les meilleurs tarifs.
+    Les prix actuellement affichés correspondent à l'achat d'une seule pièce&nbsp;: ils
+    sont indicatifs.
+  </p>
+  <p>
+    <strong>3.</strong> Le paiement final se fera via <strong>HelloAsso</strong>, début
+    novembre, après validation des devis et des quantités, pour faciliter la gestion comptable.
   </p>
 </div>
 
 <div class="lfdj-notice-box lfdj-notice-box--engagement">
   <p>
     <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-    <strong>Un article précommandé est un engagement&nbsp;:</strong> il devra être réglé
-    dès que la commande groupée sera passée auprès du prestataire. C'est grâce à vos
-    précommandes qu'on peut estimer nos tarifs dégressifs et en faire profiter tout le
-    monde&nbsp;: une annulation est problématique pour l'ensemble du groupe.
-    Soyons raisonnables, on compte sur vous&nbsp;!
+    <strong>Précommander, c'est s'engager&nbsp;:</strong> le règlement interviendra une fois
+    la commande groupée passée. C'est grâce à vos précommandes qu'on peut obtenir des tarifs
+    dégressifs pour tout le monde&nbsp;: une annulation est problématique pour l'ensemble du groupe.
   </p>
 </div>
 
 <div class="lfdj-notice-box lfdj-notice-box--warning">
   <p>
     <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-    <strong>Attention&nbsp;:</strong> les mockups utilisés ci-dessous ne sont pas les
-    produits officiels finaux, mais des visuels permettant de se projeter sur le rendu.
-    De même, les images affichées sont volontairement en qualité réduite, pour un
-    chargement de page optimal&nbsp;: ce sont bien les fichiers finaux, la définition
-    sera simplement restaurée en haute qualité au moment de la commande.
+    <strong>Attention&nbsp;:</strong> les visuels ci-dessous sont des montages&nbsp;: les designs
+    sont vectoriels et de bonne qualité, mais les vêtements affichés ne sont pas représentatifs
+    du rendu final. Un lien vers la fiche produit est indiqué pour chaque article, si vous
+    souhaitez en vérifier les caractéristiques exactes.
   </p>
 </div>
 

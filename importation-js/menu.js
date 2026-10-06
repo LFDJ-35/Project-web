@@ -29,31 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // ====== MOBILE: accordéons ======
-  const mobileBtns = $$(".lfdj-mobile-subbtn");
-  const mobileContents = () => $$(".lfdj-mobile-subcontent");
-
-  const closeOtherMobileAccordions = (keepContent, keepBtn) => {
-    mobileContents().forEach(sc => { if (sc !== keepContent) sc.classList.remove("open"); });
-    mobileBtns.forEach(sb => { if (sb !== keepBtn) sb.setAttribute("aria-expanded", "false"); });
-  };
-
-  mobileBtns.forEach((btn) => {
-    const content = btn.nextElementSibling;
-    if (!content || !content.classList.contains("lfdj-mobile-subcontent")) return;
-
-    btn.addEventListener("click", () => {
-      const isOpen = content.classList.contains("open");
-
-      closeOtherMobileAccordions(content, btn);
-
-      content.classList.toggle("open", !isOpen);
-      btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
-    });
-  });
-
-  // ====== PC: sous-menus au survol (CSS :hover / :focus-within) — pas de clic obligatoire ======
-
   // ====== Global: click outside & escape ======
   document.addEventListener("click", (e) => {
     if (dd && !dd.contains(e.target)) closeMobileMenu();

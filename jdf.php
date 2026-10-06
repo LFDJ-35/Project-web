@@ -7,6 +7,7 @@
 <title>Jeux de figurines à Vitré | La Forge des Joueurs</title>
 <meta name="description" content="Jeux de figurines à la Forge des Joueurs : Warhammer, 40K, Gaslands, peinture, décors et parties conviviales à Vitré." />
 <?php require('importation-php/regles.php'); ?>
+<link rel="stylesheet" href="./css/jdf.css">
 </head>
 
 <body class="lfdj-maincontainer">
@@ -36,28 +37,39 @@
   </p>
 </div>
 
-<div class="lfdj-divtitle">
-  <h4>Bien plus qu’un simple jeu</h4>
-  <h3>Peinture & modélisme</h3>
-  <div class="lfdj-title-icon">
-    <i class="fa-solid fa-paintbrush"></i>
-  </div>
+<div class="lfdj-jdf-photo-grid" id="lfdj-jdf-photo-grid">
+  <a href="./images/JDF/IMG-JDF-1.webp">
+    <img src="./images/JDF/IMG-JDF-1.webp" alt="Blindés et infanterie déployés sur une table de jeu urbaine" loading="lazy">
+  </a>
+  <a href="./images/JDF/IMG-JDF-2.webp">
+    <img src="./images/JDF/IMG-JDF-2.webp" alt="Chapelle miniature détaillée sur un décor de table" loading="lazy">
+  </a>
+  <a href="./images/JDF/IMG-JDF-3.webp">
+    <img src="./images/JDF/IMG-JDF-3.webp" alt="Cité fortifiée miniature en décor de bataille" loading="lazy">
+  </a>
+  <a href="./images/JDF/IMG-JDF-4.webp">
+    <img src="./images/JDF/IMG-JDF-4.webp" alt="Combat de figurines de super-héros sur la table" loading="lazy">
+  </a>
+  <a href="./images/JDF/IMG-JDF-5.webp">
+    <img src="./images/JDF/IMG-JDF-5.webp" alt="Escadrille de vaisseaux miniatures en formation" loading="lazy">
+  </a>
+  <a href="./images/JDF/IMG-JDF-6.webp">
+    <img src="./images/JDF/IMG-JDF-6.webp" alt="Escouade de figurines et créature sur le champ de bataille" loading="lazy">
+  </a>
+  <a href="./images/JDF/IMG-JDF-7.webp">
+    <img src="./images/JDF/IMG-JDF-7.webp" alt="Figurine de robot bleu peinte en détail" loading="lazy">
+  </a>
+  <a href="./images/JDF/IMG-JDF-8.webp">
+    <img src="./images/JDF/IMG-JDF-8.webp" alt="Table de jeu avec décors variés pour partie de figurines" loading="lazy">
+  </a>
 </div>
 
-<div class="lfdj-bloc-text">
-  <p>
-    Les figurines sont aussi une <strong>passion créative</strong>.
-    Assemblage, peinture, soclage et création de décors font pleinement partie du loisir.
-    Chacun peut personnaliser ses figurines selon ses envies,
-    du simple schéma de couleurs à des pièces très détaillées.
-  </p>
-  <p>
-    À la Forge des Joueurs, les échanges de conseils,
-    les sessions de peinture conviviales et le partage de techniques
-    sont courants.
-    Que l’on débute ou que l’on peigne depuis des années,
-    l’important reste le plaisir de créer.
-  </p>
+<div class="lfdj-jdf-lightbox" id="lfdj-jdf-lightbox" hidden>
+  <button type="button" class="lfdj-jdf-lightbox-close" aria-label="Fermer la galerie">&times;</button>
+  <button type="button" class="lfdj-jdf-lightbox-prev" aria-label="Photo précédente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+  <img class="lfdj-jdf-lightbox-img" src="" alt="">
+  <button type="button" class="lfdj-jdf-lightbox-next" aria-label="Photo suivante"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+  <p class="lfdj-jdf-lightbox-caption"></p>
 </div>
 
 <div class="lfdj-divtitle">
@@ -80,10 +92,12 @@
 
   <p>
     D’autres jeux viennent enrichir les tables, comme <strong>SAGA – L’Âge de la Magie</strong>,
-    <strong>HeroClix</strong>, <strong>Gaslands</strong>,
-    ou encore <strong>Marvel Crisis Protocol</strong>.
-    Selon les périodes, l’association explore aussi des jeux plus ponctuels ou en préparation,
-    au gré des envies des membres et des projets du moment.
+    <strong>HeroClix</strong>, <strong>Gaslands</strong>, <strong>Marvel Crisis Protocol</strong>,
+    ainsi que <strong>Warcry</strong> et <strong>BattleTech</strong>, régulièrement joués par les membres.
+  </p>
+  <p>
+    L’association a même eu l’occasion de participer à une avant-première du jeu de figurines
+    <strong>StarCraft&nbsp;2</strong>.
   </p>
 </div>
 
@@ -110,14 +124,6 @@
   </p>
 </div>
 
- <div class="lfdj-hero">
-<img
-  src="https://www.hobby2000.be/web/image/161737-c684f996/image_2024-08-20_104017463.webp?access_token=c1d386a3-cdd5-4733-9cbf-2ade90b618eb"
-  alt="Blood Bowl - Match à la Forge des Joueurs"
-  loading="lazy">
-</div>
-
-
 <div class="lfdj-divtitle">
   <h4>Un pied sur le terrain</h4>
   <h2>Et Blood Bowl ?</h2>
@@ -128,20 +134,18 @@
 
 <div class="lfdj-bloc-text">
   <p>
-    <a href="bloodbowl.php"><strong>Blood Bowl</strong></a> fait également partie… de la grande famille des jeux de figurines.
-    Il mêle affrontement tactique, gestion d’équipe et figurines à peindre,
-    dans un univers décalé et très apprécié des membres de l’association.
+    <a href="bloodbowl.php"><strong>Blood Bowl</strong></a> fait également partie de la grande famille des jeux de figurines,
+    et dispose de sa propre ligue interne à la Forge des Joueurs.
   </p>
-  <p>
-    Pour en savoir plus sur ce jeu et sur la ligue interne organisée à la Forge des Joueurs,
-    vous pouvez consulter la page dédiée :
-    <a href="bloodbowl.php">Découvrir Blood Bowl</a>.
-  </p>
+  <div class="lfdj-jdf-cta">
+    <a href="./bloodbowl.php" class="lfdj-cta-btn lfdj-cta-btn--gold">
+      <i class="fa-solid fa-football" aria-hidden="true"></i> Découvrir la Ligue Interne
+    </a>
+  </div>
 </div>
-
-
 
 <hr class="lfdj-midpage">
 
 <?php require('importation-php/footer.php'); ?>
+<script src="./importation-js/jdf.js"></script>
 </body>

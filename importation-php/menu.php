@@ -1,17 +1,43 @@
-<?php $lfdj_current = basename($_SERVER['SCRIPT_NAME']); ?>
+<?php
+$lfdj_current = basename($_SERVER['SCRIPT_NAME']);
+
+$lfdj_nav_links = [
+  ['href' => '/jdf.php', 'label' => 'Figurines'],
+  ['href' => '/jdr.php', 'label' => 'Jeu de Rôle'],
+  ['href' => '/jdp.php', 'label' => 'Sur Plateau'],
+  ['href' => '/jdc.php', 'label' => 'Carte à collectionner'],
+];
+$lfdj_nav_links_activite = [
+  ['href' => '/peinture.php', 'label' => 'Peinture'],
+  ['href' => '/atelier.php', 'label' => 'Atelier'],
+];
+
+/**
+ * Affiche une liste de liens de navigation à plat (desktop et mobile), avec état actif.
+ * @param array $links Liste de tableaux associatifs "href", "label"
+ * @param string $current Nom du fichier de la page courante (basename)
+ */
+function lfdj_flat_nav_links(array $links, string $current)
+{
+  foreach ($links as $link) {
+    $is_active = basename($link['href']) === $current;
+    echo '<a href="' . $link['href'] . '" class="' . ($is_active ? 'active' : '') . '">' . $link['label'] . '</a>';
+  }
+}
+?>
+<link rel="stylesheet" href="/css/header.css">
 <header id="lfdj-sticky-header" class="lfdj-header lfdj-bg">
 
   <!-- PC -->
   <div class="lfdj-nav-container lfdj-nav-pc">
     <nav class="lfdj-nav-grid" aria-label="Navigation principale">
-      <a class="lfdj-nav-cluster__home" href="/index.php" aria-label="Association">
-        <img src="/images/Favicon-Main2.png" alt="La Forge des Joueurs">
+      <a class="lfdj-nav-cluster__home" href="/index.php" aria-label="Accueil, La Forge des Joueurs">
+        <img src="/images/Typographie-Blanc.png" alt="La Forge des Joueurs">
       </a>
       <div class="lfdj-nav-cluster__main">
-        <a href="/jdf.php" class="<?= $lfdj_current === 'jdf.php' ? 'active' : '' ?>">Figurines</a>
-        <a href="/jdr.php" class="<?= $lfdj_current === 'jdr.php' ? 'active' : '' ?>">Jeu de Rôle</a>
-        <a href="/jdp.php" class="<?= $lfdj_current === 'jdp.php' ? 'active' : '' ?>">Sur Plateau</a>
-        <a href="/jdc.php" class="<?= $lfdj_current === 'jdc.php' ? 'active' : '' ?>">Carte à collectionner</a>
+        <?php lfdj_flat_nav_links($lfdj_nav_links, $lfdj_current); ?>
+        <span class="lfdj-nav-divider" aria-hidden="true"></span>
+        <?php lfdj_flat_nav_links($lfdj_nav_links_activite, $lfdj_current); ?>
       </div>
 
       <div class="lfdj-header-tools">
@@ -36,6 +62,9 @@
     </a>
 
     <div class="lfdj-dropdown">
+      <a class="lfdj-mobile-discord-btn" href="/discord" aria-label="Rejoignez le Discord">
+        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+      </a>
       <button class="lfdj-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
@@ -45,16 +74,9 @@
           <i class="fa-solid fa-house" aria-hidden="true"></i>
         </a>
 
-        <a href="/jdf.php" class="<?= $lfdj_current === 'jdf.php' ? 'active' : '' ?>">Figurines</a>
-        <a href="/jdr.php" class="<?= $lfdj_current === 'jdr.php' ? 'active' : '' ?>">Jeu de Rôle</a>
-        <a href="/jdp.php" class="<?= $lfdj_current === 'jdp.php' ? 'active' : '' ?>">Sur Plateau</a>
-        <a href="/jdc.php" class="<?= $lfdj_current === 'jdc.php' ? 'active' : '' ?>">Carte à collectionner</a>
-
-        <a class="lfdj-cta-discord lfdj-cta-discord--mobile" href="/discord">
-          <i class="fa-brands fa-discord" aria-hidden="true"></i>
-          Rejoignez le Discord
-          <i class="fa-solid fa-arrow-up-right lfdj-cta-discord__arrow" aria-hidden="true"></i>
-        </a>
+        <?php lfdj_flat_nav_links($lfdj_nav_links, $lfdj_current); ?>
+        <span class="lfdj-nav-divider lfdj-nav-divider--mobile" aria-hidden="true"></span>
+        <?php lfdj_flat_nav_links($lfdj_nav_links_activite, $lfdj_current); ?>
       </div>
     </div>
 

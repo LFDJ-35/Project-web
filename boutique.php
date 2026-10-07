@@ -141,8 +141,8 @@ function create_color_swatches(array $swatches)
   <p>
     <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
     <strong>Attention&nbsp;:</strong> les visuels ci-dessous sont des montages&nbsp;: les designs
-    sont vectoriels et de bonne qualité, mais les vêtements affichés ne sont pas représentatifs
-    du rendu final. Un lien vers la fiche produit est indiqué pour chaque article, si vous
+    sont compressés pour des raisons techniques et les vêtements affichés ne sont pas
+    représentatifs. Un lien vers la fiche produit est indiqué pour chaque article, si vous
     souhaitez en vérifier les caractéristiques exactes.
   </p>
 </div>

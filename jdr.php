@@ -70,8 +70,7 @@
   <p>
     Les systèmes pratiqués au sein de l’association sont très variés : <strong>Cyberpunk RED</strong>
     rencontre en ce moment un franc succès, aux côtés de <strong>7e Mer</strong>,
-    <strong>Savage Worlds</strong>, <strong>Macadabre</strong> et de nombreux univers originaux —
-    créations maison ou licences comme <strong>Runeterra</strong>.
+    <strong>Savage Worlds</strong> et de nombreux univers originaux.
   </p>
   <p>
     Au fil des années, la Forge des Joueurs a aussi vu passer <strong>Star Wars</strong>,

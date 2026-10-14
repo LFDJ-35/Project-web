@@ -464,7 +464,10 @@ function create_color_swatches(array $swatches)
   <p>
     Des <strong>maillots</strong> personnalisables type sport, issus d'une collaboration entre
     <strong>Estelle</strong> et <strong>Johan</strong>. N'oubliez pas d'indiquer votre nom et le
-    numéro que vous préférez, pour un aperçu fidèle au rendu final.
+    numéro que vous préférez, pour un aperçu fidèle au rendu final. Le tissu, appelé
+    <strong>Hidasta</strong>, est un 100&nbsp;% polyester 140&nbsp;g/m² tricoté et teint en
+    Espagne&nbsp;; l'impression, la coupe et la confection sont assurées par ATS à Mauléon
+    (64130).
   </p>
 </div>
 
@@ -561,8 +564,7 @@ function create_color_swatches(array $swatches)
       <div class="lfdj-price-inline">
         <span class="lfdj-price-tag-inline">35&nbsp;€ la pièce</span>
         <p class="lfdj-price-caption">
-          Fabriqué en Aquitaine (France) par
-          <a href="https://printtex64.com/" target="_blank" rel="noopener">Printex64</a>.
+          Fabriqué en Aquitaine (France) par ATS, à Mauléon (64130).
         </p>
       </div>
     </div>
